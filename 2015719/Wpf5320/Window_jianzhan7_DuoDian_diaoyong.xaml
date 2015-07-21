@@ -1,0 +1,40 @@
+﻿<Window x:Class="Wpf5320.Window_jianzhan7_DuoDian_diaoyong"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_jianzhan7_DuoDian_diaoyong" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="15" Margin="557,65,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+        <Button x:Name="Bt_enter" Content="Button" HorizontalAlignment="Left" Height="15" Margin="558,335,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_enter_Click"/>
+        <Grid HorizontalAlignment="Left" Height="242" Margin="64,75,0,0" VerticalAlignment="Top" Width="319" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" ClipToBounds="True">
+            <Button Content="" HorizontalAlignment="Left" Height="31" Margin="112,0,0,0" VerticalAlignment="Top" Width="207"/>
+            <Button Content="坐标数据" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="112"/>
+            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="0,211,0,0"/>
+            <Button x:Name="first" Content="第一" HorizontalAlignment="Left" Margin="121,181,0,0" VerticalAlignment="Top" Width="66" Height="30" Cursor="Hand" Click="first_Click" />
+            <Button  x:Name="last" Content="最后" HorizontalAlignment="Left" Margin="187,181,0,0" VerticalAlignment="Top" Width="66" Height="30" Cursor="Hand" Click="last_Click"/>
+            <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="121" Margin="0,181,0,0"/>
+            <ListView x:Name="LV" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="319" Margin="0,31,0,0" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible">
+                <ListView.BindingGroup>
+                    <BindingGroup/>
+                </ListView.BindingGroup>
+                <ListView.View>
+                    <GridView x:Name="gridview121212">
+                        <GridViewColumn Header="名称              " Width="86" DisplayMemberBinding="{Binding Path=测站}"/>
+                        <GridViewColumn Header="编码                " Width="86" DisplayMemberBinding="{Binding Path=编码}"/>
+                        <GridViewColumn Header="类型               " Width="86" DisplayMemberBinding="{Binding Path=类型}"/>
+                        <GridViewColumn Header="N                " Width="86" DisplayMemberBinding="{Binding Path=N}"/>
+                        <GridViewColumn Header="E                " Width="86" DisplayMemberBinding="{Binding Path=E}"/>
+                        <GridViewColumn Header="Z                " Width="86" DisplayMemberBinding="{Binding Path=Z}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" Margin="334,288,0,73" VerticalAlignment="Center" Width="49"/>
+        
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="15" Margin="558,296,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="65,0,0,73" VerticalAlignment="Bottom" Width="23" Source="/Wpf5320;component/RES/cross.png" Stretch="Fill"/>
+        <Button x:Name="Cancel" HorizontalAlignment="Left" Height="23" Margin="65,292,0,0" VerticalAlignment="Top" Width="23"  BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESC_Click" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="91,292,0,0" VerticalAlignment="Top" Width="23" Source="/Wpf5320;component/RES/tick.png" Stretch="Fill"/>
+        <Button x:Name="Ensure" HorizontalAlignment="Left" Height="23" Margin="91,292,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="Bt_enter_Click" Cursor="Hand"/>
+    </Grid>
+</Window>

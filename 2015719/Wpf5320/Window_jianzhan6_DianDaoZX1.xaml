@@ -1,0 +1,29 @@
+﻿<Window x:Class="Wpf5320.Window_jianzhan6_1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_jianzhan6_1" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button Content="点到直线建站" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="150" Margin="64,75,0,0"/>
+        <Button Content="" HorizontalAlignment="Left" Height="31" Margin="214,75,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="320" Margin="64,289,0,0"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="65,0,0,73" VerticalAlignment="Bottom" Width="23" Source="/Wpf5320;component/RES/cross.png" Stretch="Fill"/>
+        <Button x:Name="Cancel" HorizontalAlignment="Left" Height="23" Margin="65,292,0,0" VerticalAlignment="Top" Width="23"  BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESC_Click" Cursor="Hand"/>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="29" Margin="336,289,0,0" VerticalAlignment="Top" Width="48"/>
+        <Grid HorizontalAlignment="Left" Height="183" Margin="64,106,0,0" VerticalAlignment="Top" Width="320" Background="White">
+            <Button x:Name="Next" Content="下一步" HorizontalAlignment="Left" Height="26" Margin="233,147,0,0" VerticalAlignment="Top" Width="77" Click="Next_Click" Cursor="Hand"/>
+            <Label Content="dHD" HorizontalAlignment="Left" Height="26" Margin="47,42,0,0" VerticalAlignment="Top" Width="47"/>
+            <Label Content="dVD" HorizontalAlignment="Left" Height="26" Margin="47,73,0,0" VerticalAlignment="Top" Width="47"/>
+            <Label Content="m" HorizontalAlignment="Left" Height="22" Margin="233,73,0,0" VerticalAlignment="Top" Width="20"/>
+            <Label x:Name="dVD_label" Content="" HorizontalAlignment="Left" Height="26" Margin="109,73,0,0" VerticalAlignment="Top" Width="97"/>
+            <Label x:Name="dSD_label" Content="" HorizontalAlignment="Left" Height="26" Margin="109,108,0,0" VerticalAlignment="Top" Width="97"/>
+            <Label Content="m" HorizontalAlignment="Left" Height="22" Margin="233,108,0,0" VerticalAlignment="Top" Width="20"/>
+            <Label Content="A-B" HorizontalAlignment="Left" Height="26" Margin="14,7,0,0" VerticalAlignment="Top" Width="52"/>
+            <Label Content="dSD" HorizontalAlignment="Left" Height="26" Margin="47,108,0,0" VerticalAlignment="Top" Width="47"/>
+            <Label x:Name="dHD_label" Content="" HorizontalAlignment="Left" Height="26" Margin="109,42,0,0" VerticalAlignment="Top" Width="97"/>
+            <Label Content="m" HorizontalAlignment="Left" Height="22" Margin="233,43,0,0" VerticalAlignment="Top" Width="20"/>
+        </Grid>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="552,60,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="555,291,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+    </Grid>
+</Window>

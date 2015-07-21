@@ -1,0 +1,42 @@
+﻿<Window x:Class="Wpf5320.Window_Road2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_Road2" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="244" Margin="63,75,0,0" Stroke="Black" VerticalAlignment="Top" Width="321"/>
+        <Rectangle Fill="LightGray" HorizontalAlignment="Left" Height="30" Margin="63,288,0,0" Stroke="Black" VerticalAlignment="Top" Width="321"/>
+        <TabControl HorizontalAlignment="Left" Height="243" Margin="63,75,0,0" VerticalAlignment="Top" Width="321" Background="{x:Null}" BorderBrush="{x:Null}" TabStripPlacement="Bottom">
+            <TabItem Header="数据" Margin="116,-7,-120,5">
+                <Grid>
+                    <Button HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="152" Content="水平定线" Margin="-2,-2,0,0"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="31" Margin="150,-2,-4,0" VerticalAlignment="Top" Width="169"/>
+                    <ScrollViewer HorizontalAlignment="Left" Margin="-1,29,-4,0" Width="320" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" Height="150" VerticalAlignment="Top">
+                        <ListView HorizontalAlignment="Left" Height="132" VerticalAlignment="Top" Width="320">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="类型                   " Width="100"/>
+                                    <GridViewColumn Header="              " Width="100"/>
+                                    <GridViewColumn Header="               " Width="110"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </ScrollViewer>
+                    <Button x:Name="Add" Content="添加" HorizontalAlignment="Left" Height="31" Margin="-1,179,0,0" VerticalAlignment="Top" Width="48" Click="Add_Click"/>
+                    <Button Content="删除" HorizontalAlignment="Left" Height="31" Margin="223,179,0,0" VerticalAlignment="Top" Width="48"/>
+                    <Button x:Name="Adit" Content="编辑" HorizontalAlignment="Left" Height="31" Margin="271,179,-4,0" VerticalAlignment="Top" Width="48" Click="Adit_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="图形" Margin="120,-7,-124,5">
+                <Grid>
+                    <Button Content="图形" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="152" Margin="-2,-2,0,0"/>
+                    <Grid HorizontalAlignment="Left" Height="31" Margin="150,-2,0,0" VerticalAlignment="Top" Width="165" Background="#FFDDDDDD"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="29" Margin="332,289,0,0" VerticalAlignment="Top" Width="48"/>
+
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="553,290,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+
+    </Grid>
+</Window>

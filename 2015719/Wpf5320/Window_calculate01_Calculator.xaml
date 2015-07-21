@@ -1,0 +1,57 @@
+﻿<Window x:Class="Wpf5320.Window_calculate01"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_calculate01" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Cursor="Arrow" Background="Transparent" MouseDown="Window_MouseDown_1">
+
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Grid HorizontalAlignment="Left" Height="242" Margin="64,75,0,0" VerticalAlignment="Top" Width="319" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" ClipToBounds="True">
+            <Button Content="" HorizontalAlignment="Left" Height="31" Margin="150,0,0,0" VerticalAlignment="Top" Width="169"/>
+            <Button Content="计算器" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="150"/>
+            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="0,211,0,0"/>
+            <Button Content="7" HorizontalAlignment="Left" Height="26" Margin="151,35,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="8" HorizontalAlignment="Left" Height="26" Margin="193,35,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="9" HorizontalAlignment="Left" Height="26" Margin="235,35,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="/" HorizontalAlignment="Left" Height="26" Margin="277,35,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="4" HorizontalAlignment="Left" Height="26" Margin="151,65,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="5" HorizontalAlignment="Left" Height="26" Margin="193,65,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="6" HorizontalAlignment="Left" Height="26" Margin="235,65,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="*" HorizontalAlignment="Left" Height="26" Margin="277,65,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="1" HorizontalAlignment="Left" Height="26" Margin="151,95,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="2" HorizontalAlignment="Left" Height="26" Margin="193,95,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="3" HorizontalAlignment="Left" Height="26" Margin="235,95,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="-" HorizontalAlignment="Left" Height="26" Margin="277,95,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="0" HorizontalAlignment="Left" Height="26" Margin="151,125,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="." HorizontalAlignment="Left" Height="26" Margin="193,125,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="+/-" HorizontalAlignment="Left" Height="26" Margin="235,125,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="+" HorizontalAlignment="Left" Height="26" Margin="277,125,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="x^2" HorizontalAlignment="Left" Height="26" Margin="151,155,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="1/x" HorizontalAlignment="Left" Height="26" Margin="193,155,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="√x" HorizontalAlignment="Left" Height="26" Margin="235,155,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="=" HorizontalAlignment="Left" Height="26" Margin="277,155,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="x^y" HorizontalAlignment="Left" Height="26" Margin="151,184,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="Log" HorizontalAlignment="Left" Height="26" Margin="193,184,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="Ln" HorizontalAlignment="Left" Height="26" Margin="235,184,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="Exp" HorizontalAlignment="Left" Height="26" Margin="277,184,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="Sin" HorizontalAlignment="Left" Height="26" Margin="4,155,0,0" VerticalAlignment="Top" Width="45"/>
+            <Button Content="Cos" HorizontalAlignment="Left" Height="26" Margin="54,155,0,0" VerticalAlignment="Top" Width="46"/>
+            <Button Content="Tan" HorizontalAlignment="Left" Height="26" Margin="104,155,0,0" VerticalAlignment="Top" Width="44"/>
+            <Button Content="aSin" HorizontalAlignment="Left" Height="26" Margin="4,184,0,0" VerticalAlignment="Top" Width="45"/>
+            <Button Content="aCos" HorizontalAlignment="Left" Height="26" Margin="54,185,0,0" VerticalAlignment="Top" Width="46"/>
+            <Button Content="aTan" HorizontalAlignment="Left" Height="26" Margin="104,184,0,0" VerticalAlignment="Top" Width="44"/>
+            <Button Content="Clr" HorizontalAlignment="Left" Height="21" Margin="10,107,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="Past" HorizontalAlignment="Left" Height="21" Margin="55,107,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="Cop" HorizontalAlignment="Left" Height="21" Margin="100,107,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="Pi" HorizontalAlignment="Left" Height="21" Margin="100,131,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="C" HorizontalAlignment="Left" Height="21" Margin="55,131,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button Content="DEL" HorizontalAlignment="Left" Height="21" Margin="9,131,0,0" VerticalAlignment="Top" Width="40"/>
+            <TextBox HorizontalAlignment="Left" Height="45" Margin="0,34,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+            <TextBox HorizontalAlignment="Left" Height="24" Margin="0,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="146"/>
+        </Grid>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" Margin="334,288,0,73" VerticalAlignment="Center" Width="49"/>
+
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="553,294,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="553,61,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,29 @@
+﻿<Window x:Class="Wpf5320.adjust1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Title="adjust1" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+    <Grid>
+        <Border BorderBrush="Black" CornerRadius="25" BorderThickness="1" HorizontalAlignment="Left" Height="388" VerticalAlignment="Top" Width="640"/>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="553,60,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+        <Grid HorizontalAlignment="Left" Height="242" Margin="64,75,0,0" VerticalAlignment="Top" Width="319" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" ClipToBounds="True">
+            <Button Content="" HorizontalAlignment="Left" Height="31" Margin="112,0,0,0" VerticalAlignment="Top" Width="207"/>
+            <Button Content="补偿校正" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="112" />
+            <Button HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="0,211,0,0">
+            </Button>
+
+            <Label Content="X" HorizontalAlignment="Left" Margin="143,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.337,0.702"/>
+            <Label Content="label" HorizontalAlignment="Left" Margin="170,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.337,0.702" Width="90"/>
+            <Label Content="dms" HorizontalAlignment="Left" Margin="262,53,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.337,0.702"/>
+            <Label Content="Y" HorizontalAlignment="Left" Margin="143,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.337,0.702"/>
+            <Label Content="label" HorizontalAlignment="Left" Margin="170,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.337,0.702" Width="90"/>
+            <Label Content="dms" HorizontalAlignment="Left" Margin="262,100,0,0" VerticalAlignment="Top" RenderTransformOrigin="6.337,0.702"/>
+            <Button Content="设置" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top"  Margin="178,169,0,0" RenderTransformOrigin="0.441,5.565" Width="70"/>
+            <Label Content="盘左照准目标！" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,130,82,0"/>
+            <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" VerticalAlignment="Center" Width="49" Margin="262,211,0,4"/>
+
+
+        </Grid>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="553,294,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+    </Grid>
+</Window>

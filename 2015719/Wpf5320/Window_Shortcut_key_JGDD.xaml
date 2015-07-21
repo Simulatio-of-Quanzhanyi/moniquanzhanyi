@@ -1,0 +1,25 @@
+﻿<Window x:Class="Wpf5320.Window_Shortcut_key_JGDD"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_Shortcut_key_JGDD" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill" />
+        <Button x:Name="Bt_exit" Content="EXIT" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top" Width="34" RenderTransformOrigin="2.144,0.8" Background="#FFB3C316" Cursor="Arrow" Margin="603,326,0,0" Click="Bt_exit_Click" />
+        <Button Content="激光对点
+                " HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="150" Margin="64,75,0,0"/>
+        <Button Content="" HorizontalAlignment="Left" Height="31" Margin="214,75,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="320" Margin="64,287,0,0"/>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="29" Margin="332,289,0,0" VerticalAlignment="Top" Width="48"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="65,0,0,73" VerticalAlignment="Bottom" Width="23" Source="/Wpf5320;component/RES/cross.png" Stretch="Fill"/>
+        <Button x:Name="Cancel" HorizontalAlignment="Left" Height="23" Margin="65,292,0,0" VerticalAlignment="Top" Width="23"  BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESC_Click" Cursor="Hand"/>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="21" Margin="558,294,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+        <Grid HorizontalAlignment="Left" Height="182" Margin="64,106,0,0" VerticalAlignment="Top" Width="320" Background="#FFFDFAFA">
+            <Rectangle x:Name="square" HorizontalAlignment="Left" Height="22" Margin="29,42,0,0" VerticalAlignment="Top" Width="84" Fill="#FF2222EC"/>
+            <RadioButton x:Name="close" Content="激光对点关" HorizontalAlignment="Left" Height="20" Margin="29,44,0,0" VerticalAlignment="Top" Width="84" Click="close_Click" GroupName="1"/>           
+            <Slider x:Name="slide" HorizontalAlignment="Left" Height="40" Margin="29,120,0,0" VerticalAlignment="Top" Width="218" Maximum="5" Minimum="1" SmallChange="0" TickPlacement="Both" Foreground="#FFBBBBBB" Value="3" Visibility="Hidden"/>
+            <Label x:Name="number"   Content="{Binding ElementName=slide,Path=Value}" HorizontalAlignment="Left" Height="29" Margin="128,88,0,0" VerticalAlignment="Top" Width="26" Visibility="Hidden"/>
+            <Label x:Name="left" Content="&lt;&lt;" HorizontalAlignment="Left" Height="25" Margin="28,95,0,0" VerticalAlignment="Top" Width="29" Visibility="Hidden"/>
+            <Label x:Name="right" Content="&gt;&gt;" HorizontalAlignment="Left" Height="25" Margin="223,95,0,0" VerticalAlignment="Top" Width="29" Visibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

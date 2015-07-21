@@ -1,0 +1,37 @@
+﻿<Window x:Class="Wpf5320.Window_Setting11"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_Setting11" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="152" Margin="63,75,0,0" Content="单位设置"/>
+        <Button Content="" HorizontalAlignment="Left" Height="31" Margin="215,75,0,0" VerticalAlignment="Top" Width="169"/>
+        <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="64,288,0,0"/>
+        <Grid HorizontalAlignment="Left" Height="182" Margin="63,106,0,0" VerticalAlignment="Top" Width="320" Background="White">
+            <Label Content="角度单位" HorizontalAlignment="Left" Height="24" Margin="13,5,0,0" VerticalAlignment="Top" Width="60"/>
+            <Label Content="距离单位" HorizontalAlignment="Left" Height="24" Margin="13,52,0,0" VerticalAlignment="Top" Width="60"/>
+            <Label Content="温度单位" HorizontalAlignment="Left" Height="24" Margin="13,103,0,0" VerticalAlignment="Top" Width="60"/>
+            <Label Content="气压单位" HorizontalAlignment="Left" Height="24" Margin="13,148,0,0" VerticalAlignment="Top" Width="60"/>
+            <Button Content="默认" HorizontalAlignment="Left" Height="24" Margin="245,148,0,0" VerticalAlignment="Top" Width="47"/>
+            <ComboBox HorizontalAlignment="Left" Height="24" Margin="84,5,0,0" VerticalAlignment="Top" Width="148">
+                <ComboBoxItem>度分秒</ComboBoxItem>
+            </ComboBox>
+            <ComboBox HorizontalAlignment="Left" Height="24" Margin="84,52,0,0" VerticalAlignment="Top" Width="148">
+                <ComboBoxItem>千米</ComboBoxItem>
+                <ComboBoxItem>米</ComboBoxItem>
+                <ComboBoxItem>厘米</ComboBoxItem>
+                <ComboBoxItem>毫米</ComboBoxItem>
+            </ComboBox>
+            <ComboBox HorizontalAlignment="Left" Height="24" Margin="84,103,0,0" VerticalAlignment="Top" Width="148">
+                <ComboBoxItem>摄氏度℃</ComboBoxItem>
+                <ComboBoxItem>开尔文K</ComboBoxItem>
+            </ComboBox>
+            <ComboBox HorizontalAlignment="Left" Height="24" Margin="84,148,0,0" VerticalAlignment="Top" Width="148">
+                <ComboBoxItem>hPa</ComboBoxItem>
+            </ComboBox>
+        </Grid>
+
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="553,294,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="29" Margin="332,288,0,0" VerticalAlignment="Top" Width="48"/>
+    </Grid>
+</Window>

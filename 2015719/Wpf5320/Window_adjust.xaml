@@ -1,0 +1,65 @@
+﻿<Window x:Class="Wpf5320.Window_adjust"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       
+      Title="Window_adjust" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+    <Grid>
+        <Border BorderBrush="Black" CornerRadius="25" BorderThickness="1" HorizontalAlignment="Left" Height="388" VerticalAlignment="Top" Width="640"/>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        
+        <Grid HorizontalAlignment="Left" Height="242" Margin="64,75,0,0" VerticalAlignment="Top" Width="319" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" ClipToBounds="True">
+            <Button Content="" HorizontalAlignment="Left" Height="31" Margin="150,0,0,0" VerticalAlignment="Top" Width="169"/>
+            <Button Content="校准" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="150"/>
+            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="0,211,0,0"/>
+            <Button x:Name="Button_project" Content="项目" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="0,31,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenProject"/>
+            <Button x:Name="Button_data" Content="数据" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="0,67,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenDataManagement"/>
+            <Button x:Name="Button_calculate" Content="计算" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="0,103,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenCalculate"/>
+            <Button x:Name="Button_setting" Content="设置" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="0,139,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenSetting"/>
+            <Button x:Name="Button_adjust" Content="校准" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="0,175,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenAdjust"/>
+            <Button x:Name="Button_convention" Content="常规" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="75,31,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenConvention"/>
+            <Button x:Name="Button_Build" Content="建站" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="75,67,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenBuild"/>
+            <Button x:Name="Button_Collect" Content="采集" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="75,103,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenCollect"/>
+            <Button x:Name="Button_FangYang" Content="放样" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="75,139,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenFangYang"/>
+            <Button x:Name="Button_Road" Content="道路" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="75,175,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenRoad"/>
+            
+            <TabControl HorizontalAlignment="Left" Height="180" VerticalAlignment="Top" Width="169" TabStripPlacement="Right" Margin="150,31,0,0" Background="White">
+                <TabItem Header="A" Height="90" Margin="0,-2,-3,2">
+                    <Grid Margin="-3,-3,-3,-5">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="63*"/>
+                            <ColumnDefinition Width="31*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:Name="BuChangQi" Content=" 1    补偿器校正             " HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" Height="36" Background="White" Grid.ColumnSpan="2" Margin="0" BorderThickness="0" BorderBrush="White"  Click="BuChangQi_Click" Cursor="Hand"/>
+                        <Button x:Name="ChuiZhiJiao" Content=" 2    垂直角基准校正      " HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" Height="36"  Background="White" Grid.ColumnSpan="2" Margin="0,36,0,0" BorderThickness="0" BorderBrush="White"  Click="ChuiZhiJiao_Click" Cursor="Hand"/>
+                        <Button x:Name="YiQiChangShu" Content=" 3    仪器加常数校正      " HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" Height="36"  Background="White"  Grid.ColumnSpan="2" Margin="0,72,0,0" BorderThickness="0" BorderBrush="White"  Click="YiQiCS_Click" Cursor="Hand"/>
+                        <Button x:Name="ChuMoPIng" Content=" 4    触摸屏校验             " HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" Height="36"  Background="White"  Grid.ColumnSpan="2" Margin="0,108,0,0" BorderThickness="0" BorderBrush="White"  Click="ChuMoPing_Click" Cursor="Hand"/>
+                        <Button x:Name="TuoLuoYi" Content=" 5    陀螺仪校正             " HorizontalAlignment="Left" VerticalAlignment="Top" Width="141" Height="36"  Background="White"  Grid.ColumnSpan="2" Margin="0,144,0,0" BorderThickness="0" BorderBrush="White"  Click="TuoLuoYi_Click" Cursor="Hand"/>
+
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="B" Height="90" Margin="0,-2,-3,2">
+
+                    <Grid Margin="-4,-5,-5,-4">
+                        <Button x:Name="YingXiangCenter" Content="1    影像中心校正          " HorizontalAlignment="Left" VerticalAlignment="Top" Width="143" Height="36"  Background="White"  Margin="0,1,0,0" BorderThickness="0" BorderBrush="White"  Click="YingXingCenter_Click" Cursor="Hand"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+
+            
+        </Grid>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" Margin="331,290,0,71" VerticalAlignment="Center" Width="49"/>
+
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25"  Width="25"  Margin="553,60,0,0" VerticalAlignment="Top" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="24" Margin="552,293,0,0" VerticalAlignment="Top" Width="27" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="17" Margin="350,83,0,0" VerticalAlignment="Top" Width="30" Source="/Wpf5320;component\RES\battery.jpg"  Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="318,80,0,0" VerticalAlignment="Top" Width="23" Source="/Wpf5320;component\RES\star.png" Stretch="Fill"/>
+        <Button x:Name="Shortcuts1" HorizontalAlignment="Left" Height="23" Margin="318,80,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="Shortcuts_Click" Cursor="Hand"/>
+        <Button x:Name="Battery1" HorizontalAlignment="Left" Height="17" Margin="350,82,0,0" VerticalAlignment="Top" Width="33" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="Battery_Click" Cursor="Hand"/>
+        <Button x:Name="Shortcuts" HorizontalAlignment="Left" Height="23" Margin="513,60,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="Shortcuts_Click" Cursor="Hand"/>
+
+    </Grid>
+
+</Window>
+

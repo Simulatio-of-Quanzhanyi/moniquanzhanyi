@@ -1,0 +1,32 @@
+﻿<Window x:Class="Wpf5320.Window_jianzhan4"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_jianzhan4" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button Content="后视检查" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="150" Margin="64,75,0,0"/>
+        <Button Content="" HorizontalAlignment="Left" Height="31" Margin="214,75,0,0" VerticalAlignment="Top" Width="170"/>
+        <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="320" Margin="64,287,0,0"/>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="29" Margin="334,289,0,0" VerticalAlignment="Top" Width="48"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="65,0,0,73" VerticalAlignment="Bottom" Width="23" Source="/Wpf5320;component/RES/cross.png" Stretch="Fill"/>
+        <Button x:Name="Cancel" HorizontalAlignment="Left" Height="23" Margin="65,292,0,0" VerticalAlignment="Top" Width="23"  BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESC_Click" Cursor="Hand"/>
+        <Grid HorizontalAlignment="Left" Height="183" Margin="64,106,0,0" VerticalAlignment="Top" Width="320" Background="White">
+            <Label Content="测站点名" HorizontalAlignment="Left" Height="26" Margin="23,10,0,0" VerticalAlignment="Top" Width="62"/>
+            <Label x:Name="station_point" Content="" HorizontalAlignment="Left" Height="24" Margin="90,9,0,0" VerticalAlignment="Top" Width="118" Background="#FFD6D2D2"/>
+            <Label Content="后视点名" HorizontalAlignment="Left" Height="26" Margin="23,44,0,0" VerticalAlignment="Top" Width="62"/>
+            <Label x:Name="rearview_point" Content="" HorizontalAlignment="Left" Height="24" Margin="90,46,0,0" VerticalAlignment="Top" Width="118" Background="#FFD6D2D2"/>
+            <Label Content="BS" HorizontalAlignment="Left" Height="26" Margin="50,86,0,0" VerticalAlignment="Top" Width="25"/>
+            <Label x:Name="BS" Content="0.0000" HorizontalAlignment="Left" Height="24" Margin="90,86,0,0" VerticalAlignment="Top" Width="84" Background="#FFD6D2D2"/>
+            <Label Content="dms" HorizontalAlignment="Left" Height="26" Margin="179,86,0,0" VerticalAlignment="Top" Width="40"/>
+            <Label Content="HA" HorizontalAlignment="Left" Height="26" Margin="50,117,0,0" VerticalAlignment="Top" Width="29"/>
+            <Label x:Name="HA" Content="" HorizontalAlignment="Left" Height="24" Margin="90,119,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}"/>
+            <Label Content="dms" HorizontalAlignment="Left" Height="26" Margin="179,117,0,0" VerticalAlignment="Top" Width="40"/>
+            <Label Content="dHA" HorizontalAlignment="Left" Height="26" Margin="44,147,0,0" VerticalAlignment="Top" Width="35"/>
+            <Label x:Name="dHA" Content="" HorizontalAlignment="Left" Height="24" Margin="90,147,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}"/>
+            <Label Content="dms" HorizontalAlignment="Left" Height="26" Margin="179,147,0,0" VerticalAlignment="Top" Width="40"/>
+            <Button x:Name="resetting" Content="重置" HorizontalAlignment="Left" Height="26" Margin="253,147,0,0" VerticalAlignment="Top" Width="57" Click="resetting_Click"/>
+        </Grid>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="552,60,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="556,295,0,0" VerticalAlignment="Top" Width="20" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+    </Grid>
+</Window>

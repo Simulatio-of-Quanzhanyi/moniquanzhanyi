@@ -1,0 +1,163 @@
+﻿<Window x:Class="Wpf5320.Window_convention01"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_convention01" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="326" Margin="61,287,0,0" Background="#FFF5EBEB"/>
+
+        <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="243" Margin="61,74,0,0" VerticalAlignment="Top" Width="325" RenderTransformOrigin="0.5,0.5">
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-180.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+
+            <TabItem x:Name="TabItem_Angle" Header="角度" Margin="185,-3,-185,3" RenderTransformOrigin="0.5,0.5" Height="25" TabIndex="3" IsHitTestVisible="True" >
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" RenderTransformOrigin="0.5,0.5" Margin="-5,-8,-5,-2">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="角度测量" HorizontalAlignment="Left" Height="31" Margin="0,-1,0,0" VerticalAlignment="Top" Width="157"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="31" Margin="157,-1,0,0" VerticalAlignment="Top" Width="168"/>
+                    <Button x:Name="ZhiLing" Content="置零" HorizontalAlignment="Left" Height="38" Margin="174,42,0,0" VerticalAlignment="Top" Width="64" Click="ZhiLing_Click"/>
+                    <Button x:Name="Keep" Content="保持" HorizontalAlignment="Left" Height="38" Margin="249,42,0,0" VerticalAlignment="Top" Width="64" Click="Keep_Click"/>
+                    <Button x:Name="QieHuanV" Content="V/%" HorizontalAlignment="Left" Height="38" Margin="249,85,0,0" VerticalAlignment="Top" Width="64" Click="QieHuanV_Click"/>
+                    <Button x:Name="ZhiPan" Content="置盘" HorizontalAlignment="Left" Height="38" Margin="174,85,0,0" VerticalAlignment="Top" Width="64" Click="OpenZhiPan"/>
+                    <Button x:Name="AngleKong" Content="" HorizontalAlignment="Left" Height="38" Margin="249,128,0,0" VerticalAlignment="Top" Width="64"/>
+                    <Button x:Name="ZhuanHuanRL1" Content="R/L" HorizontalAlignment="Left" Height="38" Margin="174,128,0,0" VerticalAlignment="Top" Width="64" Click="RL"/>
+                    <Label Content="V ：" HorizontalAlignment="Left" Height="31" Margin="10,42,0,0" VerticalAlignment="Top" Width="39" FontSize="16"/>
+                    <Label x:Name="HL1"  Content="HL: " HorizontalAlignment="Left" Height="39" Margin="10,78,0,0" VerticalAlignment="Top" Width="39" FontSize="16"/>
+                    <Label x:Name="Lab_V" Content="{Binding v1}" HorizontalAlignment="Left" Height="38" Margin="55,42,0,0" VerticalAlignment="Top" Width="113" FontSize="16"/>
+                    <Label x:Name="Lab_HL" Content="{Binding v2}" HorizontalAlignment="Left" Height="38" Margin="57,79,0,0" VerticalAlignment="Top" Width="110" FontSize="16"/>
+                    <Label Content="PSM(mm)     0.0" HorizontalAlignment="Left" Height="23" Margin="182,167,0,0" VerticalAlignment="Top" Width="130"/>
+                    <Label Content="PPM(ppm)    0.0" HorizontalAlignment="Left" Height="25" Margin="182,187,0,0" VerticalAlignment="Top" Width="130"/>
+                    <Label x:Name="HL1_Copy"  Content="HR: " HorizontalAlignment="Left" Height="39" Margin="10,78,0,0" VerticalAlignment="Top" Width="39" FontSize="16" Visibility="Hidden"/>
+                    <Label x:Name="Lab_HL_Copy" Content="{Binding v3}" HorizontalAlignment="Left" Height="38" Margin="57,79,0,0" VerticalAlignment="Top" Width="110" FontSize="16" Visibility="Hidden"/>
+                    <Button x:Name="ZhuanHuanRL1_Copy" Content="R/L" HorizontalAlignment="Left" Height="38" Margin="174,128,0,0" VerticalAlignment="Top" Width="64" Click="RL_Copy" Visibility="Hidden"/>
+                    <Label x:Name="Lab_V_Copy"  Content=" " HorizontalAlignment="Left" Height="38" Margin="55,42,0,0" VerticalAlignment="Top" Width="113" FontSize="16" Visibility="Hidden"/>
+                    <Button x:Name="QieHuanV_Copy" Content="V/%" HorizontalAlignment="Left" Height="38" Margin="249,85,0,0" VerticalAlignment="Top" Width="64" Click="QieHuanV_Copy_Click" Visibility="Hidden"/>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="TabItem_Distance" Header="距离" Margin="108,-3,-108,3" RenderTransformOrigin="0.5,0.5" Height="25" VerticalAlignment="Bottom" TabIndex="1">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" Margin="-5,-7,-5,-1" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-179.903"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="距离测量" HorizontalAlignment="Left" Height="31" Margin="0,-3,0,0" VerticalAlignment="Top" Width="157"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="31" Margin="157,-3,0,0" VerticalAlignment="Top" Width="168"/>
+                    <Button x:Name="jlCeLiang" Content="测量" HorizontalAlignment="Left" Height="38" Margin="174,42,0,0" VerticalAlignment="Top" Width="64" Click="jlMeasure_click"/>
+                    <Button x:Name="jlModel" Content="模式" HorizontalAlignment="Left" Height="38" Margin="249,42,0,0" VerticalAlignment="Top" Width="64" Click="jlModel_click"/>
+                    <Button x:Name="DistanceKong" Content="" HorizontalAlignment="Left" Height="38" Margin="249,85,0,0" VerticalAlignment="Top" Width="64"/>
+                    <Button x:Name="FangYang" Content="放样" HorizontalAlignment="Left" Height="38" Margin="174,85,0,0" VerticalAlignment="Top" Width="64" Click="OpenFangYang"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="38" Margin="249,128,0,0" VerticalAlignment="Top" Width="64"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="38" Margin="174,128,0,0" VerticalAlignment="Top" Width="64"/>
+                    <Label Content="V :" HorizontalAlignment="Left" Height="38" Margin="13,40,0,0" VerticalAlignment="Top" Width="35" FontSize="16"/>
+                    <Label Content="HL:" HorizontalAlignment="Left" Height="38" Margin="10,75,0,0" VerticalAlignment="Top" Width="37" FontSize="16"/>
+                    <Label x:Name="Lab_D_V" Content="" HorizontalAlignment="Left" Height="38" Margin="61,40,0,0" VerticalAlignment="Top" Width="106" FontSize="16"/>
+                    <Label x:Name="Lab_D_HL" Content="" HorizontalAlignment="Left" Height="38" Margin="62,75,0,0" VerticalAlignment="Top" Width="106" FontSize="16"/>
+                    <Label Content="PSM(mm)     0.0" HorizontalAlignment="Left" Height="23" Margin="182,167,0,0" VerticalAlignment="Top" Width="130"/>
+                    <Label Content="PPM(ppm)    0.0" HorizontalAlignment="Left" Height="25" Margin="182,187,0,0" VerticalAlignment="Top" Width="130"/>
+                    <Label  Content="SD:" HorizontalAlignment="Left" Height="38" Margin="10,110,0,0" VerticalAlignment="Top" Width="36" FontSize="16"/>
+                    <Label  Content="HD:" HorizontalAlignment="Left" Margin="9,141,0,31" Width="37" FontSize="16"/>
+                    <Label  Content="VD:" HorizontalAlignment="Left" Height="29" Margin="8,171,0,0" VerticalAlignment="Top" Width="38" FontSize="16"/>
+                    <Label x:Name="Lab_SD" Content="" HorizontalAlignment="Left" Height="38" Margin="61,110,0,0" VerticalAlignment="Top" Width="80" FontSize="16"/>
+                    <Label x:Name="Lab_HD" Content="" HorizontalAlignment="Left" Height="38" Margin="62,141,0,0" VerticalAlignment="Top" Width="79" FontSize="16"/>
+                    <Label x:Name="Lab_VD" Content="" HorizontalAlignment="Left" Height="38" Margin="62,171,0,0" VerticalAlignment="Top" Width="79" FontSize="16"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="31" Margin="131,110,0,0" VerticalAlignment="Top" Width="28" FontSize="16"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="30" Margin="131,141,0,0" VerticalAlignment="Top" Width="28" FontSize="16"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="29" Margin="131,171,0,0" VerticalAlignment="Top" Width="27" FontSize="16"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="TabItem_Coordinates" Header="坐标" Margin="31,-3,-31,3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="38" VerticalAlignment="Bottom" Height="25" TabIndex="2">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" RenderTransformOrigin="0.5,0.5" Margin="-6,-7,-5,-3">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="179.904"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="坐标测量" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="160"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="30" Margin="160,0,0,0" VerticalAlignment="Top" Width="166"/>
+                    <Button x:Name="zbCeLiang" Content="测量" HorizontalAlignment="Left" Height="38" Margin="174,42,0,0" VerticalAlignment="Top" Width="64" Click="zbMeasure_Click"/>
+                    <Button x:Name="zbModel" Content="模式" HorizontalAlignment="Left" Height="38" Margin="249,42,0,0" VerticalAlignment="Top" Width="64" Click="zbModel_Click"/>
+                    <Button x:Name="YiGao" Content="仪高" HorizontalAlignment="Left" Height="38" Margin="249,85,0,0" VerticalAlignment="Top" Width="64" Click="OpenYiGao"/>
+                    <Button x:Name="JingGao" Content="镜高" HorizontalAlignment="Left" Height="38" Margin="174,85,0,0" VerticalAlignment="Top" Width="64" Click="OpenJingGao"/>
+                    <Button x:Name="CoordinatesKong" Content="" HorizontalAlignment="Left" Height="38" Margin="249,128,0,0" VerticalAlignment="Top" Width="64"/>
+                    <Button x:Name="CeZhan" Content="测站" HorizontalAlignment="Left" Height="38" Margin="174,128,0,0" VerticalAlignment="Top" Width="64" Click="OpenCeZhan"/>
+                    <Label Content="V :" HorizontalAlignment="Left" Height="30" Margin="7,40,0,0" VerticalAlignment="Top" Width="35" FontSize="16"/>
+                    <Label Content="HL:" HorizontalAlignment="Left" Height="30" Margin="2,75,0,0" VerticalAlignment="Top" Width="35" FontSize="16"/>
+                    <Label Content="N: " HorizontalAlignment="Left" Height="30" Margin="7,110,0,0" VerticalAlignment="Top" Width="28" FontSize="16"/>
+                    <Label Content="E: " HorizontalAlignment="Left" Height="30" Margin="10,141,0,0" VerticalAlignment="Top" Width="28" FontSize="16"/>
+                    <Label Content="Z: " HorizontalAlignment="Left" Height="30" Margin="10,171,0,0" VerticalAlignment="Top" Width="28" FontSize="16"/>
+                    <Label x:Name="Lab_C_V" Content="" HorizontalAlignment="Left" Height="30" Margin="42,40,0,0" VerticalAlignment="Top" Width="95" FontSize="16"/>
+                    <Label x:Name="Lab_C_HL" Content="" HorizontalAlignment="Left" Height="30" Margin="42,75,0,0" VerticalAlignment="Top" Width="95" FontSize="16"/>
+                    <Label x:Name="Lab_N" Content=""  HorizontalAlignment="Left" Height="30" Margin="40,110,0,0" VerticalAlignment="Top" Width="95" FontSize="16"/>
+                    <Label x:Name="Lab_E" Content="" HorizontalAlignment="Left" Height="30" Margin="40,141,0,0" VerticalAlignment="Top" Width="95" FontSize="16"/>
+                    <Label x:Name="Lab_Z" Content="" HorizontalAlignment="Left" Height="30" Margin="40,171,0,0" VerticalAlignment="Top" Width="95" FontSize="16"/>
+                    <Label Content="m"  HorizontalAlignment="Left" Height="30" Margin="127,110,0,0" VerticalAlignment="Top" Width="33" FontSize="16"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="30" Margin="127,141,0,0" VerticalAlignment="Top" Width="33" FontSize="16"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="30" Margin="127,171,0,0" VerticalAlignment="Top" Width="33" FontSize="16"/>
+
+                    <Label Content="PSM(mm)     0.0" HorizontalAlignment="Left" Height="23" Margin="182,167,0,0" VerticalAlignment="Top" Width="130"/>
+                    <Label Content="PPM(ppm)    0.0" HorizontalAlignment="Left" Height="25" Margin="182,187,0,0" VerticalAlignment="Top" Width="130"/>
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="15" Margin="557,65,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" Margin="334,288,0,73" VerticalAlignment="Center" Width="49"/>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="25" Margin="554,289,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="64,293,0,0" VerticalAlignment="Top" Width="23" Source="/Wpf5320;component/RES/cross.png" Stretch="Fill"/>
+        <Button x:Name="Cancel" HorizontalAlignment="Left" Height="23" Margin="64,292,0,0" VerticalAlignment="Top" Width="23"  BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESC_Click" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="17" Margin="350,83,0,0" VerticalAlignment="Top" Width="30" Source="/Wpf5320;component\RES\battery.jpg"  Stretch="Fill"/>
+        <Image HorizontalAlignment="Left" Height="23" Margin="318,80,0,0" VerticalAlignment="Top" Width="23" Source="/Wpf5320;component\RES\star.png" Stretch="Fill"/>
+        <Button x:Name="Shortcuts1" HorizontalAlignment="Left" Height="23" Margin="318,80,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="Shortcuts_Click" Cursor="Hand"/>
+        <Button x:Name="Battery1" HorizontalAlignment="Left" Height="17" Margin="350,82,0,0" VerticalAlignment="Top" Width="33" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="Battery_Click" Cursor="Hand"/>
+        <Button x:Name="Shortcuts" HorizontalAlignment="Left" Height="23" Margin="513,60,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="Shortcuts_Click" Cursor="Hand"/>
+    </Grid>
+</Window>

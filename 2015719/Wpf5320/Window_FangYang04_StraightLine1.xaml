@@ -1,0 +1,161 @@
+﻿<Window x:Class="Wpf5320.Window_FangYang04_StraightLine1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_FangYang04_StraightLine1" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="326" Margin="61,287,0,0" Background="#FFF5EBEB"/>
+
+        <TabControl HorizontalAlignment="Left" Height="243" Margin="63,74,0,0" VerticalAlignment="Top" Width="323" RenderTransformOrigin="0.5,0.5">
+
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-180.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+
+            <TabItem Header="放样" Margin="185,-3,-185,3" RenderTransformOrigin="0.5,0.5" Height="29" >
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" RenderTransformOrigin="0.5,0.5" Margin="-5,-8,-5,-2">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="直线参考线放样" HorizontalAlignment="Left" Height="31" Margin="1,-1,0,0" VerticalAlignment="Top" Width="156"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="31" Margin="157,-1,0,0" VerticalAlignment="Top" Width="164"/>
+                    <Button x:Name="NEXT" Content="下一步" HorizontalAlignment="Left" Height="22" Margin="209,188,0,0" VerticalAlignment="Top" Width="50" Click="OpenNEXT" Cursor="Hand"/>
+                    <Label Content="起始点" HorizontalAlignment="Left" Height="30" Margin="40,32,0,0" VerticalAlignment="Top" Width="59" FontSize="16"/>
+                    <TextBox x:Name="Linetext1" HorizontalAlignment="Left" Height="23" Margin="114,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" Text="pt4"/>
+                    <TextBox x:Name="Linetext2" HorizontalAlignment="Left" Height="23" Margin="114,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="114" Text="pt5"/>
+                    <ComboBox x:Name="StartPoint" HorizontalAlignment="Left" Height="23" Margin="254,34,0,0" VerticalAlignment="Top" Width="20" IsEditable="True" Text="pt4" RenderTransformOrigin="0.5,0.5"  >
+                        <ComboBox.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="1.004"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </ComboBox.RenderTransform>
+                        <Button x:Name="call1" Content="调用" Height="25" Width="50" Background="White" BorderBrush="White" Click="call1_Click"/>
+                        <Button x:Name="new1" Content="新建" Height="25" Width="50" Background="White" BorderBrush="White" Click="new1_Click"/>
+                        <Button x:Name="input1" Content="输入" Height="25" Width="50" Background="White" BorderBrush="White" Click="input1_Click"/>
+                        <Button x:Name="measure1" Content="测量" Height="25" Width="50" Background="White" BorderBrush="White" Click="measure1_Click"/>
+
+                    </ComboBox>
+                    <Label x:Name="Overttext" Content="结束点" HorizontalAlignment="Left" Height="30" Margin="40,62,0,0" VerticalAlignment="Top" Width="59" FontSize="16"/>
+                    <ComboBox  x:Name="OverPoint" HorizontalAlignment="Left" Height="23" Margin="254,68,0,0" VerticalAlignment="Top" Width="20" IsEditable="True" Text="pt5" >
+                        <Button x:Name="call2" Content="调用" Height="25" Width="50" Background="White" BorderBrush="White" Click="call2_Click"/>
+                        <Button x:Name="new2" Content="新建" Height="25" Width="50" Background="White" BorderBrush="White" Click="new2_Click"/>
+                        <Button x:Name="input2" Content="输入" Height="25" Width="50" Background="White" BorderBrush="White" Click="input2_Click"/>
+                        <Button x:Name="measure2" Content="测量" Height="25" Width="50" Background="White" BorderBrush="White" Click="measure2_Click"/>
+
+                    </ComboBox>
+                    <GroupBox Header="" HorizontalAlignment="Left" Height="33" Margin="40,92,0,0" VerticalAlignment="Top" Width="234">
+                        <Grid HorizontalAlignment="Left" Height="37" Margin="-6,-14,-12,-12" VerticalAlignment="Top" Width="240">
+                            <RadioButton Content="RadioButton" HorizontalAlignment="Left" Height="15" Margin="10,11,0,0" VerticalAlignment="Top" Width="15" Click="ZY" IsChecked="True"/>
+                            <RadioButton Content="RadioButton" HorizontalAlignment="Left" Height="15" Margin="72,11,0,0" VerticalAlignment="Top" Width="15" Click="ZY"/>
+                            <Label Content="左" HorizontalAlignment="Left" Height="24" Margin="30,4,0,0" VerticalAlignment="Top" Width="22"/>
+                            <Label Content="右" HorizontalAlignment="Left" Height="24" Margin="92,6,0,0" VerticalAlignment="Top" Width="22"/>
+                            <TextBox  x:Name="LeftRight" HorizontalAlignment="Left" Height="23" Margin="132,7,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="75" IsEnabled="False" Background="White"/>
+                            <Label Content="m" HorizontalAlignment="Left" Height="24" Margin="211,5,0,0" VerticalAlignment="Top" Width="32"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="" HorizontalAlignment="Left" Height="31" Margin="40,125,0,0" VerticalAlignment="Top" Width="234">
+                        <Grid HorizontalAlignment="Left" Height="33" Margin="-6,-16,-12,-8" VerticalAlignment="Top" Width="240">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="91*"/>
+                                <ColumnDefinition Width="149*"/>
+                            </Grid.ColumnDefinitions>
+                            <RadioButton Content="RadioButton" HorizontalAlignment="Left" Height="15" Margin="10,11,0,0" VerticalAlignment="Top" Width="15" Click="QH" IsChecked="True"/>
+                            <RadioButton Content="RadioButton" HorizontalAlignment="Left" Height="15" Margin="72,11,0,0" VerticalAlignment="Top" Width="15" Click="QH"/>
+                            <Label Content="前" HorizontalAlignment="Left" Height="24" Margin="30,4,0,0" VerticalAlignment="Top" Width="22"/>
+                            <Label Content="后" HorizontalAlignment="Left" Height="24" Margin="0.998,6,0,0" VerticalAlignment="Top" Width="22" Grid.Column="1"/>
+                            <TextBox   x:Name="BeforeAfter" HorizontalAlignment="Left" Height="22" Margin="40.998,9,0,0" TextWrapping="Wrap" Text="221.2" VerticalAlignment="Top" Width="75" Grid.Column="1" IsEnabled="False" Background="White"/>
+                            <Label Content="m" HorizontalAlignment="Left" Height="24" Margin="119.998,5,-3,0" VerticalAlignment="Top" Width="32" Grid.Column="1"/>
+
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="" HorizontalAlignment="Left" Height="31" Margin="40,156,0,0" VerticalAlignment="Top" Width="234">
+                        <Grid HorizontalAlignment="Left" Height="29" Margin="-6,-15,-12,-5" VerticalAlignment="Top" Width="240">
+                            <RadioButton Content="RadioButton" HorizontalAlignment="Left" Height="15" Margin="10,11,0,0" VerticalAlignment="Top" Width="15" Click="SX" IsChecked="True"/>
+                            <RadioButton Content="RadioButton" HorizontalAlignment="Left" Height="15" Margin="72,11,0,0" VerticalAlignment="Top" Width="15" Click="SX"/>
+                            <Label Content="上" HorizontalAlignment="Left" Height="24" Margin="30,4,0,0" VerticalAlignment="Top" Width="22"/>
+                            <Label Content="下" HorizontalAlignment="Left" Height="24" Margin="92,6,0,0" VerticalAlignment="Top" Width="22"/>
+                            <TextBox   x:Name="UpDown" HorizontalAlignment="Left" Height="21" Margin="132,8,0,0" TextWrapping="Wrap" Text="1.2" VerticalAlignment="Top" Width="75" IsEnabled="False" Background="White"/>
+                            <Label Content="m" HorizontalAlignment="Left" Height="24" Margin="211,5,0,0" VerticalAlignment="Top" Width="32"/>
+
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="数据" Margin="108,-3,-108,3" RenderTransformOrigin="0.5,0.5" Height="29" TabIndex="1">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" Margin="-5,-7,-5,0" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-179.903"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    
+                </Grid>
+            </TabItem>
+            <TabItem Header="图形" Margin="31,-3,-31,3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="38" VerticalAlignment="Bottom" Height="29">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" RenderTransformOrigin="0.5,0.5" Margin="-6,-7,-5,-3">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="179.904"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="图形" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="158" Margin="2,0,0,0"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="30" Margin="160,0,0,0" VerticalAlignment="Top" Width="161"/>
+
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" Margin="334,288,0,73" VerticalAlignment="Center" Width="49"/>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="552,60,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="553,290,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+    </Grid>
+</Window>
+
