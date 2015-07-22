@@ -97,11 +97,9 @@ namespace Wpf5320
                         break;
                     case "Powerkey":
                         #region
-                        if (MessageBox.Show("确定退出吗？", "系统提示", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
-                        {
-                            // MessageBox.Show("开机界面退出！");//在全站仪界面中加载
-                            Application.Current.Shutdown();
-                        }
+                         Window_Shutdown_PowerOff Shutdown_PowerOff = new Window_Shutdown_PowerOff();
+                            Shutdown_PowerOff.Show();
+                          this.Close();//关闭当前窗口 
                         break;
                         #endregion
                     case "Funckey":
