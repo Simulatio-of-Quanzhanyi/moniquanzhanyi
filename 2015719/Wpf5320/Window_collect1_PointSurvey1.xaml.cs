@@ -100,9 +100,7 @@ namespace Wpf5320
         {
             if (MessageBox.Show("确定退出吗？", "系统提示", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
             {
-                myMessageBox my = new myMessageBox();
-                my.show("开机界面退出");
-                //MessageBox.Show("开机界面退出！");//在全站仪界面中加载
+                MessageBox.Show("开机界面退出！");//在全站仪界面中加载
                 Application.Current.Shutdown();
             }
         }
@@ -110,12 +108,24 @@ namespace Wpf5320
         private void BtSave_Click(object sender, RoutedEventArgs e)
         {
             //规划坐标宽153，长313，以测站为中心
-
+            Line stationLine = new Line();
+            Line stationLine1 = new Line();
+            Line stationLine2 = new Line();
             Line line1 = new Line();
             Line line2 = new Line();
-            double draw_x, draw_y;
+            double draw_x, draw_y, draw_stationX, draw_stationY;
             draw_x = 150.0 / 200 * (CurrentPoint.X - StationPoint.X) + 150;
             draw_y = 75 - 75.0 / 200 * (CurrentPoint.Y - StationPoint.Y);
+            draw_stationX = 150.0 / 200 * StationPoint.X + 150;
+            draw_stationY = 75 - 75.0 / 200 * StationPoint.Y;
+            stationLine1.X1 = draw_stationX - 3;
+            stationLine1.Y1 = draw_stationY;
+            stationLine1.X2 = draw_stationX + 3;
+            stationLine1.Y2 = draw_stationY;
+            stationLine2.X1 = draw_stationX;
+            stationLine2.Y1 = draw_stationY + 3;
+            stationLine2.X2 = draw_stationX;
+            stationLine2.Y2 = draw_stationY - 3;
             line1.X1 = draw_x - 3;
             line1.Y1 = draw_y;
             line1.X2 = draw_x + 3;
@@ -124,10 +134,21 @@ namespace Wpf5320
             line2.Y1 = draw_y - 3;
             line2.X2 = draw_x;
             line2.Y2 = draw_y + 3;
+            stationLine.X1 = draw_stationX;
+            stationLine.Y1 = draw_stationY;
+            stationLine.X2 = draw_x;
+            stationLine.Y2 = draw_y;
             line1.Stroke = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             line2.Stroke = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+            stationLine1.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 255));
+            stationLine2.Stroke = new SolidColorBrush(Color.FromRgb(0, 0, 255));
+            stationLine.Stroke = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            CanvasDraw.Children.Add(stationLine);
             CanvasDraw.Children.Add(line1);
             CanvasDraw.Children.Add(line2);
+            CanvasDraw.Children.Add(stationLine2);
+            CanvasDraw.Children.Add(stationLine1);
+
         }
 
         private void BtMeasuringSave_Click(object sender, RoutedEventArgs e)
@@ -154,10 +175,7 @@ namespace Wpf5320
 
         private void CanvasDraw_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            myMessageBox my = new myMessageBox();
-            my.show("ok");
-       
-            //MessageBox.Show("ok");
+            MessageBox.Show("ok");
             this.MouseMove += new MouseEventHandler(CanvasDraw_MouseMove);
             a = e.GetPosition(this);
             if (a.X > 0 && a.Y > 0)
