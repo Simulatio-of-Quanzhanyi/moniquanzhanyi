@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="182" d:DesignWidth="108">
-    <Grid>
-        <TabControl HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="108">
-            <TabItem Header="123" Background="#FFDDDDDD" BorderThickness="1,1,1,0" Margin="0" Padding="6,2">
-                <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+    <Grid x:Name="layoutRoot">
+        <TabControl x:Name="softkey" HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="108">
+            <TabItem x:Name="number" Header="123" Background="#FFDDDDDD" BorderThickness="1,1,1,0" Margin="0" Padding="6,2">
+                <Grid x:Name="num" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
@@ -22,32 +22,32 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Content="7" Grid.Row="0" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="8" Grid.Row="0" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="9" Grid.Row="0" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="4" Grid.Row="1" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="5" Grid.Row="1" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="6" Grid.Row="1" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.ColumnSpan="2" FontSize="14"/>
-                    <Button Content="1" Grid.Row="2" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="2" Grid.Row="2" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="3" Grid.Row="2" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.ColumnSpan="2" FontSize="14"/>
-                    <Button Content="0" Grid.Row="3" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="." Grid.Row="3" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="=" Grid.Row="3" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="-" Grid.Row="4" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="+" Grid.Row="4" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="num_7" Content="7" Grid.Row="0" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="num_8" Content="8" Grid.Row="0" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="num_9" Content="9" Grid.Row="0" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="num_4" Content="4" Grid.Row="1" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="num_5" Content="5" Grid.Row="1" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="num_6" Content="6" Grid.Row="1" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.ColumnSpan="2" FontSize="14"/>
+                    <Button x:Name="num_1" Content="1" Grid.Row="2" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="num_2" Content="2" Grid.Row="2" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="num_3" Content="3" Grid.Row="2" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.ColumnSpan="2" FontSize="14"/>
+                    <Button x:Name="num_0" Content="0" Grid.Row="3" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="dot" Content="." Grid.Row="3" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="equal" Content="=" Grid.Row="3" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="sub" Content="-" Grid.Row="4" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
+                    <Button x:Name="add" Content="+" Grid.Row="4" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
                     <Button Content="" Grid.Row="4" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="14"/>
-                    <Button Content="←" Width="26" Grid.Row="5" Grid.Column="0" BorderThickness="1" Margin="0,0,9,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
-                    <Button Content="凵" HorizontalAlignment="Left" Grid.Row="5" Width="26" Grid.ColumnSpan="2" Margin="25,0,0,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
-                    <Button Content="tab" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" Width="26" Grid.ColumnSpan="2" Margin="16,0,0,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" BorderThickness="0,1,1,1"/>
-                    <Button Content="↲" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="2" Width="26" Margin="8,0,0,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
+                    <Button x:Name="fun_Backspace" Content="←" Width="26" Grid.Row="5" Grid.Column="0" BorderThickness="1" Margin="0,0,9,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
+                    <Button x:Name="fun_Space" Content="凵" HorizontalAlignment="Left" Grid.Row="5" Width="26" Grid.ColumnSpan="2" Margin="25,0,0,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
+                    <Button x:Name="fun_Tab" Content="tab" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="1" Width="26" Grid.ColumnSpan="2" Margin="16,0,0,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" BorderThickness="0,1,1,1"/>
+                    <Button x:Name="fun_Enter" Content="↲" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="2" Width="26" Margin="8,0,0,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
 
 
                 </Grid>
 
             </TabItem>
-            <TabItem Header="abc" Background="#FFDDDDDD" BorderThickness="1" Margin="0" Padding="6,2">
-                <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+            <TabItem x:Name="character" Header="abc" Background="#FFDDDDDD" BorderThickness="1" Margin="0" Padding="6,2">
+                <Grid x:Name="cha" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -64,44 +64,44 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Content="a" Grid.Row="0" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="b" Grid.Row="0" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="c" Grid.Row="0" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="d" Grid.Row="0" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471"/>
-                    <Button Content="e" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471"/>
-                    <Button Content="f" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471" Grid.Column="1"/>
-                    <Button Content="g" Grid.Row="1" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="h" Grid.Row="1" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="i" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="j" Grid.Row="2" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="k" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="2"/>
-                    <Button Content="l" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="3"/>
-                    <Button Content="m" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="n" Grid.Row="3" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="o" Grid.Row="3" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="p" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="3"/>
-                    <Button Content="q" Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="r" Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
-                    <Button Content="s" Grid.Row="4" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="t" Grid.Row="4" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="u" Grid.Row="5" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="v" Grid.Row="5" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
-                    <Button Content="w" Grid.Row="5" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="x" Grid.Row="5" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="y" Grid.Row="6" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="z" Grid.Row="6" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
-                    <Button Content="ctrl" Grid.Row="6" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="CAP" Grid.Row="6" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" FontSize="11"/>
-                    <Button Content="←" Grid.Row="7" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
-                    <Button Content="凵" Grid.Row="7" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="1"/>
-                    <Button Content="Tab" Grid.Row="7" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="2"/>
-                    <Button Content="↵" Grid.Row="7" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="3"/>
+                    <Button x:Name="cha_A" Content="a" Grid.Row="0" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_B" Content="b" Grid.Row="0" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_C" Content="c" Grid.Row="0" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_D" Content="d" Grid.Row="0" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471"/>
+                    <Button x:Name="cha_E" Content="e" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471"/>
+                    <Button x:Name="cha_F" Content="f" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471" Grid.Column="1"/>
+                    <Button x:Name="cha_G" Content="g" Grid.Row="1" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_H" Content="h" Grid.Row="1" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_I" Content="i" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_J" Content="j" Grid.Row="2" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_K" Content="k" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="2"/>
+                    <Button x:Name="cha_L" Content="l" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="3"/>
+                    <Button x:Name="cha_M" Content="m" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_N" Content="n" Grid.Row="3" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_O" Content="o" Grid.Row="3" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_P" Content="p" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="3"/>
+                    <Button x:Name="cha_Q" Content="q" Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_R" Content="r" Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
+                    <Button x:Name="cha_S" Content="s" Grid.Row="4" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_T" Content="t" Grid.Row="4" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_U" Content="u" Grid.Row="5" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_V" Content="v" Grid.Row="5" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
+                    <Button x:Name="cha_W" Content="w" Grid.Row="5" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_X" Content="x" Grid.Row="5" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_Y" Content="y" Grid.Row="6" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="cha_Z" Content="z" Grid.Row="6" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
+                    <Button x:Name="fun_Ctrl" Content="ctrl" Grid.Row="6" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="fun_Cap" Content="CAP" Grid.Row="6" Grid.Column="3" Background="White" FontSize="11"/>
+                    <Button x:Name="fun_Backspace1" Content="←" Grid.Row="7" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
+                    <Button x:Name="fun_Space1" Content="凵" Grid.Row="7" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="1"/>
+                    <Button x:Name="fun_Tab1" Content="Tab" Grid.Row="7" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="2"/>
+                    <Button x:Name="fun_Enter1" Content="↵" Grid.Row="7" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="3"/>
 
 
                 </Grid>
             </TabItem>
-            <TabItem Header="*&amp;%" Background="#FFDDDDDD" BorderThickness="1" Margin="0" Padding="6,2">
-                <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+            <TabItem x:Name="symbol" Header="*&amp;%" Background="#FFDDDDDD" BorderThickness="1" Margin="0" Padding="6,2">
+                <Grid x:Name="sym" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
@@ -118,38 +118,38 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Content="*" Grid.Row="0" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="~" Grid.Row="0" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="!" Grid.Row="0" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="@" Grid.Row="0" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471"/>
-                    <Button Content="#" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471"/>
-                    <Button Content="$" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471" Grid.Column="1"/>
-                    <Button Content="%" Grid.Row="1" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="-" Grid.Row="1" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="&amp;" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="\" Grid.Row="2" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="(" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="2"/>
-                    <Button Content=")" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="3"/>
-                    <Button Content="?" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="/" Grid.Row="3" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="[" Grid.Row="3" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="]" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="3"/>
-                    <Button Content="|" Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="," Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
-                    <Button Content=":" Grid.Row="4" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content=";" Grid.Row="4" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="&quot;" Grid.Row="5" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="'" Grid.Row="5" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
-                    <Button Content="&lt;" Grid.Row="5" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="&gt;" Grid.Row="5" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="," Grid.Row="6" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="asterisk" Content="*" Grid.Row="0" Grid.Column="0" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="wave" Content="~" Grid.Row="0" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="exc_mark" Content="!" Grid.Row="0" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="at" Content="@" Grid.Row="0" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471"/>
+                    <Button x:Name="hash" Content="#" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471"/>
+                    <Button x:Name="dollar" Content="$" Grid.Row="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" RenderTransformOrigin="1.706,0.471" Grid.Column="1"/>
+                    <Button x:Name="percent" Content="%" Grid.Row="1" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="hypen" Content="-" Grid.Row="1" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="and" Content="&amp;" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="backlash" Content="\" Grid.Row="2" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="L_Parenthesis" Content="(" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="2"/>
+                    <Button x:Name="R_Parenthesis" Content=")" Grid.Row="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="3"/>
+                    <Button x:Name="question" Content="?" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="slash" Content="/" Grid.Row="3" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="L_Squ_Brackets" Content="[" Grid.Row="3" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="R_Squ_Brackets" Content="]" Grid.Row="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="3"/>
+                    <Button x:Name="vertical" Content="|" Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="comma" Content="," Grid.Row="4" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
+                    <Button x:Name="colon" Content=":" Grid.Row="4" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="semicolon" Content=";" Grid.Row="4" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="db_Quotes" Content="&quot;" Grid.Row="5" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="quotes" Content="'" Grid.Row="5" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
+                    <Button x:Name="L_Ang_Brackets" Content="&lt;" Grid.Row="5" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="R_Ang_Brackets" Content="&gt;" Grid.Row="5" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                    <Button x:Name="dot1" Content="." Grid.Row="6" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
                     <Button Content="" Grid.Row="6" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Grid.Column="1"/>
                     <Button Content="" Grid.Row="6" Grid.Column="2" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
                     <Button Content="" Grid.Row="6" Grid.Column="3" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
-                    <Button Content="←" Grid.Row="7" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
-                    <Button Content="凵" Grid.Row="7" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="1"/>
-                    <Button Content="Tab" Grid.Row="7" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="2"/>
-                    <Button Content="↲" Grid.Row="7" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="3"/>
+                    <Button x:Name="fun_Backspace2" Content="←" Grid.Row="7" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}"/>
+                    <Button x:Name="fun_Space2" Content="凵" Grid.Row="7" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="1"/>
+                    <Button x:Name="fun_Tab2" Content="Tab" Grid.Row="7" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="2"/>
+                    <Button x:Name="fun_Enter2" Content="↲" Grid.Row="7" BorderThickness="1" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}" Grid.Column="3"/>
 
 
                 </Grid>

@@ -75,7 +75,7 @@
             <Button  x:Name="BtDnkey" x:FieldModifier="private"  Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="14" Height="14" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="19,2,9,24" Grid.Row="7" Grid.Column="1" Cursor="Hand"/>
             <Button  x:Name="BtRtkey" x:FieldModifier="private" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="14" Height="14" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="19,2,9,24" Grid.Row="7" Grid.Column="2" Cursor="Hand"/>
         </Grid>
-        <local:WPFKey x:Name="wpfkey1" HorizontalAlignment="Left" Height="182" Margin="275,107,0,0" VerticalAlignment="Top" Width="108" Visibility="Collapsed" />
+        <local:WPFKey x:Name="wpfkey1" HorizontalAlignment="Left" Height="182" Margin="275,107,0,0" VerticalAlignment="Top" Width="108" Visibility="Collapsed" PreviewMouseLeftButtonUp="wpfkey1_PreviewMouseLeftButtonUp"/>
  
 
 

@@ -581,6 +581,89 @@ namespace Wpf5320
             }
         }
 
+        //  声明一个软键盘对象
+        private WPFKey softkey = new WPFKey();
+
+        private void wpfkey1_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //  对用户控件 软键盘 绑定 PreviewMouseLeftButtonUp 事件
+
+            //  调用软键盘的单击函数（模拟对用户控件的单击事件）
+            softkey.layoutRoot_Click(sender, e);
+
+            //  读取从软键盘获得的 返回值类型 信息
+            string type = softkey.ReturnType;
+
+            //  返回值类型为 null，不做任何改变（保持焦点不变） 。 结束调用此次事件处理函数
+            if (type == "null")
+            {
+                if (istbItemNameFocused) tbItemName.Focus();
+                else if (istbItemAuthorFocused) tbItemAuthor.Focus();
+                else if (istbItmeAnnotationFocused) tbItmeAnnotation.Focus();
+                return;
+            }
+
+            //  读取从软键盘获得的 返回值
+            string value = softkey.ReturnValue;
+
+            //  返回值类型为 功能键(function)
+            if(type == "function")
+            {
+                if (value == "Bac")
+                {
+                    //  返回值为退格键(backspace) 调用删除函数
+                    if (istbItemNameFocused) tbstringfun(tbItemName, 2, "*");
+                    else if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 2, "*");
+                    else if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 2, "*");
+                }
+                else if (value == "Tab")
+                {
+                    //  返回值为切换键(Tab) 切换窗口焦点
+                    switch (txtfocus)
+                    {
+                        case 0:
+                            txtfocus = txtfocus + 1;
+                            tbItemAuthor.Focus();
+
+                            break;
+                        case 1:
+                            txtfocus = txtfocus + 1;
+                            tbItmeAnnotation.Focus();
+
+                            break;
+                        default:
+                            txtfocus = 0;
+                            tbItemName.Focus();
+                            break;
+                    }
+                }
+/*                else if (value == "Ent")
+*                {
+*                    //  确认键
+*
+*                }
+*/
+                else
+                {
+                    //  返回值为其他功能键 不做任何改变（焦点保持不变）
+                    if (istbItemNameFocused) tbItemName.Focus();
+                    if (istbItemAuthorFocused) tbItemAuthor.Focus();
+                    if (istbItmeAnnotationFocused) tbItmeAnnotation.Focus();
+                }
+                return;
+            }
+            else if (type == "number" || type == "character" || type == "other")
+            {
+                //  返回值类型为 数字(number) 字母(character) 字符(other)  直接调用插入函数
+                if (istbItemNameFocused) tbstringfun(tbItemName, 0, value);
+                if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 0, value);
+                if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 0, value);
+                return;
+            }
+        }
+
+
+
 
 
 
