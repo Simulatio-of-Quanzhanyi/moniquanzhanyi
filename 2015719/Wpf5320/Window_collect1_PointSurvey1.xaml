@@ -4,10 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Wpf5320.collect1_PointSurvey1"
         Title="collect1_PointSurvey1" Height="388" Width="644" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" AllowsTransparency="True" MouseDown="Window_MouseDown_1" >
     <Grid HorizontalAlignment="Left" Height="388" VerticalAlignment="Top" Width="644">
-        
+
         <Image x:Name="BaseImage" HorizontalAlignment="Left" Height="388" VerticalAlignment="Top" Width="644" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
         <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="22" Width="22" Margin="558,61,0,0" VerticalAlignment="Top"  Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
-        <DockPanel HorizontalAlignment="Left" Height="240" Width="321" LastChildFill="False" Margin="65,76,0,0" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+        <DockPanel LastChildFill="False" Margin="65,76,0,0" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" Height="240" VerticalAlignment="Top" HorizontalAlignment="Left" Width="321">
 
             <TabControl HorizontalAlignment="Left"  Margin="0,0,0,0" VerticalAlignment="Top" Width="321" TabStripPlacement="Bottom" DockPanel.Dock="Bottom" >
                 <TabItem Header="测量"  Margin="44,1,-68,-1" Width="62" Height="25" RenderTransformOrigin="1.358,0.536" HorizontalAlignment="Center" >
@@ -79,22 +79,22 @@
                         <Label Content="m" HorizontalAlignment="Left" Height="25" Margin="135,150,0,0" VerticalAlignment="Top" Width="40"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="图形"  Margin="44,1,-68,-1" Width="62" Height="25" RenderTransformOrigin="1.358,0.536" HorizontalAlignment="Center" >
+                <TabItem Header="图形"  Margin="44,1,-68,-1" Width="62" Height="25" RenderTransformOrigin="1.358,0.536" HorizontalAlignment="Center">
                     <Grid Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Height="180" Margin="0,0,0,0">
-                        <Canvas x:Name="CanvasDraw" HorizontalAlignment="Left" Height="205" VerticalAlignment="Top" Width="317" MouseLeftButtonDown="CanvasDraw_MouseLeftButtonDown" MouseMove="CanvasDraw_MouseMove" MouseLeftButtonUp="CanvasDraw_MouseLeftButtonUp" Margin="0,0,0,-27">
+                        <Canvas x:Name="CanvasDraw" HorizontalAlignment="Left" Width="315" MouseLeftButtonDown="CanvasDraw_MouseLeftButtonDown" MouseMove="CanvasDraw_MouseMove" MouseLeftButtonUp="CanvasDraw_MouseLeftButtonUp" Margin="0,-2,0,0" Background="Transparent">
                             <Canvas.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    <TranslateTransform X ="0" Y="0"/>
                                     <SkewTransform/>
                                     <RotateTransform/>
-                                    <TranslateTransform/>
                                 </TransformGroup>
                             </Canvas.RenderTransform>
                         </Canvas>
-                        <Button x:Name="BTquanju" Content="全局" HorizontalAlignment="Left"  Width="25" Height="22" Margin="190,-2,0,0"  FontSize="9" VerticalAlignment="Top"  Click="BTquanju_Click" BorderThickness="2,1,1,1" /> 
-                        <Button x:Name="BT_Move"  Content="平移" HorizontalAlignment="Left" Width="25" Height="22"  FontSize="9" Margin="215,-2,0,0" VerticalAlignment="Top" BorderThickness="1" Click="BT_Move_Click" />   
+                        <Button x:Name="BTquanju" Content="全局" HorizontalAlignment="Left"  Width="25" Height="22" Margin="190,-2,0,0"  FontSize="9" VerticalAlignment="Top"  Click="BTquanju_Click" BorderThickness="2,1,1,1" />
+                        <Button x:Name="BT_Move"  Content="平移" HorizontalAlignment="Left" Width="25" Height="22"  FontSize="9" Margin="215,-2,0,0" VerticalAlignment="Top" BorderThickness="1" Click="BT_Move_Click"/>
                         <Button x:Name="BT_Fangda" Content="放大" HorizontalAlignment="Left"  Width="25" Height="22" Margin="240,-2,0,0"  FontSize="9" VerticalAlignment="Top"  Click="BT_Fangda_Click" />
-                        <Button x:Name="BT_Shuoxiao" Content="缩小" HorizontalAlignment="Left"  Width="25" Height="22" Margin="265,-2,0,0"  FontSize="9" VerticalAlignment="Top"  Click="BT_Shuoxiao_Click" />
+                        <Button x:Name="BT_Shuoxiao" Content="缩小" HorizontalAlignment="Left"  Width="25" Height="22" Margin="265,-2,0,0"  FontSize="9" VerticalAlignment="Top"  Click="BT_Shuoxiao_Click"/>
                         <Button Content="查询" HorizontalAlignment="Left"  Width="25" Height="22"  Margin="290,-2,0,0" FontSize="9" VerticalAlignment="Top" BorderThickness="1,1,2,1" />
                     </Grid>
                 </TabItem>
@@ -107,8 +107,8 @@
 
         <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="22" Width="24" Margin="557,292,0,0" VerticalAlignment="Top" Background="#FFDDDDDD" Opacity="0"  RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
         <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="25" Margin="335,288,0,0" VerticalAlignment="Top" Width="49"/>
-   
-    
+
+
     </Grid>
 
 
