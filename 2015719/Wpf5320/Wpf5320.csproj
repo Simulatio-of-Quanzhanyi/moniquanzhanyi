@@ -61,6 +61,9 @@
       <DependentUpon>MessageboxModel.xaml</DependentUpon>
     </Compile>
     <Compile Include="myMessageBox.cs" />
+    <Compile Include="UC_Select.xaml.cs">
+      <DependentUpon>UC_Select.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window_collect.xaml.cs">
       <DependentUpon>Window_collect.xaml</DependentUpon>
     </Compile>
@@ -517,6 +520,10 @@
     <Page Include="MessageboxModel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UC_Select.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window_collect.xaml">
       <Generator>MSBuild:Compile</Generator>

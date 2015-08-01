@@ -48,6 +48,8 @@ namespace Wpf5320
             LbVD.Content = (Dis * Math.Sin(Vhudu)).ToString("f03");
             LBSD.Content = Dis.ToString("f03");
             TBjinggao.Text = (1.75).ToString("f02");
+            UC_select.lab_message.Content = "点查询";
+            UC_select.lab_question.Content = "点名";
         }
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -224,9 +226,16 @@ namespace Wpf5320
 
         private void BTquanju_Click(object sender, RoutedEventArgs e)
         {
+            if (lastPointChange != null)
+            {
+                CurrentLine1[CurrentPoints.IndexOf(lastPointChange)].Stroke = new SolidColorBrush(Colors.Red);
+                CurrentLine2[CurrentPoints.IndexOf(lastPointChange)].Stroke = new SolidColorBrush(Colors.Red);
+
+            }
             ((ScaleTransform)(((TransformGroup)(((UIElement)(this.CanvasDraw)).RenderTransform)).Children[0])).ScaleX=1.0;
             ((ScaleTransform)(((TransformGroup)(((UIElement)(this.CanvasDraw)).RenderTransform)).Children[0])).ScaleY=1.0;
             CanvasDraw.Margin = new Thickness(0, 0, 0, 0);
+            
         }
 
         private void BT_Move_Click(object sender, RoutedEventArgs e)
@@ -252,5 +261,52 @@ namespace Wpf5320
             this.Close();//关闭当前窗口 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if(this.UC_select.Visibility == Visibility.Collapsed)
+            {
+                this.UC_select.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                this.UC_select.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        string lastPointChange;
+        private void UC_select_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            UC_select.btn_Click(sender,e);
+            
+            string result = UC_select.getBtn_result();
+            if (result == "OK")
+            {
+                if(lastPointChange != null)
+                {
+                    CurrentLine1[CurrentPoints.IndexOf(lastPointChange)].Stroke = new SolidColorBrush(Colors.Red);
+                    CurrentLine2[CurrentPoints.IndexOf(lastPointChange)].Stroke = new SolidColorBrush(Colors.Red);
+
+                }
+                
+                string pointchange = UC_select.text.Text;
+                if (CurrentPoints.IndexOf(pointchange) > -1)
+                {
+
+                    CurrentLine1[CurrentPoints.IndexOf(pointchange)].Stroke = new SolidColorBrush(Colors.Black);
+                    CurrentLine2[CurrentPoints.IndexOf(pointchange)].Stroke = new SolidColorBrush(Colors.Black);
+                    lastPointChange = UC_select.text.Text;
+                    UC_select.Visibility = Visibility.Collapsed;
+                }
+                else
+                {
+                    myMessageBox my = new myMessageBox();
+                    my.show("没有这个点！");
+                }
+            }
+            else if(result == "Cancel")
+            {
+                this.UC_select.Visibility = Visibility.Collapsed;
+            }
+        }
     }
 }
