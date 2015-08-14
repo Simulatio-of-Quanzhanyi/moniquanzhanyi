@@ -6219,7 +6219,6 @@ F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_Shortcut_key_
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_Shortcut_key_calculate.baml
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_Shutdown_PowerOff.baml
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_Start.baml
-F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\WPFKey.baml
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\MessageboxModel.g.cs
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_collect.g.cs
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_collect1_PointSurvey1.g.cs
@@ -6372,7 +6371,6 @@ F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_Shortcut_key_
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_Shortcut_key_calculate.g.cs
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_Shutdown_PowerOff.g.cs
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_Start.g.cs
-F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\WPFKey.g.cs
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\App.g.cs
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\GeneratedInternalTypeHelper.g.cs
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320_MarkupCompile.cache
@@ -7663,3 +7661,9 @@ C:\Users\Administrator\Desktop\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_P
 C:\Users\Administrator\Desktop\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320.g.resources
 C:\Users\Administrator\Desktop\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320.Properties.Resources.resources
 C:\Users\Administrator\Desktop\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320.csproj.GenerateResource.Cache
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\UC_Select.baml
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\UC_Select.g.cs
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\keyboard.baml
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\softKey.baml
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\keyboard.g.cs
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\softKey.g.cs

@@ -21,40 +21,25 @@ namespace Wpf5320
     public partial class Window_Project11 : Window
     {
         private int selectPos;
-        private bool isnumber = true;//是否数字
-        private bool isupper=true;//是否大写
-        private int keyNumber = 0;//字母顺序
-        private string lastkey = null;
         private bool istbItmeAnnotationFocused=false;
         private bool istbItemAuthorFocused=false;
         private bool istbItemNameFocused=false;
-        private bool istimeout = false;
-        private System.Windows.Threading.DispatcherTimer timer;
         private int txtfocus = 0;
 
         public static int CurrentItemID = 1;
         private string odbcConnStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\TSISData.accdb";
-        //    private enum num_english { number, english };
-
 
 
         public Window_Project11()
         {
             InitializeComponent();
-            systime.Content = DateTime.Now.ToShortTimeString();
-            timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 2);
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.IsEnabled = false ;
-          //  timer.Start();
         }
-        private void Bt_exit_Click(object sender, RoutedEventArgs e)
+
+        private void exitApp()
         {
-            if (MessageBox.Show("确定退出吗？", "系统提示", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
-            {
-                // MessageBox.Show("开机界面退出！");//在全站仪界面中加载
-                Application.Current.Shutdown();
-            }
+            Window_Shutdown_PowerOff Shutdown_PowerOff = new Window_Shutdown_PowerOff();
+            Shutdown_PowerOff.Show();
+            this.Close();//关闭当前窗口 
         }
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
@@ -65,431 +50,50 @@ namespace Wpf5320
             }
         }
 
-    
-        private void LayoutRoot_Click(object sender, RoutedEventArgs e)
-        {
-            Button bt = e.OriginalSource as Button;
-            if (bt != null)
-            {
-                
-                string keyName = bt.Name.ToString();
-                switch (keyName)
-                {
-                    case "Arfakey":
-                        #region case "Arfakey":
-                        if (isupper)
-                        {
-                            isupper = false;
-                            MessageBox.Show("小写字母");
-                        }
-                        else
-                        {
-                            isupper = true;
-                            MessageBox.Show("大写字母");
-                        }
-                        break;
-                        #endregion                  
-                    case "Softkey":
-                     //   MessageBox.Show("显示软件盘");
-                        break;
-                    case "Starkey":
-                      //  MessageBox.Show("快捷键");
-                        break;
-                    case "Powerkey":
-                        #region
-                         Window_Shutdown_PowerOff Shutdown_PowerOff = new Window_Shutdown_PowerOff();
-                            Shutdown_PowerOff.Show();
-                          this.Close();//关闭当前窗口 
-                        break;
-                        #endregion
-                    case "Funckey":
-                       // MessageBox.Show("Func");
-                        break;
-                    case "Ctrlkey":
-                        break;
-                    case "Altkey":
-                        break;
-                    case "Delkey":
-                        #region case "Delkey":
-                        if (istbItemNameFocused) tbstringfun(tbItemName, 3, "*");
-                        if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 3, "*");
-                        if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 3, "*");
-                        break;
-                        #endregion
-                    case "Tabkey":
-                        #region
-                        switch (txtfocus)
-                        {
-                            case 0:
-                                txtfocus = txtfocus + 1;
-                                tbItemAuthor.Focus();
-
-                                break;
-                            case 1:
-                                txtfocus = txtfocus + 1;
-                                tbItmeAnnotation.Focus();
-
-                                break;
-                            default:
-                                txtfocus = 0;
-                                tbItemName.Focus();
-                                break;
-                        }
-                        break;
-                        #endregion
-                    case "BSkey":
-                        #region case "BSkey":
-                        if (istbItemNameFocused ) tbstringfun(tbItemName,2,"*");
-                        if (istbItemAuthorFocused) tbstringfun(tbItemAuthor,2, "*");
-                        if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 2, "*");
-                        break;
-                        #endregion                  
-                    case "Shiftkey":
-                        #region case "Shiftkey":
-                        if (isnumber)
-                        {
-
-                        isnumber = false;
-
-  //                      MessageBox.Show("字母键盘");
-                        Bt0key.Content = "#$%";
-                        Btptkey.Content = "!&@";
-                        Bt_key.Content = "+*/";
-                        Bt1key.Content = "STU";
-                        Bt2key.Content = "VWX";
-                        Bt3key.Content = "YZ";
-                        Bt4key.Content = "JKL";
-                        Bt5key.Content = "MNO";
-                        Bt6key.Content = "PQR";
-                        Bt7key.Content = "ABC";
-                        Bt8key.Content = "DEF";
-                        Bt9key.Content = "GHI";
-                        }
-                        else
-                        {
-                           isnumber = true;
-                           timer.IsEnabled = false;
-//                           MessageBox.Show("数字键盘");
-                           Bt0key.Content = "0";
-                           Btptkey.Content = ".";
-                           Bt_key.Content = "-";
-                           Bt1key.Content = "1";
-                           Bt2key.Content = "2";
-                           Bt3key.Content = "3";
-                           Bt4key.Content = "4";
-                           Bt5key.Content = "5";
-                           Bt6key.Content = "6";
-                           Bt7key.Content = "7";
-                           Bt8key.Content = "8";
-                           Bt9key.Content = "9";
-                        }
-                        if (istbItemAuthorFocused) tbItemAuthor.Focus();
-                        if (istbItemNameFocused) tbItemName.Focus();
-                        if (istbItmeAnnotationFocused) tbItmeAnnotation.Focus();
-                        break;
-                     #endregion
-                    case "SPkey":
-                        #region
-                        if (istbItemNameFocused) tbstringfun(tbItemName, 0, bt.Content.ToString());
-                        if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 0, bt.Content.ToString());
-                        if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 0, bt.Content.ToString());
-                        break;
-                       #endregion
-                    case "ESCkey":
-                        #region
-                        ESCkey_Click(sender, e);
-                        break;
-                        #endregion
-                    case "ENTkey":
-                        #region case "ENTkey":
-                        if (tbItemName.Text.Trim() != "")
-                        {
-                            OleDbConnection conn = new OleDbConnection(odbcConnStr);
-                            conn.Open();
-
-
-                            string sql = "select * from ItemInfor where ItemName='" + tbItemName.Text.Trim() + "'";
-                            OleDbCommand cmd = new OleDbCommand(sql, conn);
-                            if (cmd.ExecuteScalar() != null)
-                            {
-                                MessageBox.Show("已经存在的项目名称！", "提示");
-                            }
-                            else
-                            {
-                                sql = "insert into ItemInfor (ItemName,ItemAuthor,ItemAnnotation,ItemDate) values ('"
-                                    + tbItemName.Text.Trim() + "','" + tbItemAuthor.Text.Trim() + "','" + tbItmeAnnotation.Text.Trim() + "','" + DateTime.Now.ToString() + "')";
-                                cmd.CommandText = sql;
-                                cmd.ExecuteNonQuery();
-                                GlobalVariables.OpenItem = tbItemName.Text.Trim();
-                                // lb_default.Content = tbItemName.Text.Trim();
-                                MessageBox.Show("项目添加成功！");
-                                Window_Project Window_Project1 = new Window_Project();
-                                Window_Project1.Show();
-                                this.Close();
-
-                            }
-                            conn.Close();
-                        }
-                        else
-                        {
-                            MessageBox.Show("项目名称不能为空！", "提示");
-                        }
-                        break;
-                        #endregion
-
-                    case "BtDnkey":
-                        #region
-                        switch (txtfocus)
-                        {
-                            case 0:
-                                txtfocus = txtfocus + 1;
-                                tbItemAuthor.Focus();
-
-                                break;
-                            case 1:
-                                txtfocus = txtfocus + 1;
-                                tbItmeAnnotation.Focus();
-
-                                break;
-                            default:
-                                txtfocus = 0;
-                                tbItemName.Focus();
-                                break;
-                        }
-                        break;
-                        #endregion
-                    case "BtUpkey":
-                        #region case "BtUpkey"
-                        switch (txtfocus)
-                        {
-                            case 2:
-                                txtfocus = txtfocus - 1;
-                                tbItemAuthor.Focus();
-                                break;
-                            case 1:
-                                txtfocus = txtfocus -1;
-                                tbItemName.Focus();  
-                                break;
-                            default:
-                                txtfocus = 2;
-                                tbItmeAnnotation.Focus();
-                                break;
-                        }
-                        break;
-                        #endregion
-                    case "BtLtkey":
-                        #region
-                        if (istbItemNameFocused)
-                        {
-                            selectPos = this.tbItemName.SelectionStart;
-                            tbItemName.Focus();
-                            if (selectPos >= 1)
-                            {
-                                tbItemName.Select(selectPos - 1, 0);
-                            }
-                        }
-                        if (istbItemAuthorFocused)
-                        {
-                            selectPos = this.tbItemAuthor.SelectionStart;
-                            tbItemAuthor.Focus();
-                            if (selectPos >= 1)
-                            {
-                                tbItemAuthor.Select(selectPos - 1, 0);
-                            }
-                        }
-                        if (istbItmeAnnotationFocused)
-                        {
-                            selectPos = this.tbItmeAnnotation.SelectionStart;
-                            tbItmeAnnotation.Focus();
-                            if (selectPos >= 1)
-                            {
-                                tbItmeAnnotation.Select(selectPos - 1, 0);
-                            }
-                        }
-
-                        break;
-                        #endregion
-                    case "BtRtkey":
-                        #region
-                        istimeout = true;
-                        lastkey = null;
-                        if (istbItemNameFocused)
-                        {
-                            selectPos = this.tbItemName.SelectionStart;                           
-                            tbItemName.Focus();
-                            if (selectPos < this.tbItemName.Text.Length)
-                            {
-                                tbItemName.Select(selectPos + 1, 0);
-                            }
-                        }
-                        if (istbItemAuthorFocused)
-                        {
-                            selectPos = this.tbItemAuthor.SelectionStart;
-                            tbItemAuthor.Focus();
-                            if (selectPos <tbItemAuthor.Text.Length)
-                            {
-                                tbItemAuthor.Select(selectPos + 1, 0);
-                            }
-                        }
-                        if (istbItmeAnnotationFocused)
-                        {
-                            selectPos = this.tbItmeAnnotation.SelectionStart;
-                            tbItmeAnnotation.Focus();
-                            if (selectPos <this.tbItmeAnnotation.Text.Length)
-                            {
-                                tbItmeAnnotation.Select(selectPos + 1, 0);
-                            }
-                        }
-
-                        break;
-                        #endregion
-                    default:
-                        #region default:
-                        if (isnumber)
-                        {
-                            if (istbItemNameFocused) tbstringfun(tbItemName, 0, bt.Content.ToString());
-                            if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 0, bt.Content.ToString());
-                            if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 0, bt.Content.ToString());
-
-                        }
-                        else
-                        {
-                            
-                            string press = bt.Name.ToString();
-                            timer.Stop();
-                            timer.Start();
-                            if (press != lastkey)
-                            {
-                                lastkey = press;
-                                istimeout = true;
-                                keyNumber=1;
-                            }
-                            else
-                            {
-                                keyNumber++;
-                            }
-                            if(istbItemNameFocused)
-                            {
-                              switch (keyNumber % 3)
-                              {
-                                    case 0:
-                                       if (istimeout) 
-                                           {
-                                              tbstringfun(tbItemName,0, bt.Content.ToString().Substring(2, 1));
-                                           }
-                                           else
-                                           {
-                                              tbstringfun(tbItemName, 1, bt.Content.ToString().Substring(2, 1));
-                                           }
-                                        break;
-                                    case 1:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(tbItemName, 0, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(tbItemName, 1, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        break;
-                                    case 2:
-                                        if (istimeout)
-                                        {
-                                             tbstringfun(tbItemName, 0, bt.Content.ToString().Substring(1, 1));
-                                         }
-                                         else
-                                        {
-                                            tbstringfun(tbItemName, 1, bt.Content.ToString().Substring(1, 1));
-                                         }
-                                         break;
-                               }
-                            }
-                            if(istbItemAuthorFocused)
-                            {
-                                switch (keyNumber % 3)
-                                {
-                                    case 0:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(tbItemAuthor, 0, bt.Content.ToString().Substring(2, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(tbItemAuthor, 1, bt.Content.ToString().Substring(2, 1));
-                                        }
-                                        break;
-                                    case 1:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(tbItemAuthor, 0, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(tbItemAuthor, 1, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        break;
-                                    case 2:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(tbItemAuthor, 0, bt.Content.ToString().Substring(1, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(tbItemAuthor, 1, bt.Content.ToString().Substring(1, 1));
-                                        }
-                                        break;
-                                }
-                            }
-                            if(istbItmeAnnotationFocused)
-                            {
-                                switch (keyNumber % 3)
-                                {
-                                    case 0:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(tbItmeAnnotation, 0, bt.Content.ToString().Substring(2, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(tbItmeAnnotation, 1, bt.Content.ToString().Substring(2, 1));
-                                        }
-                                        break;
-                                    case 1:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(tbItmeAnnotation, 0, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(tbItmeAnnotation, 1, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        break;
-                                    case 2:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(tbItmeAnnotation, 0, bt.Content.ToString().Substring(1, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(tbItmeAnnotation, 1, bt.Content.ToString().Substring(1, 1));
-                                        }
-                                        break;
-                                }
-                             }
-                           
-                            istimeout = false;
-
-
-                        }
-
-                        break;
-                        #endregion
-                }
-
-            }
+        private void focusUnchanged(){
+            if (istbItemNameFocused) tbItemName.Focus();
+            else if (istbItemAuthorFocused) tbItemAuthor.Focus();
+            else if (istbItmeAnnotationFocused) tbItmeAnnotation.Focus();
         }
 
-        private void ESCkey_Click(object sender, RoutedEventArgs e)
+        private void ENT_Click()
+        {
+            if (tbItemName.Text.Trim() != "")
+            {
+                OleDbConnection conn = new OleDbConnection(odbcConnStr);
+                conn.Open();
+
+
+                string sql = "select * from ItemInfor where ItemName='" + tbItemName.Text.Trim() + "'";
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                if (cmd.ExecuteScalar() != null)
+                {
+                    MessageBox.Show("已经存在的项目名称！", "提示");
+                }
+                else
+                {
+                    sql = "insert into ItemInfor (ItemName,ItemAuthor,ItemAnnotation,ItemDate) values ('"
+                        + tbItemName.Text.Trim() + "','" + tbItemAuthor.Text.Trim() + "','" + tbItmeAnnotation.Text.Trim() + "','" + DateTime.Now.ToString() + "')";
+                    cmd.CommandText = sql;
+                    cmd.ExecuteNonQuery();
+                    GlobalVariables.OpenItem = tbItemName.Text.Trim();
+                    // lb_default.Content = tbItemName.Text.Trim();
+                    MessageBox.Show("项目添加成功！");
+                    Window_Project Window_Project1 = new Window_Project();
+                    Window_Project1.Show();
+                    this.Close();
+
+                }
+                conn.Close();
+            }
+            else
+            {
+                MessageBox.Show("项目名称不能为空！", "提示");
+            }
+
+        }
+
+        private void ESC_Click()
         {
             Window_Project window_Start1 = new Window_Project();
             window_Start1.Show();
@@ -522,10 +126,7 @@ namespace Wpf5320
             txtfocus =2;
 
         }
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            istimeout = true;
-        }
+
         //文本字符串处理
         private void tbstringfun(TextBox TB,int math,string ct)
         {
@@ -567,92 +168,73 @@ namespace Wpf5320
             }
         }
 
-
-
-        private void softkeyboard_Click(object sender, RoutedEventArgs e)
+        private void toggleSoftKeyboard()
         {
-            if (wpfkey1.Visibility == Visibility.Collapsed)
+            if (softKey.Visibility == Visibility.Collapsed)
             {
-                wpfkey1.Visibility = Visibility.Visible;
+                softKey.Visibility = Visibility.Visible;
             }
             else
             {
-                wpfkey1.Visibility = Visibility.Collapsed;
+                softKey.Visibility = Visibility.Collapsed;
             }
         }
 
-        //  声明一个软键盘对象
-        private WPFKey softkey = new WPFKey();
+        private void softkeyboard_Click(object sender, RoutedEventArgs e)
+        {
+            toggleSoftKeyboard();
+        }
 
-        private void wpfkey1_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        //  声明一个 软键盘 对象
+        private softKey softkey = new softKey();
+
+        private void softKey_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             //  对用户控件 软键盘 绑定 PreviewMouseLeftButtonUp 事件
 
             //  调用软键盘的单击函数（模拟对用户控件的单击事件）
-            softkey.layoutRoot_Click(sender, e);
+            softkey.softKey_Click(sender, e);
 
             //  读取从软键盘获得的 返回值类型 信息
             string type = softkey.ReturnType;
 
-            //  返回值类型为 null，不做任何改变（保持焦点不变） 。 结束调用此次事件处理函数
-            if (type == "null")
-            {
-                if (istbItemNameFocused) tbItemName.Focus();
-                else if (istbItemAuthorFocused) tbItemAuthor.Focus();
-                else if (istbItmeAnnotationFocused) tbItmeAnnotation.Focus();
-                return;
-            }
-
             //  读取从软键盘获得的 返回值
             string value = softkey.ReturnValue;
 
-            //  返回值类型为 功能键(function)
-            if(type == "function")
+            keyboardInfoProce(type, value);
+           
+        }
+
+        //  声明一个 键盘 对象
+        private keyboard key = new keyboard();
+
+        private void keyboard_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //  对用户控件 键盘 绑定 PreviewMouseLeftButtonUp 事件
+
+            //  调用键盘的单击函数（模拟对用户控件的单击事件）
+            key.keyboard_click(sender, e);
+
+            //  读取从软键盘获得的 返回值类型 信息
+            string type = key.ReturnType;
+
+            //  读取从键盘获得的 返回值
+            string value = key.ReturnValue;
+
+            keyboardInfoProce(type,value);
+        }
+
+        private void keyboardInfoProce(string type, string value)
+        {
+            //  返回值类型为 null，不做任何改变（保持焦点不变） 。 结束调用此次事件处理函数
+            
+            if (type == "null")
             {
-                if (value == "Bac")
-                {
-                    //  返回值为退格键(backspace) 调用删除函数
-                    if (istbItemNameFocused) tbstringfun(tbItemName, 2, "*");
-                    else if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 2, "*");
-                    else if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 2, "*");
-                }
-                else if (value == "Tab")
-                {
-                    //  返回值为切换键(Tab) 切换窗口焦点
-                    switch (txtfocus)
-                    {
-                        case 0:
-                            txtfocus = txtfocus + 1;
-                            tbItemAuthor.Focus();
-
-                            break;
-                        case 1:
-                            txtfocus = txtfocus + 1;
-                            tbItmeAnnotation.Focus();
-
-                            break;
-                        default:
-                            txtfocus = 0;
-                            tbItemName.Focus();
-                            break;
-                    }
-                }
-/*                else if (value == "Ent")
-*                {
-*                    //  确认键
-*
-*                }
-*/
-                else
-                {
-                    //  返回值为其他功能键 不做任何改变（焦点保持不变）
-                    if (istbItemNameFocused) tbItemName.Focus();
-                    if (istbItemAuthorFocused) tbItemAuthor.Focus();
-                    if (istbItmeAnnotationFocused) tbItmeAnnotation.Focus();
-                }
+                focusUnchanged();
                 return;
             }
-            else if (type == "number" || type == "character" || type == "other")
+
+            else if (type == "number" || type == "character" || type == "symbol")
             {
                 //  返回值类型为 数字(number) 字母(character) 字符(other)  直接调用插入函数
                 if (istbItemNameFocused) tbstringfun(tbItemName, 0, value);
@@ -660,7 +242,226 @@ namespace Wpf5320
                 if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 0, value);
                 return;
             }
+
+            else if (type == "character_replace")
+            {
+                if (istbItemNameFocused) tbstringfun(tbItemName, 1, value);
+                if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 1, value);
+                if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 1, value);
+                return;
+            }
+
+            //  返回值类型为 功能键(function)
+            else if (type == "function")
+            {
+                switch (value) 
+                {
+                    case "Soft":
+                        #region "显示软键盘"
+                        toggleSoftKeyboard();
+                        //   MessageBox.Show("显示软件盘");
+                        break;
+                        #endregion
+
+                    case "Starkey":
+                        //  MessageBox.Show("快捷键");
+                        break;
+
+                    case "Power":
+                        #region  "关机界面"
+                        exitApp();
+                        break;
+                        #endregion
+
+                    case "Func":
+                        // MessageBox.Show("Func");
+                        break;
+
+                    case "Ctrl":
+                        break;
+
+                    case "Alt":
+                        break;
+
+                    case "Del":
+                        #region "删除字符"
+                        if (istbItemNameFocused) tbstringfun(tbItemName, 3, "*");
+                        if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 3, "*");
+                        if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 3, "*");
+                        break;
+                        #endregion
+
+                    case "Tab":
+                        #region  "切换焦点"
+                        switch (txtfocus)
+                        {
+                            case 0:
+                                txtfocus = txtfocus + 1;
+                                tbItemAuthor.Focus();
+
+                                break;
+                            case 1:
+                                txtfocus = txtfocus + 1;
+                                tbItmeAnnotation.Focus();
+
+                                break;
+                            default:
+                                txtfocus = 0;
+                                tbItemName.Focus();
+                                break;
+                        }
+                        break;
+                        #endregion
+
+                    case "B.S":
+                        #region "删除字符"
+                        if (istbItemNameFocused) tbstringfun(tbItemName, 2, "*");
+                        if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 2, "*");
+                        if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 2, "*");
+                        break;
+                        #endregion
+
+                    case "ESC":
+                        #region "返回上一界面"
+                        ESC_Click();
+                        break;
+                        #endregion
+
+                    case "ENT":
+                        #region "确认"
+                        ENT_Click();
+                        break;
+                        #endregion
+
+                    case "Dn":
+                        #region "切换焦点"
+                        switch (txtfocus)
+                        {
+                            case 0:
+                                txtfocus = txtfocus + 1;
+                                tbItemAuthor.Focus();
+
+                                break;
+                            case 1:
+                                txtfocus = txtfocus + 1;
+                                tbItmeAnnotation.Focus();
+
+                                break;
+                            default:
+                                txtfocus = 0;
+                                tbItemName.Focus();
+                                break;
+                        }
+                        break;
+                        #endregion
+
+                    case "Up":
+                        #region "切换焦点"
+                        switch (txtfocus)
+                        {
+                            case 2:
+                                txtfocus = txtfocus - 1;
+                                tbItemAuthor.Focus();
+                                break;
+                            case 1:
+                                txtfocus = txtfocus - 1;
+                                tbItemName.Focus();
+                                break;
+                            default:
+                                txtfocus = 2;
+                                tbItmeAnnotation.Focus();
+                                break;
+                        }
+                        break;
+                        #endregion
+
+                    case "Lt":
+                        #region "移动光标"
+                        if (istbItemNameFocused)
+                        {
+                            selectPos = this.tbItemName.SelectionStart;
+                            tbItemName.Focus();
+                            if (selectPos >= 1)
+                            {
+                                tbItemName.Select(selectPos - 1, 0);
+                            }
+                        }
+                        if (istbItemAuthorFocused)
+                        {
+                            selectPos = this.tbItemAuthor.SelectionStart;
+                            tbItemAuthor.Focus();
+                            if (selectPos >= 1)
+                            {
+                                tbItemAuthor.Select(selectPos - 1, 0);
+                            }
+                        }
+                        if (istbItmeAnnotationFocused)
+                        {
+                            selectPos = this.tbItmeAnnotation.SelectionStart;
+                            tbItmeAnnotation.Focus();
+                            if (selectPos >= 1)
+                            {
+                                tbItmeAnnotation.Select(selectPos - 1, 0);
+                            }
+                        }
+
+                        break;
+                        #endregion
+
+                    case "Rt":
+                        #region "移动光标"
+                        if (istbItemNameFocused)
+                        {
+                            selectPos = this.tbItemName.SelectionStart;
+                            tbItemName.Focus();
+                            if (selectPos < this.tbItemName.Text.Length)
+                            {
+                                tbItemName.Select(selectPos + 1, 0);
+                            }
+                        }
+                        if (istbItemAuthorFocused)
+                        {
+                            selectPos = this.tbItemAuthor.SelectionStart;
+                            tbItemAuthor.Focus();
+                            if (selectPos < tbItemAuthor.Text.Length)
+                            {
+                                tbItemAuthor.Select(selectPos + 1, 0);
+                            }
+                        }
+                        if (istbItmeAnnotationFocused)
+                        {
+                            selectPos = this.tbItmeAnnotation.SelectionStart;
+                            tbItmeAnnotation.Focus();
+                            if (selectPos < this.tbItmeAnnotation.Text.Length)
+                            {
+                                tbItmeAnnotation.Select(selectPos + 1, 0);
+                            }
+                        }
+
+                        break;
+                        #endregion
+
+                    default:
+                        #region
+                        focusUnchanged();
+
+                        break;
+                        #endregion
+                }
+            }
+            else
+            {
+                //  返回值为其他键 不做任何改变（焦点保持不变）
+                focusUnchanged();
+            }
+            return;
         }
+
+        private void ESCkey_Click(object sender, RoutedEventArgs e)
+        {
+            ESC_Click();
+        }
+
 
 
 

@@ -7,7 +7,7 @@
         <Border BorderBrush="Black" CornerRadius="25" BorderThickness="1" HorizontalAlignment="Left" Height="388" VerticalAlignment="Top" Width="640"/>
         <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
         <Grid HorizontalAlignment="Left" Height="242" Margin="64,75,0,0" VerticalAlignment="Top" Width="319" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" ClipToBounds="True">
-            <local:WPFKey x:Name="wpfkey1" HorizontalAlignment="Left" Height="182" Margin="209,30,0,0" VerticalAlignment="Top" Width="108" Visibility="Collapsed"/>
+            <local:softKey x:Name="softKey" HorizontalAlignment="Left" Height="182" Margin="209,30,0,0" VerticalAlignment="Top" Width="108" Visibility="Collapsed"/>
             <Button Content="" HorizontalAlignment="Left" Height="31" Margin="112,0,0,0" VerticalAlignment="Top" Width="207"/>
             <Button Content="加常数设置" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="112"/>
             <Button Content="default" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="0,211,0,0"/>

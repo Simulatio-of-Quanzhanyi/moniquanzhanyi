@@ -23,7 +23,7 @@
             <Label Content="m" HorizontalAlignment="Left" Height="23" Margin="185,74,0,0" VerticalAlignment="Top" Width="25"/>
             <Label Content="m" HorizontalAlignment="Left" Height="23" Margin="185,112,0,0" VerticalAlignment="Top" Width="25"/>
             <Label Content="m" HorizontalAlignment="Left" Height="23" Margin="185,148,0,0" VerticalAlignment="Top" Width="25"/>
-            <local:WPFKey x:Name="wpfkey1" HorizontalAlignment="Left" Height="182" Margin="210,0,0,0" VerticalAlignment="Top" Width="108" Visibility="Collapsed"/>
+            <local:softKey x:Name="softKey" HorizontalAlignment="Left" Height="182" Margin="210,0,0,0" VerticalAlignment="Top" Width="108" Visibility="Collapsed"/>
         </Grid>
 
         <Button HorizontalAlignment="Left" Height="31" Margin="215,75,0,0" VerticalAlignment="Top" Width="169"/>

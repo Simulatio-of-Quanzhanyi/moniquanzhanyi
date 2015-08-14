@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -57,6 +59,9 @@
     <Compile Include="Class.cs" />
     <Compile Include="DBAdapter.cs" />
     <Compile Include="DBClass.cs" />
+    <Compile Include="keyboard.xaml.cs">
+      <DependentUpon>keyboard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MessageboxModel.xaml.cs">
       <DependentUpon>MessageboxModel.xaml</DependentUpon>
     </Compile>
@@ -514,9 +519,13 @@
     <Compile Include="Window_Start.xaml.cs">
       <DependentUpon>Window_Start.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WPFKey.xaml.cs">
-      <DependentUpon>WPFKey.xaml</DependentUpon>
+    <Compile Include="softKey.xaml.cs">
+      <DependentUpon>softKey.xaml</DependentUpon>
     </Compile>
+    <Page Include="keyboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MessageboxModel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -1137,7 +1146,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WPFKey.xaml">
+    <Page Include="softKey.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

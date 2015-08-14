@@ -27,7 +27,8 @@
         <Button x:Name="Ensure" HorizontalAlignment="Left" Height="23" Margin="92,292,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESCkey_Click" Cursor="Hand"/>
         <Image HorizontalAlignment="Left" Height="29" Margin="292,290,0,0" VerticalAlignment="Top" Width="41" Source="/Wpf5320;component/RES/softkeyboard.png" Stretch="Fill"/>
         <Button x:Name="softkeyboard" HorizontalAlignment="Left" Height="29" Margin="292,290,0,0" VerticalAlignment="Top" Width="41" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0"  Cursor="Hand" Click="softkeyboard_Click"/>
-        <Grid  x:Name="LayoutRoot" HorizontalAlignment="Left" Height="303" Margin="417,50,0,0" VerticalAlignment="Top" Width="170" ButtonBase.Click="LayoutRoot_Click" >
+        
+        <!--<Grid  x:Name="LayoutRoot" HorizontalAlignment="Left" Height="303" Margin="417,50,0,0" VerticalAlignment="Top" Width="170" ButtonBase.Click="LayoutRoot_Click" Visibility="Collapsed" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="20*"/>
                 <ColumnDefinition Width="21*"/>
@@ -56,7 +57,7 @@
             <Button  x:Name="BSkey" x:FieldModifier="private" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="26" Height="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="12,12,9,0" Grid.Row="3" Grid.Column="3"  Cursor="Hand"/>
             <Button  x:Name="Shiftkey" x:FieldModifier="private" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="26" Height="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="12,10,9,0" Grid.Row="4" Grid.Column="3"  Cursor="Hand"/>
             <Button  x:Name="SPkey" x:FieldModifier="private" Content=" " HorizontalAlignment="Center" VerticalAlignment="Center" Width="26" Height="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="12,10,9,0" Grid.Row="5" Grid.Column="3"  Cursor="Hand"/>
-            <Button  x:Name="ESCkey" x:FieldModifier="private" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="26" Height="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="12,15,9,0" Grid.Row="6" Grid.Column="3" Click="ESCkey_Click"  Cursor="Hand"/>
+            <Button  x:Name="ESCkey" x:FieldModifier="private" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="26" Height="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="12,15,9,0" Grid.Row="6" Grid.Column="3"  Cursor="Hand"/>
             <Button  x:Name="ENTkey" x:FieldModifier="private" Content="Button" HorizontalAlignment="Center" VerticalAlignment="Center" Width="26" Height="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="12,14,9,0" Grid.Row="7" Grid.Column="3"  Cursor="Hand"/>
             <Button  x:Name="Bt7key" x:FieldModifier="private" Content="7" HorizontalAlignment="Center" VerticalAlignment="Center" Width="33" Height="33" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="2,1,2,0" Grid.Row="2" Grid.Column="0"  Cursor="Hand"/>
             <Button  x:Name="Bt8key" x:FieldModifier="private" Content="8" HorizontalAlignment="Center" VerticalAlignment="Center" Width="33" Height="33" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="3,1,2,0" Grid.Row="2" Grid.Column="1"  Cursor="Hand"/>
@@ -74,9 +75,10 @@
             <Button  x:Name="BtLtkey" x:FieldModifier="private" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="14" Height="14" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="19,2,9,24" Grid.Row="7" Grid.Column="0"  Cursor="Hand"/>
             <Button  x:Name="BtDnkey" x:FieldModifier="private"  Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="14" Height="14" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="19,2,9,24" Grid.Row="7" Grid.Column="1" Cursor="Hand"/>
             <Button  x:Name="BtRtkey" x:FieldModifier="private" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="14" Height="14" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="19,2,9,24" Grid.Row="7" Grid.Column="2" Cursor="Hand"/>
-        </Grid>
-        <local:WPFKey x:Name="wpfkey1" HorizontalAlignment="Left" Height="182" Margin="275,107,0,0" VerticalAlignment="Top" Width="108" Visibility="Collapsed" PreviewMouseLeftButtonUp="wpfkey1_PreviewMouseLeftButtonUp"/>
- 
+        </Grid>-->
+        <local:softKey x:Name="softKey" HorizontalAlignment="Left" Height="182" Margin="275,107,0,0" VerticalAlignment="Top" Width="108" Visibility="Collapsed" PreviewMouseLeftButtonUp="softKey_PreviewMouseLeftButtonUp"/>
+        <local:keyboard x:Name="keyboard" HorizontalAlignment="Left" Margin="417,50,0,0" VerticalAlignment="Top" Height="303" Width="170" PreviewMouseLeftButtonUp="keyboard_PreviewMouseLeftButtonUp" Opacity="0"/>
+
 
 
 

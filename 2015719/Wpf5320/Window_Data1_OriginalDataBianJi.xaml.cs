@@ -22,354 +22,19 @@ namespace Wpf5320
     public partial class Window_Data1_OriginalDataBianJi : Window
     {
         private int selectPos;
-        private bool isnumber = true;//是否数字
-        private bool isupper = true;//是否大写
-        private int keyNumber = 0;//字母顺序
-        private string lastkey = null;
         private bool IsTBPointNameFocused = false;
         private bool IsTBCodeFocused = false;
-        private bool istimeout = false;
-        private System.Windows.Threading.DispatcherTimer timer;
         private int txtfocus = 0;
         
         private string odbcConnStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\TSISData.accdb";
         public string ID;
+
         public Window_Data1_OriginalDataBianJi()
         {
             InitializeComponent();
-            systime.Content = DateTime.Now.ToShortTimeString();
-            timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.IsEnabled = false;
         }
 
-        private void LayoutRoot_Click(object sender, RoutedEventArgs e)
-        {
-            Button bt = e.OriginalSource as Button;
-            if (bt != null)
-            {
-
-                string keyName = bt.Name.ToString();
-                switch (keyName)
-                {
-                    case "Arfakey":
-                        #region case "Arfakey":
-                        if (isupper)
-                        {
-                            isupper = false;
-                            MessageBox.Show("小写字母");
-                        }
-                        else
-                        {
-                            isupper = true;
-                            MessageBox.Show("大写字母");
-                        }
-                        break;
-                        #endregion
-                    case "Softkey":
-                        //   MessageBox.Show("显示软件盘");
-                        break;
-                    case "Starkey":
-                        //  MessageBox.Show("快捷键");
-                        break;
-                    case "Powerkey":
-                        #region
-                        Window_Shutdown_PowerOff Shutdown_PowerOff = new Window_Shutdown_PowerOff();
-                        Shutdown_PowerOff.Show();
-                        this.Close();//关闭当前窗口 
-                        break;
-                        #endregion
-                    case "Funckey":
-                        // MessageBox.Show("Func");
-                        break;
-                    case "Ctrlkey":
-                        break;
-                    case "Altkey":
-                        break;
-                    case "Delkey":
-                        #region case "Delkey":
-                        if (IsTBPointNameFocused) tbstringfun(TBPointName, 3, "*");
-                        if (IsTBCodeFocused) tbstringfun(TBCode, 3, "*");
-                        break;
-                        #endregion
-                    case "Tabkey":
-                        #region
-                        /*                       switch (txtfocus)
-                        {
-                            case 0:
-                                txtfocus = txtfocus + 1;
-                                TByoulengjingchangshu.Focus();
-
-                                break;
-                            case 1:
-                                txtfocus = txtfocus + 1;
-                                istbTByoulengjingchangshuFocused.Focus();
-
-                                break;
-                            default:
-                                txtfocus = 0;
-                                tbItemName.Focus();
-                                break;
-                        }*/
-                        break;
-                        #endregion
-                    case "BSkey":
-                        #region case "BSkey":
-                        if (IsTBPointNameFocused) tbstringfun(TBPointName, 2, "*");
-                        if (IsTBCodeFocused) tbstringfun(TBCode, 2, "*");
-
-                        break;
-                        #endregion
-                    case "Shiftkey":
-                        #region case "Shiftkey":
-                        if (isnumber)
-                        {
-
-                            isnumber = false;
-
-                            //                      MessageBox.Show("字母键盘");
-                            Bt0key.Content = "#$%";
-                            Btptkey.Content = "!&@";
-                            Bt_key.Content = "+*/";
-                            Bt1key.Content = "STU";
-                            Bt2key.Content = "VWX";
-                            Bt3key.Content = "YZ";
-                            Bt4key.Content = "JKL";
-                            Bt5key.Content = "MNO";
-                            Bt6key.Content = "PQR";
-                            Bt7key.Content = "ABC";
-                            Bt8key.Content = "DEF";
-                            Bt9key.Content = "GHI";
-                        }
-                        else
-                        {
-                            isnumber = true;
-                            timer.IsEnabled = false;
-                            //                           MessageBox.Show("数字键盘");
-                            Bt0key.Content = "0";
-                            Btptkey.Content = ".";
-                            Bt_key.Content = "-";
-                            Bt1key.Content = "1";
-                            Bt2key.Content = "2";
-                            Bt3key.Content = "3";
-                            Bt4key.Content = "4";
-                            Bt5key.Content = "5";
-                            Bt6key.Content = "6";
-                            Bt7key.Content = "7";
-                            Bt8key.Content = "8";
-                            Bt9key.Content = "9";
-                        }
-                        if (IsTBPointNameFocused) TBPointName.Focus();
-                        if (IsTBCodeFocused) TBCode.Focus();
-                        break;
-                        #endregion
-                    case "SPkey":
-                        #region
-                        if (IsTBPointNameFocused) tbstringfun(TBPointName, 0, bt.Content.ToString());
-                        if (IsTBCodeFocused) tbstringfun(TBCode, 0, bt.Content.ToString());
-
-                        break;
-                        #endregion
-                    case "ESCkey":
-                        #region
-                        ESC_Click(sender, e);
-                        break;
-                        #endregion
-                    case "ENTkey":
-                        #region case "ENTkey":
-
-                        break;
-                        #endregion
-
-                    case "BtDnkey":
-                        #region
-                        switch (txtfocus)
-                        {
-                            case 0:
-                                txtfocus = txtfocus + 1;
-                                TBPointName.Focus();
-                                break;
-                                ;
-                            default:
-                                txtfocus = 0;
-                                TBCode.Focus();
-                                break;
-                        }
-                        break;
-                        #endregion
-                    case "BtUpkey":
-                        #region case "BtUpkey"
-                        switch (txtfocus)
-                        {
-                            case 1:
-                                txtfocus = txtfocus - 1;
-                                TBPointName.Focus();
-                                break;
-                            default:
-                                txtfocus = 1;
-                                TBCode.Focus();
-                                break;
-                        }
-                        break;
-                        #endregion
-                    case "BtLtkey":
-                        #region
-                        if (IsTBPointNameFocused)
-                        {
-                            selectPos = this.TBPointName.SelectionStart;
-                            TBPointName.Focus();
-                            if (selectPos >= 1)
-                            {
-
-                                TBPointName.Select(selectPos - 1, 0);
-                            }
-                        }
-                        if (IsTBCodeFocused)
-                        {
-                            selectPos = this.TBCode.SelectionStart;
-                            TBCode.Focus();
-                            if (selectPos >= 1)
-                            {
-                                TBCode.Select(selectPos - 1, 0);
-                            }
-                        }
-                        break;
-                        #endregion
-                    case "BtRtkey":
-                        #region
-                        istimeout = true;
-                        lastkey = null;
-                        if (IsTBPointNameFocused)
-                        {
-                            selectPos = this.TBPointName.SelectionStart;
-                            TBPointName.Focus();
-                            if (selectPos < this.TBPointName.Text.Length)
-                            {
-                                TBPointName.Select(selectPos + 1, 0);
-                            }
-                        }
-                        if (IsTBCodeFocused)
-                        {
-                            selectPos = this.TBCode.SelectionStart;
-                            TBCode.Focus();
-                            if (selectPos < TBCode.Text.Length)
-                            {
-                                TBCode.Select(selectPos + 1, 0);
-                            }
-                        }
-                        break;
-                        #endregion
-                    default:
-                        #region default:
-                        if (isnumber)
-                        {
-                            if (IsTBPointNameFocused) tbstringfun(TBPointName, 0, bt.Content.ToString());
-                            if (IsTBCodeFocused) tbstringfun(TBCode, 0, bt.Content.ToString());
-                        }
-                        else
-                        {
-
-                            string press = bt.Name.ToString();
-                            timer.Stop();
-                            timer.Start();
-                            if (press != lastkey)
-                            {
-                                lastkey = press;
-                                istimeout = true;
-                                keyNumber = 1;
-                            }
-                            else
-                            {
-                                keyNumber++;
-                            }
-                            if (IsTBPointNameFocused)
-                            {
-                                switch (keyNumber % 3)
-                                {
-                                    case 0:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(TBPointName, 0, bt.Content.ToString().Substring(2, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(TBPointName, 1, bt.Content.ToString().Substring(2, 1));
-                                        }
-                                        break;
-                                    case 1:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(TBPointName, 0, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(TBPointName, 1, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        break;
-                                    case 2:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(TBPointName, 0, bt.Content.ToString().Substring(1, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(TBPointName, 1, bt.Content.ToString().Substring(1, 1));
-                                        }
-                                        break;
-                                }
-                            }
-                            #region
-                            if (IsTBCodeFocused)
-                            {
-                                switch (keyNumber % 3)
-                                {
-                                    case 0:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(TBCode, 0, bt.Content.ToString().Substring(2, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(TBCode, 1, bt.Content.ToString().Substring(2, 1));
-                                        }
-                                        break;
-                                    case 1:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(TBCode, 0, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(TBCode, 1, bt.Content.ToString().Substring(0, 1));
-                                        }
-                                        break;
-                                    case 2:
-                                        if (istimeout)
-                                        {
-                                            tbstringfun(TBCode, 0, bt.Content.ToString().Substring(1, 1));
-                                        }
-                                        else
-                                        {
-                                            tbstringfun(TBCode, 1, bt.Content.ToString().Substring(1, 1));
-                                        }
-                                        break;
-                                }
-                            #endregion
-                            }
-                        }
-                        istimeout = false;
-                        break;
-                }
-                        #endregion
-            }
-        }
-
-
-
-
-
-        private void ESC_Click(object sender, RoutedEventArgs e)
+        private void ESC_Click()
         {
             int ID1 = Convert.ToInt32(ID);
             Window_Data1_OriginalData window_Start1 = new Window_Data1_OriginalData();
@@ -380,7 +45,7 @@ namespace Wpf5320
             this.Close();//关闭当前窗口
         }
 
-        private void Bt_enter_Click(object sender, RoutedEventArgs e)
+        private void ENT_Click()
         {
             //打开数据库
             OleDbConnection conn = new OleDbConnection(odbcConnStr);
@@ -409,7 +74,6 @@ namespace Wpf5320
             }
         }
 
-
         private void TBPointName_GotFocus(object sender, RoutedEventArgs e)
         {
             IsTBPointNameFocused = true;
@@ -423,10 +87,7 @@ namespace Wpf5320
             IsTBCodeFocused = true;
             txtfocus = 1;
         }
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            istimeout = true;
-        }
+
         //文本字符串处理
         private void tbstringfun(TextBox TB, int math, string ct)
         {
@@ -469,22 +130,252 @@ namespace Wpf5320
         }
 
 
-
-        private void softkeyboard_Click(object sender, RoutedEventArgs e)
+        private void focusUnchanged()
         {
-            if (wpfkey1.Visibility == Visibility.Collapsed)
+            if (IsTBPointNameFocused) TBPointName.Focus();
+            else if (IsTBCodeFocused) TBCode.Focus();
+        }
+
+        private void toggleSoftKeyboard()
+        {
+            if (softKey.Visibility == Visibility.Collapsed)
             {
-                wpfkey1.Visibility = Visibility.Visible;
+                softKey.Visibility = Visibility.Visible;
             }
             else
             {
-                wpfkey1.Visibility = Visibility.Collapsed;
+                softKey.Visibility = Visibility.Collapsed;
             }
+        }
+
+        private void softkeyboard_Click(object sender, RoutedEventArgs e)
+        {
+            toggleSoftKeyboard();
+        }
+        private void keyboardInfoProce(string type, string value)
+        {
+            //  返回值类型为 null，不做任何改变（保持焦点不变） 。 结束调用此次事件处理函数
+
+            if (type == "null")
+            {
+                focusUnchanged();
+                return;
+            }
+
+            else if (type == "number" || type == "character" || type == "symbol")
+            {
+                //  返回值类型为 数字(number) 字母(character) 字符(other)  直接调用插入函数
+                if (IsTBPointNameFocused) tbstringfun(TBPointName, 0, value);
+                if (IsTBCodeFocused) tbstringfun(TBCode, 0, value);
+                return;
+            }
+
+            else if (type == "character_replace")
+            {
+                if (IsTBPointNameFocused) tbstringfun(TBPointName, 1, value);
+                if (IsTBCodeFocused) tbstringfun(TBCode, 1, value);
+                return;
+            }
+
+            //  返回值类型为 功能键(function)
+            else if (type == "function")
+            {
+                switch (value)
+                {
+                    case "Soft":
+                        #region "显示软键盘"
+                        toggleSoftKeyboard();
+                        //   MessageBox.Show("显示软件盘");
+                        break;
+                        #endregion
+
+                    case "Starkey":
+                        //  MessageBox.Show("快捷键");
+                        break;
+
+                    case "Power":
+                        #region  "关机界面"
+                        Window_Shutdown_PowerOff Shutdown_PowerOff = new Window_Shutdown_PowerOff();
+                        Shutdown_PowerOff.Show();
+                        this.Close();//关闭当前窗口 
+                        break;
+                        #endregion
+
+                    case "Func":
+                        // MessageBox.Show("Func");
+                        break;
+
+                    case "Ctrl":
+                        break;
+
+                    case "Alt":
+                        break;
+
+                    case "Del":
+                        #region "删除字符"
+                        if (IsTBPointNameFocused) tbstringfun(TBPointName, 3, "*");
+                        if (IsTBCodeFocused) tbstringfun(TBCode, 3, "*");
+                        break;
+                        #endregion
+
+                    case "Tab":
+                        #region  "切换焦点"
+                        switch (txtfocus)
+                        {
+                            case 0:
+                                txtfocus = txtfocus + 1;
+                                TBPointName.Focus();
+                                break;
+                                ;
+                            default:
+                                txtfocus = 0;
+                                TBCode.Focus();
+                                break;
+                        }
+                        break;
+                        #endregion
+
+                    case "B.S":
+                        #region "删除字符"
+                        if (IsTBPointNameFocused) tbstringfun(TBPointName, 2, "*");
+                        if (IsTBCodeFocused) tbstringfun(TBCode, 2, "*");
+                        break;
+                        #endregion
+
+
+                    case "ESCkey":
+                        #region "返回上一界面"
+                        ESC_Click();
+                        break;
+                        #endregion
+
+                    case "ENT":
+                        #region "确认"
+                        ENT_Click();
+                        break;
+                        #endregion
+
+                    case "Dn":
+                        #region "切换焦点"
+                        switch (txtfocus)
+                        {
+                            case 0:
+                                txtfocus = txtfocus + 1;
+                                TBPointName.Focus();
+                                break;
+                                ;
+                            default:
+                                txtfocus = 0;
+                                TBCode.Focus();
+                                break;
+                        }
+                        break;
+                        #endregion
+
+                    case "Up":
+                        #region "切换焦点"
+                        switch (txtfocus)
+                        {
+                            case 1:
+                                txtfocus = txtfocus - 1;
+                                TBPointName.Focus();
+                                break;
+                            default:
+                                txtfocus = 1;
+                                TBCode.Focus();
+                                break;
+                        }
+                        break;
+                        #endregion
+
+                    case "Lt":
+                        #region "移动光标"
+                       if (IsTBPointNameFocused)
+                        {
+                            selectPos = this.TBPointName.SelectionStart;
+                            TBPointName.Focus();
+                            if (selectPos >= 1)
+                            {
+
+                                TBPointName.Select(selectPos - 1, 0);
+                            }
+                        }
+                        if (IsTBCodeFocused)
+                        {
+                            selectPos = this.TBCode.SelectionStart;
+                            TBCode.Focus();
+                            if (selectPos >= 1)
+                            {
+                                TBCode.Select(selectPos - 1, 0);
+                            }
+                        }
+                        break;
+                        #endregion
+
+                    case "Rt":
+                        #region "移动光标"
+                        if (IsTBPointNameFocused)
+                        {
+                            selectPos = this.TBPointName.SelectionStart;
+                            TBPointName.Focus();
+                            if (selectPos < this.TBPointName.Text.Length)
+                            {
+                                TBPointName.Select(selectPos + 1, 0);
+                            }
+                        }
+                        if (IsTBCodeFocused)
+                        {
+                            selectPos = this.TBCode.SelectionStart;
+                            TBCode.Focus();
+                            if (selectPos < TBCode.Text.Length)
+                            {
+                                TBCode.Select(selectPos + 1, 0);
+                            }
+                        }
+                        break;
+                        #endregion
+
+                    default:
+                        #region
+                        focusUnchanged();
+
+                        break;
+                        #endregion
+                }
+            }
+            else
+            {
+                //  返回值为其他键 不做任何改变（焦点保持不变）
+                focusUnchanged();
+            }
+            return;
         }
 
         private void ESCkey_Click(object sender, RoutedEventArgs e)
         {
-
+            ESC_Click();
         }
+
+        private keyboard key = new keyboard();
+
+        private void keyboard_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            //  对用户控件 键盘 绑定 PreviewMouseLeftButtonUp 事件
+
+            //  调用键盘的单击函数（模拟对用户控件的单击事件）
+            key.keyboard_click(sender, e);
+
+            //  读取从软键盘获得的 返回值类型 信息
+            string type = key.ReturnType;
+
+            //  读取从键盘获得的 返回值
+            string value = key.ReturnValue;
+
+            keyboardInfoProce(type, value);
+        }
+
+
+
+
     }
 }
