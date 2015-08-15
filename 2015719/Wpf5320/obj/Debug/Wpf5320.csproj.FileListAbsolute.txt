@@ -7667,3 +7667,6 @@ F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\keyboard.baml
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\softKey.baml
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\keyboard.g.cs
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\softKey.g.cs
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320_Content.g.cs
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_intro_Video.baml
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Window_intro_Video.g.cs

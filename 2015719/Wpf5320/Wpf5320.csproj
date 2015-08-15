@@ -59,6 +59,9 @@
     <Compile Include="Class.cs" />
     <Compile Include="DBAdapter.cs" />
     <Compile Include="DBClass.cs" />
+    <Compile Include="Window_intro_Video.xaml.cs">
+      <DependentUpon>Window_intro_Video.xaml</DependentUpon>
+    </Compile>
     <Compile Include="keyboard.xaml.cs">
       <DependentUpon>keyboard.xaml</DependentUpon>
     </Compile>
@@ -522,6 +525,10 @@
     <Compile Include="softKey.xaml.cs">
       <DependentUpon>softKey.xaml</DependentUpon>
     </Compile>
+    <Page Include="Window_intro_Video.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="keyboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1197,6 +1204,9 @@
   <ItemGroup>
     <Resource Include="RES\001.jpg" />
     <Resource Include="RES\002.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RES\Intro.wmv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
