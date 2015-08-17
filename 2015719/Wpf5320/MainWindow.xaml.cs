@@ -36,117 +36,36 @@ namespace Wpf5320
             }
         }
 
-        private void ESCkey_Click(object sender, RoutedEventArgs e)
+        keyboard key = new keyboard();
+        private void keyboard_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
-        }
-        private void LayoutRoot_Click(object sender, RoutedEventArgs e)
-        {
-            Button bt = e.OriginalSource as Button;
-            if (bt != null)
+            key.keyboard_click(sender, e);
+            string type = key.ReturnType;
+            string value = key.ReturnValue;
+            if (type == "function" && value == "Power")
             {
+                //  跳转至播放介绍视频界面
+                Window_intro_Video intro = new Window_intro_Video();
+                intro.Show();
+                this.Close();//关闭当前窗口
 
-                string keyName = bt.Name.ToString();
-                switch (keyName)
+                if (IsPower)
                 {
-                    case "Arfakey":
-
-                    case "Softkey":
-                        //   MessageBox.Show("显示软件盘");
-                        break;
-                    case "Starkey":
-                        //  MessageBox.Show("快捷键");
-                        break;
-                    case "Powerkey":
-                        #region
-                        if (IsPower)
-                        {
-                            Window_Start window_Start1 = new Window_Start();
-                            window_Start1.Show();
-                            this.Close();//关闭当前窗口
-                            IsPower = false;
-                        }
-                        else
-                        {
-                            //if (MessageBox.Show("确定退出吗？", "系统提示", MessageBoxButton.OKCancel, MessageBoxImage.Question) == MessageBoxResult.OK)
-                            //{
-                            //    // MessageBox.Show("开机界面退出！");//在全站仪界面中加载
-                            //    Application.Current.Shutdown();
-                            //}
-                            myMessageBox my = new myMessageBox();
-                            my.show("开机界面退出！");
-
-                        }
-                        break;
-                        #endregion
-                    case "Funckey":
-                        // MessageBox.Show("Func");
-                        break;
-                    case "Ctrlkey":
-                        break;
-                    case "Altkey":
-                        break;
-                    case "Delkey":
-                        #region case "Delkey":
-
-                        #endregion
-                    case "Tabkey":
-                        #region
-    
-                        #endregion
-                    case "BSkey":
-                        #region case "BSkey":
-
-                        #endregion
-                    case "Shiftkey":
-                        #region case "Shiftkey":
-                         break;           ;
-                        #endregion
-                    case "SPkey":
-                        #region
-
-                        #endregion
-                    case "ESCkey":
-                        #region
-                        ESCkey_Click(sender, e);
-                        break;
-                        #endregion
-                    case "ENTkey":
-                        #region case "ENTkey":
- 
-                        break;
-                        #endregion
-
-                    case "BtDnkey":
-                        #region
-
-                        break;
-                        #endregion
-                    case "BtUpkey":
-                        #region case "BtUpkey"
-
-                        break;
-                        #endregion
-                    case "BtLtkey":
-                        #region
+                    
 
 
-                        break;
-                        #endregion
-                    case "BtRtkey":
-                        #region
-
-
-                        break;
-                        #endregion
-                    default:
-                        #region
-                        break;
-                        #endregion
+                    //Window_Start window_Start1 = new Window_Start();
+                    //window_Start1.Show();
+                    //this.Close();//关闭当前窗口
+                    IsPower = false;
                 }
+                else
+                {
+                    myMessageBox my = new myMessageBox();
+                    my.show("开机界面退出！");
 
+                }
             }
         }
-
     }
 }

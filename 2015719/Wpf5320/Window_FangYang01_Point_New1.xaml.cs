@@ -593,13 +593,13 @@ namespace Wpf5320
 
         private void softkeyboard_Click(object sender, RoutedEventArgs e)
         {
-            if (wpfkey1.Visibility == Visibility.Collapsed)
+            if (softKey.Visibility == Visibility.Collapsed)
             {
-                wpfkey1.Visibility = Visibility.Visible;
+                softKey.Visibility = Visibility.Visible;
             }
             else
             {
-                wpfkey1.Visibility = Visibility.Collapsed;
+                softKey.Visibility = Visibility.Collapsed;
             }
 
         }
