@@ -43,13 +43,12 @@ namespace Wpf5320
             {
                 Window_jianzhan7 win = new Window_jianzhan7();                
                 string sql = "select * from Buildstation where 测站='" + Pointname.Text.Trim() + "'";
-                ACEESSDB DB = new ACEESSDB();
-                bool B = DB.Judge(sql);
+                bool B = DBClass.Judge(sql);
                 if (B)
                 {
                     if (MessageBox.Show("已存在该点，是否覆盖？", "系统提示", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     {
-                        DB.Manipulation("Update Buildstation set 编码='" + Code.Text.Trim() + "',N='" + N.Text.Trim() + "',E='" + E.Text.Trim() + "',Z='" + Z.Text.Trim() + "' where 测站='" + Pointname.Text.Trim() + "'");                        
+                        DBClass.Manipulation("Update Buildstation set 编码='" + Code.Text.Trim() + "',N='" + N.Text.Trim() + "',E='" + E.Text.Trim() + "',Z='" + Z.Text.Trim() + "' where 测站='" + Pointname.Text.Trim() + "'");                        
                         win.station.Text = Pointname.Text;
                         win.Show();
                         this.Close();
@@ -58,7 +57,7 @@ namespace Wpf5320
                 }
                 else
                 {
-                    DB.Manipulation("Insert into Buildstation (测站,编码,N,E,Z) Values('" + Pointname.Text.Trim() + "','" + Code.Text.Trim() + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
+                    DBClass.Manipulation("Insert into Buildstation (测站,编码,N,E,Z) Values('" + Pointname.Text.Trim() + "','" + Code.Text.Trim() + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
                     win.station.Text = Pointname.Text;
                     win.Show();
                     this.Close();

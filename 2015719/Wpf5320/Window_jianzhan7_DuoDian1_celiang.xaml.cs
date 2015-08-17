@@ -90,11 +90,10 @@ namespace Wpf5320
             if (pointname.Text.Trim() != s)
             {
                 string sql = "select * from Buildstation where 测站='" + pointname.Text.Trim() + "'";
-                ACEESSDB DB = new ACEESSDB();
-                bool B = DB.Judge(sql);
+                bool B = DBClass.Judge(sql);
                 if (B)  //调用
                 {
-                    DB.Manipulation("Update Buildstation set 镜高='" + JH.Text.Trim() + "',水平角='" + HA.Content + "',垂直角='" + VA.Content + "',斜距='" + SD.Content + "' where 站名='" + pointname.Text.Trim() + "' where 测站='" + pointname.Text.Trim() + "'");
+                    DBClass.Manipulation("Update Buildstation set 镜高='" + JH.Text.Trim() + "',水平角='" + HA.Content + "',垂直角='" + VA.Content + "',斜距='" + SD.Content + "' where 站名='" + pointname.Text.Trim() + "' where 测站='" + pointname.Text.Trim() + "'");
                     ESC_Click(sender, e);
                 }
                 else  //新建
@@ -110,9 +109,8 @@ namespace Wpf5320
             }
             else   //输入
             {
-                ACEESSDB insert = new ACEESSDB();
-                insert.Manipulation("Update HFJH_2 set 镜高='" + JH.Text.Trim() + "',水平角='" + HA.Content + "',垂直角='" + VA.Content + "',斜距='" + SD.Content + "' where 站名='" + pointname.Text.Trim() + "'");
-                insert.Manipulation("Insert into Buildstation (测站,镜高,N,E,Z,水平角,垂直角,斜距) select 站名,镜高,N,E,Z,水平角,垂直角,斜距 from HFJH_2");
+                DBClass.Manipulation("Update HFJH_2 set 镜高='" + JH.Text.Trim() + "',水平角='" + HA.Content + "',垂直角='" + VA.Content + "',斜距='" + SD.Content + "' where 站名='" + pointname.Text.Trim() + "'");
+                DBClass.Manipulation("Insert into Buildstation (测站,镜高,N,E,Z,水平角,垂直角,斜距) select 站名,镜高,N,E,Z,水平角,垂直角,斜距 from HFJH_2");
                 ESC_Click(sender, e);
             }
            

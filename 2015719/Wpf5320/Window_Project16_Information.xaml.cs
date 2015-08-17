@@ -29,12 +29,10 @@ namespace Wpf5320
             systime.Content = DateTime.Now.ToShortTimeString();
             //项目名称，点数，编码个数，作者，备注，创建时间
             //读取数据库
-            DBClass db = new DBClass();
-            db.DbOpen();
 
 
             string sql = "select * from ItemInfor where ItemName='" + GlobalVariables.OpenItem + "'";
-            DataSet ds = db.ConditionQuery(sql);
+            DataSet ds = DBClass.ConditionQuery(sql);
             if (ds.Tables[0].Rows.Count > 0)
             {
                 ItemName.Content = ds.Tables[0].Rows[0]["ItemName"].ToString().Trim();
@@ -49,7 +47,6 @@ namespace Wpf5320
             {
                 MessageBox.Show("当前不存在打开项目");
             }
-            db.DbClose();
 
         }
 
@@ -62,7 +59,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

@@ -66,10 +66,9 @@ namespace Wpf5320
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "Buildstation");
                 int c = LV.SelectedIndex;
-                ACEESSDB DB = new ACEESSDB();
                 string s = ds.Tables["Buildstation"].Rows[c]["测站"].ToString().Trim();
-                DB.Manipulation("Delete from HFJH_2");
-                DB.Manipulation("Insert into HFJH_2 (站名,编码,N,E,Z) select 测站,编码,N,E,Z from Buildstation where 测站='" + s + "'");
+                DBClass.Manipulation("Delete from HFJH_2");
+                DBClass.Manipulation("Insert into HFJH_2 (站名,编码,N,E,Z) select 测站,编码,N,E,Z from Buildstation where 测站='" + s + "'");
                 ESC_Click(sender, e);
             }
             else

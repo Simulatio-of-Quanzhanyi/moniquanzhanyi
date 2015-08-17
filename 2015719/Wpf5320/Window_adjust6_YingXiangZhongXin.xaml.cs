@@ -52,5 +52,14 @@ namespace Wpf5320
             Shutdown_PowerOff.Show();
             this.Close();//关闭当前窗口 
         }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
+            {
+                DragMove();
+            }
+        }
     }
 }

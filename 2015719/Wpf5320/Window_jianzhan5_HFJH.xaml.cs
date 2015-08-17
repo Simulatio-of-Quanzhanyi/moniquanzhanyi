@@ -61,9 +61,8 @@ namespace Wpf5320
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "HFJH");
                 int c = LV.SelectedIndex;
-                ACEESSDB DB = new ACEESSDB();
                 string s = ds.Tables["HFJH"].Rows[c]["站名"].ToString().Trim();
-                DB.Manipulation("Delete from HFJH where 站名='"+s+"'");
+                DBClass.Manipulation("Delete from HFJH where 站名='"+s+"'");
                 Window_jianzhan5 window_jianzhan5 = new Window_jianzhan5();//刷新界面
                 window_jianzhan5.Show();
                 this.Close();//关闭当前窗口
@@ -92,11 +91,10 @@ namespace Wpf5320
                 }
                 else
                 {
-                    ACEESSDB DB = new ACEESSDB();
                     string s1="Result";
-                    DB.Manipulation("Insert into Buildstation(测站,编码,N,E,Z) Values('"+s1+"','" + code.Content + "','" + N.Content + "','" + E.Content + "','" + Z.Content + "')");
-                    DB.Manipulation("Delete from HFJH_2");
-                    DB.Manipulation("Insert into HFJH_2 (站名,编码,N,E,Z) Values('"+s1+"','" + code.Content + "','" + N.Content + "','" + E.Content + "','" + Z.Content + "')");
+                    DBClass.Manipulation("Insert into Buildstation(测站,编码,N,E,Z) Values('"+s1+"','" + code.Content + "','" + N.Content + "','" + E.Content + "','" + Z.Content + "')");
+                    DBClass.Manipulation("Delete from HFJH_2");
+                    DBClass.Manipulation("Insert into HFJH_2 (站名,编码,N,E,Z) Values('"+s1+"','" + code.Content + "','" + N.Content + "','" + E.Content + "','" + Z.Content + "')");
                     MessageBox.Show("保存成功！");                
                 }              
             }

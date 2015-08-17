@@ -28,12 +28,9 @@ namespace Wpf5320
 
             InitializeComponent();
             systime.Content = DateTime.Now.ToShortTimeString();
-            DBClass DB = new DBClass();
-            DB.DbOpen();
             string sql = "select ItemName,ItemDate from ItemInfor";
-            DataSet ds=DB.ConditionQuery(sql);
+            DataSet ds=DBClass.ConditionQuery(sql);
             ListView1.ItemsSource = ds.Tables[0].DefaultView;
-            DB.DbClose();
           /*  string itemName, itemdate;
             var sb = new StringBuilder();
             int temp;
@@ -111,7 +108,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

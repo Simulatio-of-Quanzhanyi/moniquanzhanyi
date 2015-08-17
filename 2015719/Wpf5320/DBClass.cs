@@ -11,8 +11,17 @@ namespace Wpf5320
 {
     class DBClass
     {
-            private  static string odbcConnStr="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\TSISData.accdb"; 
+            private static string odbcConnStr="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\TSISData.accdb";
             private OleDbConnection conn = new OleDbConnection(odbcConnStr);
+
+            public static OleDbConnection getConn() //获取数据表
+            {
+                OleDbConnection mydata = new OleDbConnection(odbcConnStr);
+                mydata.Open();
+                return mydata;
+            }
+
+            public DBClass() { }
 
             public string OdbcConStr
             {
@@ -30,33 +39,69 @@ namespace Wpf5320
             }
 
             //条件查询
-            public DataSet ConditionQuery(string sql)
+            public static DataSet ConditionQuery(string sql)
             {
-                OleDbDataAdapter adp = new OleDbDataAdapter(sql, conn);
-                DataSet ds = new DataSet();
-                adp.Fill(ds);
-                return ds;
+                try
+                {
+                    OleDbConnection conn = new OleDbConnection(odbcConnStr);
+                    conn.Open();
+                    OleDbDataAdapter adp = new OleDbDataAdapter(sql, conn);
+                    DataSet ds = new DataSet();
+                    adp.Fill(ds);
+                    conn.Close();
+                    return ds;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
             }
                       
-            public DBClass()
+            public static void Manipulation(string sql)
             {
-                
+                try
+                {
+                    OleDbConnection conn = new OleDbConnection(odbcConnStr);
+                    conn.Open();
+                    OleDbCommand cmd = new OleDbCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
             }
-            public void Manipulation(string s)
+            public static void Manipulation_CMD(string sql)
             {
-                OleDbConnection conn = new OleDbConnection(odbcConnStr);
-                string sql = s;
-                conn.Open();
-                OleDbCommand cmd = new OleDbCommand(sql, conn);
-                cmd.CommandText = sql;
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                try
+                {
+                    OleDbConnection conn = new OleDbConnection(odbcConnStr);
+                    conn.Open();
+                    OleDbCommand cmd = new OleDbCommand(sql, conn);
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
             }
-            public void Manipulation_CMD(string sql)
+
+            public static bool Judge(string sql)  //用来查询表中是否存在相同数据,存在返回TRUE,不存在则返回Fasle
             {
-                OleDbCommand cmd = new OleDbCommand(sql, conn);
-                cmd.CommandText = sql;
-                cmd.ExecuteNonQuery();
+
+                try
+                {
+                    bool judge_;
+                    DataSet ds = ConditionQuery(sql);
+                    judge_ = (ds.Tables[0].Rows.Count != 0);
+                    return judge_;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
             }
        
     }
@@ -68,30 +113,55 @@ namespace Wpf5320
     {
         private static string odbcConnStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\TSISData.accdb";
         private OleDbConnection conn = new OleDbConnection(odbcConnStr);
-        public void Manipulation(string s)  //数据库数据操纵方法
+        public static void Manipulation(string s)  //数据库数据操纵方法
         {
-            OleDbConnection conn = new OleDbConnection(odbcConnStr);
-            string sql = s;
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-            OleDbCommand cmd = new OleDbCommand(sql, conn);
-            cmd.CommandText = sql;
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            try 
+            { 
+                OleDbConnection conn = new OleDbConnection(odbcConnStr);
+                string sql = s;
+                if (conn.State == ConnectionState.Closed)
+                    conn.Open();
+                OleDbCommand cmd = new OleDbCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch(Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
-        public bool Judge(string s)  //用来查询表中是否存在相同数据,存在返回TRUE,不存在则返回Fasle
+        public static DataSet ConditionQuery(string sql)
+        {
+            try
+            {
+                OleDbConnection conn = new OleDbConnection(odbcConnStr);
+                OleDbDataAdapter adp = new OleDbDataAdapter(sql, conn);
+                DataSet ds = new DataSet();
+                adp.Fill(ds);
+                conn.Close();
+                return ds;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public static bool Judge(string sql)  //用来查询表中是否存在相同数据,存在返回TRUE,不存在则返回Fasle
         {
 
-            OleDbConnection conn = new OleDbConnection(odbcConnStr);
-            if (conn.State == ConnectionState.Closed)
-                conn.Open();
-            string sql = s;
-            bool B;
-            OleDbCommand cmd = new OleDbCommand(sql, conn);
-            B = (cmd.ExecuteScalar() != null);
-            conn.Close();
-            return B;
+            try
+            {
+                bool judge_;
+                DataSet ds = ConditionQuery(sql);
+                judge_ = (ds.Tables[0].Rows.Count != 0);
+                return judge_;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
     }
 }

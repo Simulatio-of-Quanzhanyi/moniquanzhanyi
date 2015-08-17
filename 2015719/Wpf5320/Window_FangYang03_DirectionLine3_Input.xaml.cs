@@ -40,10 +40,9 @@ namespace Wpf5320
             }
             else
             {
-                ACEESSDB DB = new ACEESSDB();
                 string s = "Pt01";
                 //DB.Manipulation("Insert into CreatePoint (点名,N,E,Z) Values('" + s + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
-                DB.Manipulation("Update CreatePoint set 点名='" + s + "',N='" + N.Text.Trim() + "' ,E='" + E.Text.Trim() + "' ,Z='" + Z.Text.Trim() + "'   ");
+                DBClass.Manipulation("Update CreatePoint set 点名='" + s + "',N='" + N.Text.Trim() + "' ,E='" + E.Text.Trim() + "' ,Z='" + Z.Text.Trim() + "'   ");
                 ESC_Click(sender, e);
             }
 
@@ -51,7 +50,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

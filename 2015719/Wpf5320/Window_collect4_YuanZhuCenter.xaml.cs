@@ -97,7 +97,6 @@ namespace Wpf5320
             string SQL = null;
             double Dis_YX = 0;
             double Vhudu = 0;//核实
-            DBClass DB = new DBClass();
             arfa = (Hhudu_B - Hhudu_A) / 2;
             if (Distance > 0 && arfa > 0)
             {
@@ -134,9 +133,7 @@ namespace Wpf5320
                 //添加数据库
                 SQL = "INSERT INTO NEZCoord (PName,PCode,N,E,Z) values ('" + TbPname.Text + "','" + CBcode.SelectionBoxItem.ToString() + "','" + Point_Center.X.ToString("f03") + "','" + Point_Center.Y.ToString("f03") + "','" + Point_Center.Z.ToString("f03") + "')";
                 //  MessageBox.Show(SQL);
-                DB.DbOpen();
-                DB.Manipulation_CMD(SQL);
-                DB.DbClose();
+                DBClass.Manipulation_CMD(SQL);
                 TbPname.Text = ToolCase.PointNumberAdd1(TbPname.Text);
             }
             else
@@ -171,7 +168,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

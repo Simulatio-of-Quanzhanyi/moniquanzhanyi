@@ -105,7 +105,6 @@ namespace Wpf5320
 
         private void BtMeasuringSave_Click(object sender, RoutedEventArgs e)
         {
-            DBClass DB = new DBClass();
             string SQL = null;
             BtMeasuring_Click(sender, e);//先测
             //规划坐标宽153，长313，以测站为中心
@@ -130,9 +129,7 @@ namespace Wpf5320
             //把点的坐标插入到数据库
             SQL = "INSERT INTO NEZCoord (PName,PCode,N,E,Z) values ('" + TbPname.Text + "','" + CBcode.SelectionBoxItem.ToString() + "','" + CurrentPoint.X.ToString("f03") + "','" + CurrentPoint.Y.ToString("f03") + "','" + CurrentPoint.Z.ToString("f03") + "')";
             //  MessageBox.Show(SQL);
-            DB.DbOpen();
-            DB.Manipulation_CMD(SQL);
-            DB.DbClose();
+            DBClass.Manipulation_CMD(SQL);
         }
 
         private void Bt_exit_Click(object sender, RoutedEventArgs e)
@@ -148,7 +145,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

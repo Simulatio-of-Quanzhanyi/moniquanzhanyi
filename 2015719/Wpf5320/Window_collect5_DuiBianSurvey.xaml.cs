@@ -145,7 +145,6 @@ namespace Wpf5320
 
         private void BtSave_Click(object sender, RoutedEventArgs e)
         {
-            DBClass DB = new DBClass();
             string SQL = null;
             string TbPname = "DB";
             string CBcode = null;
@@ -158,9 +157,7 @@ namespace Wpf5320
             SQL = "INSERT INTO NEZCoord (PName,PCode,N,E,Z) values ('" + TbPname + "','" + CBcode + "','" + SeconPoint.X.ToString("f03") + "','" + SeconPoint.Y.ToString("f03") + "','" + SeconPoint.Z.ToString("f03") + "')";
 
             //  MessageBox.Show(SQL);
-            DB.DbOpen();
-            DB.Manipulation_CMD(SQL);
-            DB.DbClose();
+            DBClass.Manipulation_CMD(SQL);
             //TbPname.Text = ToolCase.PointNumberAdd1(TbPname.Text);
         }
         private void Draw_ylj(double X, double Y, double ZX_X, double ZX_Y)
@@ -197,7 +194,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

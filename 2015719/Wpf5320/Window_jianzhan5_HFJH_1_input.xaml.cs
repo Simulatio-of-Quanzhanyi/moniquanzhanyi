@@ -42,10 +42,9 @@ namespace Wpf5320
             }
             else
             {              
-                ACEESSDB DB = new ACEESSDB();
                 string s= "输入";
-                DB.Manipulation("Delete from HFJH_2");
-                DB.Manipulation("Insert into HFJH_2 (站名,N,E,Z) Values('"+s+"','"+N.Text.Trim()+"','"+E.Text.Trim()+"','"+Z.Text.Trim()+"')");
+                DBClass.Manipulation("Delete from HFJH_2");
+                DBClass.Manipulation("Insert into HFJH_2 (站名,N,E,Z) Values('"+s+"','"+N.Text.Trim()+"','"+E.Text.Trim()+"','"+Z.Text.Trim()+"')");
                 ESC_Click(sender, e);
             }
                
@@ -53,7 +52,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

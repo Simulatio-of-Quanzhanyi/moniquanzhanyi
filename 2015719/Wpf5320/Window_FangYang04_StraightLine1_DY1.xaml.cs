@@ -49,10 +49,9 @@ namespace Wpf5320
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "Buildstation");
                 int c = LV.SelectedIndex;
-                ACEESSDB DB = new ACEESSDB();
                 string s = ds.Tables["Buildstation"].Rows[c]["测站"].ToString().Trim();
-                DB.Manipulation("Delete from CreatePoint");
-                DB.Manipulation("Insert into CreatePoint (点名,编码,N,E,Z) select 测站,编码,N,E,Z from Buildstation where 测站='" + s + "'");
+                DBClass.Manipulation("Delete from CreatePoint");
+                DBClass.Manipulation("Insert into CreatePoint (点名,编码,N,E,Z) select 测站,编码,N,E,Z from Buildstation where 测站='" + s + "'");
                 ESC_Click(sender, e);
             }
             else
@@ -88,7 +87,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

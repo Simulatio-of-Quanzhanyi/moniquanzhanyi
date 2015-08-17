@@ -44,24 +44,23 @@ namespace Wpf5320
             {
                 OleDbConnection conn = new OleDbConnection(odbcConnStr);
                 string sql = "select * from Buildstation where 测站='" + Pointname.Text.Trim() + "'";
-                ACEESSDB DB = new ACEESSDB();
-                bool B = DB.Judge(sql);
+                bool B = DBClass.Judge(sql);
                 if (B)
                 {
                     if (MessageBox.Show("已存在该点，是否覆盖？", "系统提示", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     {
-                        DB.Manipulation("Update Buildstation set 编码='" + Code.Text.Trim() + "',N='" + N.Text.Trim() + "',E='" + E.Text.Trim() + "',Z='" + Z.Text.Trim() + "' where 测站='" + Pointname.Text.Trim() + "'");
-                        DB.Manipulation("Delete from Createrearview");
-                        DB.Manipulation("Insert into Createrearview (点名,编码,N,E,Z) Values('" + Pointname.Text.Trim() + "','" + Code.Text.Trim() + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
+                        DBClass.Manipulation("Update Buildstation set 编码='" + Code.Text.Trim() + "',N='" + N.Text.Trim() + "',E='" + E.Text.Trim() + "',Z='" + Z.Text.Trim() + "' where 测站='" + Pointname.Text.Trim() + "'");
+                        DBClass.Manipulation("Delete from Createrearview");
+                        DBClass.Manipulation("Insert into Createrearview (点名,编码,N,E,Z) Values('" + Pointname.Text.Trim() + "','" + Code.Text.Trim() + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
                         ESC_Click(sender, e);
                     }
 
                 }
                 else
                 {
-                    DB.Manipulation("Insert into Buildstation(测站,编码,N,E,Z) Values('" + Pointname.Text.Trim() + "','" + Code.Text.Trim() + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
-                    DB.Manipulation("Delete from CreatePoint");
-                    DB.Manipulation("Insert into CreatePoint (点名,编码,N,E,Z) Values('" + Pointname.Text.Trim() + "','" + Code.Text.Trim() + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
+                    DBClass.Manipulation("Insert into Buildstation(测站,编码,N,E,Z) Values('" + Pointname.Text.Trim() + "','" + Code.Text.Trim() + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
+                    DBClass.Manipulation("Delete from CreatePoint");
+                    DBClass.Manipulation("Insert into CreatePoint (点名,编码,N,E,Z) Values('" + Pointname.Text.Trim() + "','" + Code.Text.Trim() + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
                     ESC_Click(sender, e);
                 }
             }
@@ -70,7 +69,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

@@ -40,10 +40,9 @@ namespace Wpf5320
             }
             else
             {
-                ACEESSDB DB = new ACEESSDB();
                 string s = "输入";
-                DB.Manipulation("Insert into HFJH (站名,N,E,Z) Values('" + s + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
-                DB.Manipulation("Update HFJH_2 set 站名='" + s + "'");
+                DBClass.Manipulation("Insert into HFJH (站名,N,E,Z) Values('" + s + "','" + N.Text.Trim() + "','" + E.Text.Trim() + "','" + Z.Text.Trim() + "')");
+                DBClass.Manipulation("Update HFJH_2 set 站名='" + s + "'");
                 ESC_Click(sender, e);
             }
 
@@ -51,7 +50,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

@@ -64,9 +64,8 @@ namespace Wpf5320
                 DataSet ds = new DataSet();
                 adp.Fill(ds, "Buildstation");
                 int c = LV.SelectedIndex;
-                ACEESSDB DB = new ACEESSDB();
                 string s = ds.Tables["Buildstation"].Rows[c]["测站"].ToString().Trim();
-                DB.Manipulation("Delete from Buildstation where 测站='" + s + "'");
+                DBClass.Manipulation("Delete from Buildstation where 测站='" + s + "'");
                 Window_jianzhan7_1 window_jianzhan7_1 = new Window_jianzhan7_1();//刷新界面
                 window_jianzhan7_1.Show();
                 this.Close();//关闭当前窗口
@@ -103,7 +102,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

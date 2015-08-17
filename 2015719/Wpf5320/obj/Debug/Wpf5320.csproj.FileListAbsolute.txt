@@ -7342,3 +7342,5 @@ C:\Users\Saber\Desktop\2015719\Wpf5320\obj\Debug\Wpf5320.Properties.Resources.re
 C:\Users\Saber\Desktop\2015719\Wpf5320\obj\Debug\Wpf5320.csproj.GenerateResource.Cache
 C:\Users\Saber\Desktop\2015719\Wpf5320\obj\Debug\UC_Select.baml
 C:\Users\Saber\Desktop\2015719\Wpf5320\obj\Debug\UC_Select.g.cs
+C:\Users\Saber\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\UC_Select.baml
+C:\Users\Saber\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\UC_Select.g.cs

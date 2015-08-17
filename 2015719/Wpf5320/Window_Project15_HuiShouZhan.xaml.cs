@@ -30,15 +30,9 @@ namespace Wpf5320
             InitializeComponent();
             systime.Content = DateTime.Now.ToShortTimeString();
 
-            DBClass DB = new DBClass();
-            DB.DbOpen();
             string sql = "select ItemName,ItemDate from DeleteItem";
-            DataSet ds = DB.ConditionQuery(sql);
+            DataSet ds = DBClass.ConditionQuery(sql);
             ListView1.ItemsSource = ds.Tables[0].DefaultView;
-            DB.DbClose();
-
-
-
 
      /*       string itemName, itemdate;
             int temp;
@@ -102,16 +96,13 @@ namespace Wpf5320
             //在数据库中删除
             if (ListView1.SelectedIndex > -1)
             {
-                DBClass db = new DBClass();
                 DataRowView dav = (DataRowView)ListView1.SelectedItem;
                 dav.Delete();
                 BT_beixuanzhong.Content = "default";
-                db.DbOpen();
                 String ItemName = dav["ItemName"].ToString();
                 //要删除的项目在ItemInfor中删除
                 string sql = "delete * from DeleteItem where ItemName='" + ItemName + "'";
-                db.Manipulation_CMD(sql);
-                db.DbClose();
+                DBClass.Manipulation_CMD(sql);
             }
             else
             {
@@ -178,21 +169,18 @@ namespace Wpf5320
         {
             if (ListView1.SelectedIndex > -1)
             {
-                DBClass db = new DBClass();
                 DataRowView dav = (DataRowView)ListView1.SelectedItem;
                 dav.Delete();
                 BT_beixuanzhong.Content = "default";
                 //要删除的项目添加到删除项目数据库
-                db.DbOpen();
                 String ItemName = dav["ItemName"].ToString();
          //       sql = "insert into DeleteItem(项目名称,项目作者,项目解释,修改时间) select ItemName,ItemAuthor,ItemAnnotation,ItemDate from ItemInfor where ItemName='" + ItemName + "'";
                 string sql = "insert into ItemInfor(ItemName,ItemAuthor,ItemAnnotation,ItemDate,PointCount,CodeCount) select ItemName,ItemAuthor,ItemAnnotation,ItemDate,PointCount,CodeCount from DeleteItem where ItemName='" + ItemName + "'";
                // string sql = "insert into DeleteItem(ItemName,ItemAuthor,ItemAnnotation,ItemDate,PointCount,CodeCount) select ItemName,ItemAuthor,ItemAnnotation,ItemDate,PointCount,CodeCount from ItemInfor where ItemName='" + ItemName + "'";
-                db.Manipulation_CMD(sql);
+                DBClass.Manipulation_CMD(sql);
                 //要删除的项目在ItemInfor中删除
                 sql = "delete * from DeleteItem where ItemName='" + ItemName + "'";
-                db.Manipulation_CMD(sql);
-                db.DbClose();
+                DBClass.Manipulation_CMD(sql);
             }
             else
             {
@@ -264,7 +252,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

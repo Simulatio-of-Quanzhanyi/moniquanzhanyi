@@ -32,8 +32,7 @@ namespace Wpf5320
             string angle3 = ran.Next(0, 60).ToString();
             string ha = angle1 + "." + angle2 + angle3;
             HA.Content = ha;
-            ACEESSDB DB = new ACEESSDB();
-            if(DB.Judge("select 点名 from CreatePoint"))
+            if(DBClass.Judge("select 点名 from CreatePoint"))
             {
                 OleDbDataReader dr;
                 OleDbConnection conn = new OleDbConnection(odbcConnStr);
@@ -47,7 +46,7 @@ namespace Wpf5320
                 }
                 conn.Close();     
             }
-            if (DB.Judge("select 点名 from Createrearview"))
+            if (DBClass.Judge("select 点名 from Createrearview"))
             {
                 OleDbDataReader dr;
                 OleDbConnection conn = new OleDbConnection(odbcConnStr);
@@ -120,35 +119,24 @@ namespace Wpf5320
                                 MessageBox.Show("请输入后视角！");
                             else
                             {
-                                OleDbConnection conn = new OleDbConnection(odbcConnStr);
-                                conn.Open();
                                 string sql = "select * from Buildstation where 测站='" + stationtext.Text.Trim() + "'";
-                                OleDbCommand cmd = new OleDbCommand(sql, conn);
-                                if (cmd.ExecuteScalar() != null)
+                                if (DBClass.Judge(sql))
                                 {
                                     if (MessageBox.Show("已经存在的测站点，是否覆盖？", "系统提示", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                                     {
-                                        ACEESSDB DB = new ACEESSDB();
-                                        DB.Manipulation("Update Buildstation set 仪高='" + YH.Text.Trim() + "',镜高='" + JH.Text.Trim() + "',后视点='" + rearviewpoint_textbox.Text.Trim() + "',后视角='" + rearviewangle_textbox.Text.Trim() + "' where测站='" + stationtext.Text.Trim() + "'");
+                                        DBClass.Manipulation("Update Buildstation set 仪高='" + YH.Text.Trim() + "',镜高='" + JH.Text.Trim() + "',后视点='" + rearviewpoint_textbox.Text.Trim() + "',后视角='" + rearviewangle_textbox.Text.Trim() + "' where测站='" + stationtext.Text.Trim() + "'");
                                         ESC_Click(sender, e);
                                     }
                                 }
                                 else
                                 {
                                     sql = "Insert into Buildstation (测站,仪高,镜高,后视点,后视角,HA) Values('" + stationtext.Text.Trim() + "','" + YH.Text.Trim() + "','" + JH.Text.Trim() + "','" + rearviewpoint_textbox.Text.Trim() + "','" + rearviewangle_textbox.Text.Trim() + "','" + HA.Content + "')";
-                                    cmd = new OleDbCommand(sql, conn);
-                                    cmd.CommandText = sql;
-                                    cmd.ExecuteNonQuery();
+                                    DBClass.Manipulation(sql);
                                     sql = "Delete from rearview_checking";
-                                    cmd = new OleDbCommand(sql, conn);
-                                    cmd.CommandText = sql;
-                                    cmd.ExecuteNonQuery(); 
+                                    DBClass.Manipulation(sql);
                                     sql = "Insert into rearview_checking (测站点名,后视点名,BS) Values('" + stationtext.Text.Trim() + "','" + rearviewpoint_textbox.Text.Trim() + "','" + rearviewangle_textbox.Text.Trim() + "')";
-                                    cmd = new OleDbCommand(sql, conn);
-                                    cmd.CommandText = sql;
-                                    cmd.ExecuteNonQuery();                              
+                                    DBClass.Manipulation(sql);           
                                     MessageBox.Show("设置成功！", "提示");
-                                    conn.Close();
                                 }
                             }                          
                         }                     
@@ -207,7 +195,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

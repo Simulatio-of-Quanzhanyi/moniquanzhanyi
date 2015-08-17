@@ -28,12 +28,9 @@ namespace Wpf5320
 
             InitializeComponent();
             systime.Content = DateTime.Now.ToShortTimeString();
-            DBClass DB = new DBClass();
-            DB.DbOpen();
             string sql = "select ItemName,ItemDate from ItemInfor";
-            DataSet ds = DB.ConditionQuery(sql);
+            DataSet ds = DBClass.ConditionQuery(sql);
             ListView1.ItemsSource = ds.Tables[0].DefaultView;
-            DB.DbClose();
 
   /*          // 读取数据库在listbox控件显示
    *             string itemName, itemdate;
@@ -86,19 +83,16 @@ namespace Wpf5320
         {
             if (ListView1.SelectedIndex > -1)
             {
-                DBClass db = new DBClass();
                 DataRowView dav = (DataRowView)ListView1.SelectedItem;
                 dav.Delete();
                 BT_beixuanzhong.Content = "default";
                 //要删除的项目添加到删除项目数据库
-                db.DbOpen();
                 String ItemName = dav["ItemName"].ToString();
                 string sql = "insert into DeleteItem(ItemName,ItemAuthor,ItemAnnotation,ItemDate,PointCount,CodeCount) select ItemName,ItemAuthor,ItemAnnotation,ItemDate,PointCount,CodeCount from ItemInfor where ItemName='" + ItemName + "'";
-                db.Manipulation_CMD(sql);
+                DBClass.Manipulation_CMD(sql);
                 //要删除的项目在ItemInfor中删除
                 sql = "delete * from ItemInfor where ItemName='" + ItemName + "'";
-                db.Manipulation_CMD(sql);
-                db.DbClose();
+                DBClass.Manipulation_CMD(sql);
             }
             else
             {
@@ -165,7 +159,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

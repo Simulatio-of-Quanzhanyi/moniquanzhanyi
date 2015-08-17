@@ -37,10 +37,10 @@ namespace Wpf5320
         {
             if (station.Text.ToString() != "")
             {
-                ACEESSDB DB = new ACEESSDB();
-                if (DB.Judge("select 测站 from Buildstation where 测站='" + station.Text.Trim() + "'"))//判断测站是否存在，不存在不能进行下一步
+                
+                if (DBClass.Judge("select 测站 from Buildstation where 测站='" + station.Text.Trim() + "'"))//判断测站是否存在，不存在不能进行下一步
                 {
-                    DB.Manipulation("Update Buildstation set 仪高='" + YH.Text.Trim() + "',镜高='" + JH.Text.Trim() + "' where 测站='" + station.Text.Trim() + "' ");
+                    DBClass.Manipulation("Update Buildstation set 仪高='" + YH.Text.Trim() + "',镜高='" + JH.Text.Trim() + "' where 测站='" + station.Text.Trim() + "' ");
                     Window_jianzhan7_1 window_jianzhan7_1 = new Window_jianzhan7_1();
                     window_jianzhan7_1.Show();
                     this.Close();//关闭当前窗口

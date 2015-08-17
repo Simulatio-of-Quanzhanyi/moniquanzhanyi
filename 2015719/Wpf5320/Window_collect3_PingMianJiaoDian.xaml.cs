@@ -42,7 +42,6 @@ namespace Wpf5320
         private void BtMeasuring1_Click(object sender, RoutedEventArgs e)
         {
             double Hhudu, Vhudu, Dis;
-            DBClass DB = new DBClass();
             //           string SQL = null;
             Hhudu = ToolCase.HARadom;
             Vhudu = ToolCase.VARadom;
@@ -57,7 +56,6 @@ namespace Wpf5320
         private void BtMeasuring2_Click(object sender, RoutedEventArgs e)
         {
             double Hhudu, Vhudu, Dis;
-            DBClass DB = new DBClass();
             //           string SQL = null;
             Hhudu = ToolCase.HARadom;
             Vhudu = ToolCase.VARadom;
@@ -73,7 +71,6 @@ namespace Wpf5320
         private void BtMeasuring3_Click(object sender, RoutedEventArgs e)
         {
             double Hhudu, Vhudu, Dis;
-            DBClass DB = new DBClass();
             // string SQL = null;
             Hhudu = ToolCase.HARadom;
             Vhudu = ToolCase.VARadom;
@@ -105,7 +102,6 @@ namespace Wpf5320
             double ZX_X, ZX_Y, ZX_Z;//重心坐标
             double Hhudu, Vhudu, Dis;
             //           double denrtaX = 0, denrtaY = 0, denrtaZ = 0;
-            DBClass DB = new DBClass();
             string SQL = null;
             Point_ylj Point_P = new Point_ylj();
             Point_ylj Point_jiao = new Point_ylj();
@@ -186,9 +182,7 @@ namespace Wpf5320
             //获取的点加入数据库
             SQL = "INSERT INTO NEZCoord (PName,PCode,N,E,Z) values ('" + TbPname.Text + "','" + CBcode.SelectionBoxItem.ToString() + "','" + Point_jiao.X.ToString("f03") + "','" + Point_jiao.Y.ToString("f03") + "','" + Point_jiao.Z.ToString("f03") + "')";
             //  MessageBox.Show(SQL);
-            DB.DbOpen();
-            DB.Manipulation_CMD(SQL);
-            DB.DbClose();
+            DBClass.Manipulation_CMD(SQL);
             TbPname.Text = ToolCase.PointNumberAdd1(TbPname.Text);
         }
 
@@ -225,7 +219,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

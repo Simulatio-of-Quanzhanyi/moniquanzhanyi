@@ -128,15 +128,12 @@ namespace Wpf5320
         private void BTSave_Click(object sender, RoutedEventArgs e)
         {
             string SQL = null;
-            DBClass DB = new DBClass();
             Draw_ylj(EX_Point.X, EX_Point.Y, StationPoint.X, StationPoint.Y);
             //添加数据库
 
             SQL = "INSERT INTO NEZCoord (PName,PCode,N,E,Z) values ('" + TbPname.Text + "','" + CBcode.SelectionBoxItem.ToString() + "','" + EX_Point.X.ToString("f03") + "','" + EX_Point.Y.ToString("f03") + "','" + EX_Point.Z.ToString("f03") + "')";
             //  MessageBox.Show(SQL);
-            DB.DbOpen();
-            DB.Manipulation_CMD(SQL);
-            DB.DbClose();
+            DBClass.Manipulation_CMD(SQL);
             TbPname.Text = ToolCase.PointNumberAdd1(TbPname.Text);
             myMessageBox my = new myMessageBox();
             my.show("存储一个点，并画图");
@@ -174,7 +171,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }

@@ -55,15 +55,14 @@ namespace Wpf5320
             {
                 OleDbConnection conn = new OleDbConnection(odbcConnStr);
                 string sql = "select * from Buildstation where 测站='" + station.Text.ToString().Trim() + "'";
-                ACEESSDB DB = new ACEESSDB();
-                bool B = DB.Judge(sql);
+                bool B = DBClass.Judge(sql);
                 if (B)
                 {                   
                     MessageBox.Show("该点名已存在！","提示");
                 }
                 else
                 {
-                    DB.Manipulation("Insert into Buildstation(测站,N,E,Z,后视角,方位角) Values('" + station.Text.Trim() + "','" + N.Content.ToString().Trim() + "','" + E.Content.ToString().Trim() + "','" + Z.Content.ToString().Trim() + "','" + rearview.Content.ToString() + "','" + fangweijiao.Content.ToString() + "')");
+                    DBClass.Manipulation("Insert into Buildstation(测站,N,E,Z,后视角,方位角) Values('" + station.Text.Trim() + "','" + N.Content.ToString().Trim() + "','" + E.Content.ToString().Trim() + "','" + Z.Content.ToString().Trim() + "','" + rearview.Content.ToString() + "','" + fangweijiao.Content.ToString() + "')");
                     MessageBox.Show("设置成功！", "提示");                   
                 }               
             }
@@ -71,7 +70,8 @@ namespace Wpf5320
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
-            if (e.LeftButton == MouseButtonState.Pressed)
+            Point a = Mouse.GetPosition(this);
+            if (e.LeftButton == MouseButtonState.Pressed && (a.X < 65 || a.X > 380 || a.Y < 76 || a.Y > 318))
             {
                 DragMove();
             }
