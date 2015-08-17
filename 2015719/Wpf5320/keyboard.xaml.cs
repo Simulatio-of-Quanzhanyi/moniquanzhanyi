@@ -18,14 +18,6 @@ namespace Wpf5320
     /// </summary>
     public partial class keyboard : UserControl
     {
-        public keyboard()
-        {
-            InitializeComponent();
-            timer = new System.Windows.Threading.DispatcherTimer();
-            timer.Interval = new TimeSpan(0, 0, 1);
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.IsEnabled = false;
-        }
 
         private string returnType = null;
         private string returnValue = null;
@@ -36,6 +28,18 @@ namespace Wpf5320
         private bool isTimeout = true;
         private string lastKey = null;
         private int lastKey_Click_Num = 0;
+
+
+
+        public keyboard()
+        {
+            InitializeComponent();
+            timer = new System.Windows.Threading.DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 1);
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.IsEnabled = false;
+        }
+
 
         //  接口 ReturnType（类型） ReturnValue （值）
         //  返回类型种类为  null,  number,   character, character_replace,  symbol,  function
@@ -48,6 +52,11 @@ namespace Wpf5320
         public string ReturnValue
         {
             get { return returnValue; }
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            isTimeout = true;
         }
 
         public void keyboard_click(object sender, RoutedEventArgs e)
@@ -226,9 +235,11 @@ namespace Wpf5320
 
         }
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            isTimeout = true;
-        }
+
+
+
+
+
+        
     }
 }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.OleDb;
+using System.Reflection;
 
 namespace Wpf5320
 {
@@ -21,26 +22,30 @@ namespace Wpf5320
     public partial class Window_Project11 : Window
     {
         private int selectPos;
-        private bool istbItmeAnnotationFocused=false;
-        private bool istbItemAuthorFocused=false;
-        private bool istbItemNameFocused=false;
+        private bool istbItmeAnnotationFocused = false;
+        private bool istbItemAuthorFocused = false;
+        private bool istbItemNameFocused =  false;
         private int txtfocus = 0;
 
         public static int CurrentItemID = 1;
         private string odbcConnStr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + AppDomain.CurrentDomain.BaseDirectory + "\\TSISData.accdb";
 
+        private TextBox[] TB = new TextBox[3];
 
         public Window_Project11()
         {
             InitializeComponent();
+
+            initTBArray();
         }
 
-        private void exitApp()
+        private void initTBArray()
         {
-            Window_Shutdown_PowerOff Shutdown_PowerOff = new Window_Shutdown_PowerOff();
-            Shutdown_PowerOff.Show();
-            this.Close();//关闭当前窗口 
-        }
+
+            TB[0] = tbItemName;
+            TB[1] = tbItemAuthor;
+            TB[2] = tbItmeAnnotation;
+        }   
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
@@ -48,13 +53,7 @@ namespace Wpf5320
             {
                 DragMove();
             }
-        }
-
-        private void focusUnchanged(){
-            if (istbItemNameFocused) tbItemName.Focus();
-            else if (istbItemAuthorFocused) tbItemAuthor.Focus();
-            else if (istbItmeAnnotationFocused) tbItmeAnnotation.Focus();
-        }
+        }   
 
         private void ENT_Click()
         {
@@ -127,63 +126,7 @@ namespace Wpf5320
 
         }
 
-        //文本字符串处理
-        private void tbstringfun(TextBox TB,int math,string ct)
-        {
-            switch(math)
-            {      //插入处理
-                case 0:
-                    selectPos = TB.SelectionStart;
-                    TB.Text = TB.Text.Substring(0, selectPos) +ct+ TB.Text.Substring(selectPos);
-                    selectPos += 1;
-                    TB.Focus();
-                    TB.Select(selectPos, 0);
-                    break;
-                    //替换处理
-                case 1:
-                    selectPos = TB.SelectionStart;
-                    TB.Text = TB.Text.Substring(0, selectPos - 1) + ct + tbItemName.Text.Substring(selectPos);
-                    TB.Focus();
-                    TB.Select(selectPos, 0);
-                    break;
-                    //删除一个字符
-                case 2:
-                    if (!string.IsNullOrEmpty(tbItemName.Text))
-                    {
-                        selectPos = TB.SelectionStart;
-                        if (selectPos != 0)
-                        {
-                            TB.Text = TB.Text.Substring(0, selectPos - 1) + TB.Text.Substring(selectPos);
 
-                            selectPos -= 1;
-                            TB.Focus();
-                            TB.Select(selectPos, 0);
-                        }
-                    }
-                    break;
-                    //清除文本
-                case 3:
-                       TB.Clear();
-                    break;
-            }
-        }
-
-        private void toggleSoftKeyboard()
-        {
-            if (softKey.Visibility == Visibility.Collapsed)
-            {
-                softKey.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                softKey.Visibility = Visibility.Collapsed;
-            }
-        }
-
-        private void softkeyboard_Click(object sender, RoutedEventArgs e)
-        {
-            toggleSoftKeyboard();
-        }
 
         //  声明一个 软键盘 对象
         private softKey softkey = new softKey();
@@ -224,10 +167,91 @@ namespace Wpf5320
             keyboardInfoProce(type,value);
         }
 
-        private void keyboardInfoProce(string type, string value)
+        private void ESCkey_Click(object sender, RoutedEventArgs e)
+        {
+            ESC_Click();
+        }
+
+        private void softkeyboard_Click(object sender, RoutedEventArgs e)
+        {
+            toggleSoftKeyboard();
+        }
+
+        private void toggleSoftKeyboard()
+        {
+            if (softKey.Visibility == Visibility.Collapsed)
+            {
+                softKey.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                softKey.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        //文本字符串处理
+        private void tbstringfun(TextBox TB, int math, string ct)
+        {
+            switch (math)
+            {      //插入处理
+                case 0:
+                    selectPos = TB.SelectionStart;
+                    TB.Text = TB.Text.Substring(0, selectPos) + ct + TB.Text.Substring(selectPos);
+                    selectPos += 1;
+                    TB.Focus();
+                    TB.Select(selectPos, 0);
+                    break;
+                //替换处理
+                case 1:
+                    selectPos = TB.SelectionStart;
+                    TB.Text = TB.Text.Substring(0, selectPos - 1) + ct + tbItemName.Text.Substring(selectPos);
+                    TB.Focus();
+                    TB.Select(selectPos, 0);
+                    break;
+                //删除一个字符
+                case 2:
+                    if (!string.IsNullOrEmpty(tbItemName.Text))
+                    {
+                        selectPos = TB.SelectionStart;
+                        if (selectPos != 0)
+                        {
+                            TB.Text = TB.Text.Substring(0, selectPos - 1) + TB.Text.Substring(selectPos);
+
+                            selectPos -= 1;
+                            TB.Focus();
+                            TB.Select(selectPos, 0);
+                        }
+                    }
+                    break;
+                //清除文本
+                case 3:
+                    TB.Clear();
+                    break;
+            }
+        }
+
+        private bool getIsTBFocused(string TBName)
+        {
+            string TBfocusedName = "is" + TBName + "Focused";
+            BindingFlags bf = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Static;
+            return (bool)this.GetType().GetField(TBfocusedName, bf).GetValue(this);
+        }
+
+        private void focusUnchanged()
+        {
+            for (int i = 0; i < TB.Length; i++)
+            {
+                if (getIsTBFocused(TB[i].Name))
+                {
+                    TB[i].Focus();
+                }
+            }
+        }
+
+        public void keyboardInfoProce(string type, string value)
         {
             //  返回值类型为 null，不做任何改变（保持焦点不变） 。 结束调用此次事件处理函数
-            
+
             if (type == "null")
             {
                 focusUnchanged();
@@ -237,24 +261,32 @@ namespace Wpf5320
             else if (type == "number" || type == "character" || type == "symbol")
             {
                 //  返回值类型为 数字(number) 字母(character) 字符(other)  直接调用插入函数
-                if (istbItemNameFocused) tbstringfun(tbItemName, 0, value);
-                if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 0, value);
-                if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 0, value);
+                for (int i = 0; i < TB.Length; i++)
+                {
+                    if (getIsTBFocused(TB[i].Name))
+                    {
+                        tbstringfun(TB[i], 0, value);
+                    }
+                }
                 return;
             }
 
             else if (type == "character_replace")
             {
-                if (istbItemNameFocused) tbstringfun(tbItemName, 1, value);
-                if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 1, value);
-                if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 1, value);
+                for (int i = 0; i < TB.Length; i++)
+                {
+                    if (getIsTBFocused(TB[i].Name))
+                    {
+                        tbstringfun(TB[i], 1, value);
+                    }
+                }
                 return;
             }
 
             //  返回值类型为 功能键(function)
             else if (type == "function")
             {
-                switch (value) 
+                switch (value)
                 {
                     case "Soft":
                         #region "显示软键盘"
@@ -269,7 +301,9 @@ namespace Wpf5320
 
                     case "Power":
                         #region  "关机界面"
-                        exitApp();
+                        Window_Shutdown_PowerOff Shutdown_PowerOff = new Window_Shutdown_PowerOff();
+                        Shutdown_PowerOff.Show();
+                        this.Close();//关闭当前窗口 
                         break;
                         #endregion
 
@@ -285,39 +319,32 @@ namespace Wpf5320
 
                     case "Del":
                         #region "删除字符"
-                        if (istbItemNameFocused) tbstringfun(tbItemName, 3, "*");
-                        if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 3, "*");
-                        if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 3, "*");
+                        for (int i = 0; i < TB.Length; i++)
+                        {
+                            if (getIsTBFocused(TB[i].Name))
+                            {
+                                tbstringfun(TB[i], 3, "*");
+                            }
+                        }
                         break;
                         #endregion
 
                     case "Tab":
                         #region  "切换焦点"
-                        switch (txtfocus)
-                        {
-                            case 0:
-                                txtfocus = txtfocus + 1;
-                                tbItemAuthor.Focus();
-
-                                break;
-                            case 1:
-                                txtfocus = txtfocus + 1;
-                                tbItmeAnnotation.Focus();
-
-                                break;
-                            default:
-                                txtfocus = 0;
-                                tbItemName.Focus();
-                                break;
-                        }
+                        txtfocus = (txtfocus + 1) % (TB.Length);
+                        TB[txtfocus].Focus();
                         break;
                         #endregion
 
                     case "B.S":
                         #region "删除字符"
-                        if (istbItemNameFocused) tbstringfun(tbItemName, 2, "*");
-                        if (istbItemAuthorFocused) tbstringfun(tbItemAuthor, 2, "*");
-                        if (istbItmeAnnotationFocused) tbstringfun(tbItmeAnnotation, 2, "*");
+                        for (int i = 0; i < TB.Length; i++)
+                        {
+                            if (getIsTBFocused(TB[i].Name))
+                            {
+                                tbstringfun(TB[i], 2, "*");
+                            }
+                        }
                         break;
                         #endregion
 
@@ -335,109 +362,57 @@ namespace Wpf5320
 
                     case "Dn":
                         #region "切换焦点"
-                        switch (txtfocus)
-                        {
-                            case 0:
-                                txtfocus = txtfocus + 1;
-                                tbItemAuthor.Focus();
-
-                                break;
-                            case 1:
-                                txtfocus = txtfocus + 1;
-                                tbItmeAnnotation.Focus();
-
-                                break;
-                            default:
-                                txtfocus = 0;
-                                tbItemName.Focus();
-                                break;
-                        }
+                        txtfocus = (txtfocus + 1) % (TB.Length);
+                        TB[txtfocus].Focus();
                         break;
                         #endregion
 
                     case "Up":
                         #region "切换焦点"
-                        switch (txtfocus)
+                        if (txtfocus - 1 < 0)
                         {
-                            case 2:
-                                txtfocus = txtfocus - 1;
-                                tbItemAuthor.Focus();
-                                break;
-                            case 1:
-                                txtfocus = txtfocus - 1;
-                                tbItemName.Focus();
-                                break;
-                            default:
-                                txtfocus = 2;
-                                tbItmeAnnotation.Focus();
-                                break;
+                            txtfocus = TB.Length - 1;
                         }
+                        else
+                        {
+                            txtfocus = (txtfocus - 1) % (TB.Length);
+                        }
+
+                        TB[txtfocus].Focus();
                         break;
                         #endregion
 
                     case "Lt":
                         #region "移动光标"
-                        if (istbItemNameFocused)
+                        for (int i = 0; i < TB.Length; i++)
                         {
-                            selectPos = this.tbItemName.SelectionStart;
-                            tbItemName.Focus();
-                            if (selectPos >= 1)
+                            if (getIsTBFocused(TB[i].Name))
                             {
-                                tbItemName.Select(selectPos - 1, 0);
+                                selectPos = TB[i].SelectionStart;
+                                TB[i].Focus();
+                                if (selectPos >= 1)
+                                {
+                                    TB[i].Select(selectPos - 1, 0);
+                                }
                             }
                         }
-                        if (istbItemAuthorFocused)
-                        {
-                            selectPos = this.tbItemAuthor.SelectionStart;
-                            tbItemAuthor.Focus();
-                            if (selectPos >= 1)
-                            {
-                                tbItemAuthor.Select(selectPos - 1, 0);
-                            }
-                        }
-                        if (istbItmeAnnotationFocused)
-                        {
-                            selectPos = this.tbItmeAnnotation.SelectionStart;
-                            tbItmeAnnotation.Focus();
-                            if (selectPos >= 1)
-                            {
-                                tbItmeAnnotation.Select(selectPos - 1, 0);
-                            }
-                        }
-
                         break;
                         #endregion
 
                     case "Rt":
                         #region "移动光标"
-                        if (istbItemNameFocused)
+                        for (int i = 0; i < TB.Length; i++)
                         {
-                            selectPos = this.tbItemName.SelectionStart;
-                            tbItemName.Focus();
-                            if (selectPos < this.tbItemName.Text.Length)
+                            if (getIsTBFocused(TB[i].Name))
                             {
-                                tbItemName.Select(selectPos + 1, 0);
+                                selectPos = TB[i].SelectionStart;
+                                TB[i].Focus();
+                                if (selectPos < this.TB[i].Text.Length)
+                                {
+                                    TB[i].Select(selectPos + 1, 0);
+                                }
                             }
                         }
-                        if (istbItemAuthorFocused)
-                        {
-                            selectPos = this.tbItemAuthor.SelectionStart;
-                            tbItemAuthor.Focus();
-                            if (selectPos < tbItemAuthor.Text.Length)
-                            {
-                                tbItemAuthor.Select(selectPos + 1, 0);
-                            }
-                        }
-                        if (istbItmeAnnotationFocused)
-                        {
-                            selectPos = this.tbItmeAnnotation.SelectionStart;
-                            tbItmeAnnotation.Focus();
-                            if (selectPos < this.tbItmeAnnotation.Text.Length)
-                            {
-                                tbItmeAnnotation.Select(selectPos + 1, 0);
-                            }
-                        }
-
                         break;
                         #endregion
 
@@ -456,13 +431,6 @@ namespace Wpf5320
             }
             return;
         }
-
-        private void ESCkey_Click(object sender, RoutedEventArgs e)
-        {
-            ESC_Click();
-        }
-
-
 
 
 
