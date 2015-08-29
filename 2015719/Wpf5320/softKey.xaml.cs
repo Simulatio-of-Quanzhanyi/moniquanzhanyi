@@ -115,7 +115,6 @@ namespace Wpf5320
                     case "B_S":
                         returnValue = "B.S";
                         break;
-                        break;
                     case "Ctr":
                         returnValue = "Ctrl";
                         break;
