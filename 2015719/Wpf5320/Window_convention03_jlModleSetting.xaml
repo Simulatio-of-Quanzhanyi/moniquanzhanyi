@@ -39,7 +39,7 @@
                         <ColumnDefinition Width="3*"/>
                         <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
-                    <Button HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="152" Margin="-2,-24,0,0" Content="模式选择" Grid.ColumnSpan="2"/>
+                    <Button HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="152" Margin="0,-22,0,0" Content="模式选择" Grid.ColumnSpan="2"/>
                     <GroupBox Grid.ColumnSpan="2" Header="" HorizontalAlignment="Left" Height="97" Margin="40,12,0,0" VerticalAlignment="Top" Width="177">
                         <Grid HorizontalAlignment="Left" Height="92" VerticalAlignment="Top" Width="167" Margin="0,-14,-2,-3">
                             <RadioButton Content="N次精测" HorizontalAlignment="Left" Height="20" Margin="11,21,0,0" VerticalAlignment="Top" Width="69"/>
@@ -58,7 +58,7 @@
 
             <TabItem Header="目标" Margin="91,213,-95,-215" TabIndex="2" >
                 <Grid >
-                    <Button HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="152" Margin="-4,-27,0,0" Content="目标选择"/>
+                    <Button HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="152" Margin="-3,-25,0,0" Content="目标选择"/>
                     <Label Content="常数" HorizontalAlignment="Left" Height="27" Margin="130,53,0,0" VerticalAlignment="Top" Width="37"/>
                     <RadioButton Content="棱镜" HorizontalAlignment="Left" Height="18" Margin="52,60,0,0" VerticalAlignment="Top" Width="78"/>
                     <RadioButton Content="反射板" HorizontalAlignment="Left" Height="18" Margin="52,85,0,0" VerticalAlignment="Top" Width="78"/>

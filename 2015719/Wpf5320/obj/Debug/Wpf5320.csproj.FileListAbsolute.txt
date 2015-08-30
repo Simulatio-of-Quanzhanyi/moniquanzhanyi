@@ -323,3 +323,4 @@ F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320.Properties.R
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320.csproj.GenerateResource.Cache
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320.exe
 F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320.pdb
+F:\projects\GitHub\moniquanzhanyi\2015719\Wpf5320\obj\Debug\Wpf5320.csprojResolveAssemblyReference.cache
