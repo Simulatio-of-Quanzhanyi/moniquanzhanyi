@@ -9,7 +9,9 @@
         <Grid HorizontalAlignment="Left" Height="242" Margin="64,75,0,0" VerticalAlignment="Top" Width="319" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" ClipToBounds="True">
 
             <Button Content="" HorizontalAlignment="Left" Height="31" Margin="150,0,0,0" VerticalAlignment="Top" Width="169"/>
-            <Button Content="default" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="150"/>
+            <Button HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="150">
+                <Image Source="RES/南方LOGO.png" IsEnabled="False"/>
+            </Button>
             <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="0,211,0,0"/>
             <Button x:Name="Button_project" Content="项目" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="0,31,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenProject"/>
             <Button x:Name="Button_data" Content="数据" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="75" Margin="0,67,0,0" FontWeight="Bold" Cursor="Hand" Click="OpenDataManagement"/>
@@ -91,8 +93,8 @@
             <Button  x:Name="BtDnkey" x:FieldModifier="private"  Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="14" Height="14" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="19,2,9,24" Grid.Row="7" Grid.Column="1" Cursor="Hand"/>
             <Button  x:Name="BtRtkey" x:FieldModifier="private" Content="" HorizontalAlignment="Center" VerticalAlignment="Center" Width="14" Height="14" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Margin="19,2,9,24" Grid.Row="7" Grid.Column="2" Cursor="Hand"/>
         </Grid>
-        
-        
+
+
     </Grid>
 
 </Window>

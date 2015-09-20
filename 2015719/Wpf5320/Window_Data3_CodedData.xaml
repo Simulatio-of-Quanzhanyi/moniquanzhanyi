@@ -11,10 +11,9 @@
             <Button Content="编码数据" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="112"/>
             <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="0,211,0,0"/>
 
-            <Button Content="删除" HorizontalAlignment="Left" Margin="121,181,0,0" VerticalAlignment="Top" Width="66" Height="30" />
-            <Button Content="编辑" HorizontalAlignment="Left" Margin="187,181,0,0" VerticalAlignment="Top" Width="66" Height="30"/>
-            <Button Content="添加" HorizontalAlignment="Left" Margin="252,181,0,0" VerticalAlignment="Top" Width="66" Height="30"/>
-            <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="121" Margin="0,181,0,0"/>
+            <Button x:Name="del" Content="删除" HorizontalAlignment="Left" Margin="163,181,0,0" VerticalAlignment="Top" Width="52" Height="30" Click="del_Click" />
+            <Button x:Name="edit" Content="编辑" HorizontalAlignment="Left" Margin="267,181,0,0" VerticalAlignment="Top" Width="52" Height="30" Click="edit_Click"/>
+            <Button x:Name="add" Content="添加" HorizontalAlignment="Left" Margin="215,181,0,0" VerticalAlignment="Top" Width="52" Height="30"/>
 
             <ListView x:Name="LV" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="319" Margin="0,31,0,0" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
                 <ListView.BindingGroup>
@@ -22,15 +21,15 @@
                 </ListView.BindingGroup>
                 <ListView.View>
                     <GridView x:Name="gridview121212">
-                        <GridViewColumn Header="名称" Width="70" DisplayMemberBinding="{Binding Path=D_NAME}"/>
-                        <GridViewColumn Header="类型" Width="70" DisplayMemberBinding="{Binding Path=D_TYPE}"/>
-                        <GridViewColumn Header="编码" Width="70" DisplayMemberBinding="{Binding Path=D_CODE}"/>
-                        <GridViewColumn Header="N" Width="70" DisplayMemberBinding="{Binding Path=N}"/>
-                        <GridViewColumn Header="E" Width="70" DisplayMemberBinding="{Binding Path=E}"/>
-                        <GridViewColumn Header="Z" Width="70" DisplayMemberBinding="{Binding Path=Z}"/>
+                        <GridViewColumn Header="ID" Width="0" DisplayMemberBinding="{Binding Path=ID}"/>
+                        <GridViewColumn Header="名称" Width="90" DisplayMemberBinding="{Binding Path=D_NAME}"/>
+                        <GridViewColumn Header="类型" Width="90" DisplayMemberBinding="{Binding Path=D_TYPE}"/>
+                        <GridViewColumn Header="编码" Width="90" DisplayMemberBinding="{Binding Path=D_CODE}"/>
                     </GridView>
                 </ListView.View>
             </ListView>
+            <Button Content="第一" HorizontalAlignment="Left" Margin="0,181,0,0" VerticalAlignment="Top" Width="66" Height="30" Click="first_Click"/>
+            <Button Content="最后" HorizontalAlignment="Left" Margin="66,181,0,0" VerticalAlignment="Top" Width="66" Height="30" Click="last_click"/>
         </Grid>
 
         <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" Margin="334,288,0,73" VerticalAlignment="Center" Width="49"/>

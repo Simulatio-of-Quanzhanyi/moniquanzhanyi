@@ -32,9 +32,12 @@ namespace Wpf5320
             this.Close();//关闭当前窗口
         }
 
-        private void Bt_enter_Click(object sender, RoutedEventArgs e)
+        private void ENTKey_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show("设置成功"); 
+            Window_Shortcut_key key = new Window_Shortcut_key();
+            key.Show();
+            this.Close();//关闭当前窗口
         }
 
         private void Bt_exit_Click(object sender, RoutedEventArgs e)

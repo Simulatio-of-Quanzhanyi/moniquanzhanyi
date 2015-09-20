@@ -24,7 +24,7 @@
         <Image HorizontalAlignment="Left" Height="23" Margin="64,293,0,0" VerticalAlignment="Top" Width="23" Source="/Wpf5320;component/RES/cross.png" Stretch="Fill"/>
         <Image HorizontalAlignment="Left" Height="23" Margin="91,293,0,0" VerticalAlignment="Top" Width="23" Source="/Wpf5320;component/RES/tick.png" Stretch="Fill"/>
         <Button x:Name="Cancel" HorizontalAlignment="Left" Height="23" Margin="64,292,0,0" VerticalAlignment="Top" Width="23"  BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESCkey_Click" Cursor="Hand"/>
-        <Button x:Name="Ensure" HorizontalAlignment="Left" Height="23" Margin="92,292,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESCkey_Click" Cursor="Hand"/>
+        <Button x:Name="Ensure" HorizontalAlignment="Left" Height="23" Margin="92,292,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ENTkey_Click" Cursor="Hand"/>
         <Image HorizontalAlignment="Left" Height="29" Margin="292,290,0,0" VerticalAlignment="Top" Width="41" Source="/Wpf5320;component/RES/softkeyboard.png" Stretch="Fill"/>
         <Button x:Name="softkeyboard" HorizontalAlignment="Left" Height="29" Margin="292,290,0,0" VerticalAlignment="Top" Width="41" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0"  Cursor="Hand" Click="softkeyboard_Click"/>
         

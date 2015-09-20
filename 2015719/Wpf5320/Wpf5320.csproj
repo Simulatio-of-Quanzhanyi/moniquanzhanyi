@@ -59,6 +59,9 @@
     <Compile Include="Class.cs" />
     <Compile Include="DBAdapter.cs" />
     <Compile Include="DBClass.cs" />
+    <Compile Include="Window_Data3_CodedData_edit.xaml.cs">
+      <DependentUpon>Window_Data3_CodedData_edit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Window_intro_Video.xaml.cs">
       <DependentUpon>Window_intro_Video.xaml</DependentUpon>
     </Compile>
@@ -213,14 +216,14 @@
     <Compile Include="Window_Data1_OriginalData.xaml.cs">
       <DependentUpon>Window_Data1_OriginalData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window_Data1_OriginalDataBianJi.xaml.cs">
-      <DependentUpon>Window_Data1_OriginalDataBianJi.xaml</DependentUpon>
+    <Compile Include="Window_Data1_OriginalData_Edit.xaml.cs">
+      <DependentUpon>Window_Data1_OriginalData_Edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window_Data2_CoordinateData.xaml.cs">
       <DependentUpon>Window_Data2_CoordinateData.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window_Data2_CoordinateData_1bianji.xaml.cs">
-      <DependentUpon>Window_Data2_CoordinateData_1bianji.xaml</DependentUpon>
+    <Compile Include="Window_Data2_CoordinateData_Edit.xaml.cs">
+      <DependentUpon>Window_Data2_CoordinateData_Edit.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window_Data2_CoordinateData_1new.xaml.cs">
       <DependentUpon>Window_Data2_CoordinateData_1new.xaml</DependentUpon>
@@ -525,6 +528,10 @@
     <Compile Include="softKey.xaml.cs">
       <DependentUpon>softKey.xaml</DependentUpon>
     </Compile>
+    <Page Include="Window_Data3_CodedData_edit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window_intro_Video.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -741,7 +748,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Window_Data1_OriginalDataBianJi.xaml">
+    <Page Include="Window_Data1_OriginalData_Edit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -749,7 +756,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Window_Data2_CoordinateData_1bianji.xaml">
+    <Page Include="Window_Data2_CoordinateData_Edit.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -1207,6 +1214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="RES\Intro.wmv" />
+    <Resource Include="RES\南方LOGO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

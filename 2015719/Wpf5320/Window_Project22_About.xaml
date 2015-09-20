@@ -11,7 +11,7 @@
                 <Grid Margin="0,0,0,-3">
                     <Label Content="软件版本" HorizontalAlignment="Left" Height="24" Margin="10,0,0,0" VerticalAlignment="Top" Width="59"/>
                     <Label Content="100617&amp;003" HorizontalAlignment="Left" Height="24" Margin="77,0,0,0" VerticalAlignment="Top" Width="132"/>
-                    <Label Content="RTS-860" HorizontalAlignment="Left" Height="24" Margin="77,34,0,0" VerticalAlignment="Top" Width="132"/>
+                    <Label Content="NTS-860" HorizontalAlignment="Left" Height="24" Margin="77,34,0,0" VerticalAlignment="Top" Width="132"/>
                     <Label Content="19499" HorizontalAlignment="Left" Height="24" Margin="77,69,0,0" VerticalAlignment="Top" Width="132"/>
                     <Label Content="1597ecb3" HorizontalAlignment="Left" Height="24" Margin="77,102,0,0" VerticalAlignment="Top" Width="132"/>
                     <Label Content="仪器型号" HorizontalAlignment="Left" Height="24" Margin="10,34,0,0" VerticalAlignment="Top" Width="59"/>

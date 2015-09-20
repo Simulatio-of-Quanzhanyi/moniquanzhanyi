@@ -44,10 +44,14 @@ namespace Wpf5320
             string value = key.ReturnValue;
             if (type == "function" && value == "Power")
             {
+                Window_Start start = new Window_Start();
+                start.Show();
+                this.Close();
+
                 //  跳转至播放介绍视频界面
-                Window_intro_Video intro = new Window_intro_Video();
-                intro.Show();
-                this.Close();//关闭当前窗口
+                //  Window_intro_Video intro = new Window_intro_Video();
+                //  intro.Show();
+                //  this.Close();//关闭当前窗口
 
                 if (IsPower)
                 {

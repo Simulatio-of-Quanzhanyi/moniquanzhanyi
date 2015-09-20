@@ -433,6 +433,11 @@ namespace Wpf5320
             return;
         }
 
+        private void ENTkey_Click(object sender, RoutedEventArgs e)
+        {
+            ENT_Click();
+        }
+
 
 
 

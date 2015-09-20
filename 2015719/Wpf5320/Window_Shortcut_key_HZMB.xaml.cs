@@ -41,11 +41,6 @@ namespace Wpf5320
             }
         }
 
-        private void Bt_enter_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
         {
             Point a = Mouse.GetPosition(this);
@@ -60,6 +55,14 @@ namespace Wpf5320
             Window_Shutdown_PowerOff Shutdown_PowerOff = new Window_Shutdown_PowerOff();
             Shutdown_PowerOff.Show();
             this.Close();//关闭当前窗口 
+        }
+
+        private void ENTKey_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("设置成功"); 
+            Window_Shortcut_key key = new Window_Shortcut_key();
+            key.Show();
+            this.Close();//关闭当前窗口
         }
     }
 }

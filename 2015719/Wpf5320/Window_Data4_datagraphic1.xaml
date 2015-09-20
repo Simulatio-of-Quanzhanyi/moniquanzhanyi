@@ -3,25 +3,30 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Window_Data4_datagraphic1" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
     <Grid>
+
         <Border BorderBrush="Black" CornerRadius="25" BorderThickness="1" HorizontalAlignment="Left" Height="388" VerticalAlignment="Top" Width="640"/>
         <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component\RES\xin2.png" Stretch="Fill"/>
         <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="15" Margin="557,65,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
-        <Grid HorizontalAlignment="Left" Height="242" Margin="64,75,0,0" VerticalAlignment="Top" Width="319" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" ClipToBounds="True">
-
-            <Button Content="图形" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="109" />
-            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="319" Margin="0,211,0,0" />
-
-            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="35" Margin="109,0,0,0" />
-            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="35" Margin="144,0,0,0"/>
-            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="35" Margin="179,0,0,0"/>
-            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="35" Margin="214,0,0,0"/>
-            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="35" Margin="249,0,0,0"/>
-            <Button Content="" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="35" Margin="284,0,0,0"/>
-            <Button x:Name="CZSZ" Content="查找设置" HorizontalAlignment="Left" Height="23" Margin="164,171,0,0" VerticalAlignment="Top" Width="129" Click="CZSZ_Click" Cursor="Hand"/>
+        <Grid HorizontalAlignment="Left" Height="242" Margin="64,75,0,0" VerticalAlignment="Top" Width="319" Background="White" ClipToBounds="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="90*"/>
+                <RowDefinition Height="15*"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="Top_Border" BorderBrush="Black" BorderThickness="1" Background="#FFDDDDDD">
+                <Grid x:Name="Top_Grid" Margin="0">
+                    <Button Content="图形" HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="109" Margin="-9,-1,0,0" />
+                </Grid>
+            </Border>
+            <Border x:Name="Bottom_Border" BorderBrush="Black" BorderThickness="1" Margin="0" Grid.Row="2" Background="#FFDDDDDD">
+                <Grid x:Name="Bottom_Grid" Margin="0">
+                    <Label x:Name="systime" Content="Label" Margin="279,0,0,0" Width="40"/>
+                </Grid>
+            </Border>
+            <Button x:Name="CZSZ" Content="查找设置" HorizontalAlignment="Left" Height="23" Margin="180,149,0,0" VerticalAlignment="Top" Width="129" Click="CZSZ_Click" Cursor="Hand" Grid.Row="1"/>
 
 
         </Grid>
-        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" Margin="334,288,0,73" VerticalAlignment="Center" Width="49"/>
         <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="553,294,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
     </Grid>
 </Window>

@@ -16,7 +16,7 @@
             <Label Content="文件名称" HorizontalAlignment="Left" Height="25" Margin="18,62,0,0" VerticalAlignment="Top" Width="69"/>
             <Button x:Name="Export" Content="导出" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="78,143,0,0" VerticalAlignment="Top" Width="57" Click="Export_Click" Cursor="Hand"/>
             <Button x:Name="Return" Content="&lt;&lt;返回" HorizontalAlignment="Left" Height="29" Margin="18,143,0,0" VerticalAlignment="Top" Width="57" Click="Return_Click" Cursor="Hand"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="92,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="filename" HorizontalAlignment="Left" Height="23" Margin="92,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="153" Grid.ColumnSpan="2"/>
         </Grid>
         <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="29" Margin="332,288,0,0" VerticalAlignment="Top" Width="48"/>
         <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="552,60,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>

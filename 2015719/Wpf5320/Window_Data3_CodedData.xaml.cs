@@ -30,7 +30,7 @@ namespace Wpf5320
             OleDbConnection conn = new OleDbConnection(odbcConnStr);
             conn.Open();
             //读取数据库
-            string sql = "select ID,D_NAME,D_TYPE,D_CODE,N,E,Z from Original_data";
+            string sql = "select ID,D_NAME,D_TYPE,D_CODE from Original_data";
             OleDbDataAdapter adp = new OleDbDataAdapter(sql, conn);
             DataTable ds = new DataTable();
             adp.Fill(ds);//将数据源加载到dataset中
@@ -60,5 +60,63 @@ namespace Wpf5320
             Shutdown_PowerOff.Show();
             this.Close();//关闭当前窗口 
         }
+
+        private void del_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView data = LV.SelectedItem as DataRowView;
+            if (data != null && data is DataRowView)
+            {
+                string id = data.Row["ID"].ToString();
+                data.Delete();
+                //要删除的项目在ItemInfor中删除
+                string sql = "delete * from Original_data where ID=" + id;
+                DBClass.Manipulation_CMD(sql);
+            }
+            else
+            {
+                MessageBox.Show("没有选择点");
+            }
+        }
+
+        private void first_Click(object sender, RoutedEventArgs e)
+        {
+            LV.SelectedIndex = 0;
+            // LV.Items.MoveCurrentToFirst();
+
+            LV.ScrollIntoView(LV.SelectedItem);
+            //MessageBox.Show(LV.View.GetType().ToString());
+        }
+
+        private void last_click(object sender, RoutedEventArgs e)
+        {
+
+            OleDbConnection conn = new OleDbConnection(odbcConnStr);
+            conn.Open();
+            string sql = "select ID,D_NAME,D_TYPE,N,E,Z from Original_data";
+            OleDbDataAdapter adp = new OleDbDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+            adp.Fill(ds, "Original_data");
+            int c = ds.Tables["Original_data"].Rows.Count;
+            LV.SelectedIndex = c - 1;
+            LV.ScrollIntoView(LV.SelectedItem);
+        }
+
+        private void edit_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView data = LV.SelectedItem as DataRowView;
+            if (data != null && data is DataRowView)
+            {
+                //传参
+                Window_Data3_CodedData_edit data_edit = new Window_Data3_CodedData_edit();
+                data_edit.tbItemName.Text = data.Row["D_NAME"].ToString();
+                data_edit.ID = data.Row["ID"].ToString();
+                data_edit.tbItemCode.Text = data.Row["D_CODE"].ToString();
+                data_edit.Show();
+                this.Close();//关闭当前窗口
+            }
+        }
+
+
+
     }
 }

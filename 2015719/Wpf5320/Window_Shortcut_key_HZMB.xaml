@@ -12,10 +12,10 @@
         <Image HorizontalAlignment="Left" Height="23" Margin="65,0,0,73" VerticalAlignment="Bottom" Width="23" Source="/Wpf5320;component/RES/cross.png" Stretch="Fill"/>
         <Button x:Name="Cancel" HorizontalAlignment="Left" Height="23" Margin="65,292,0,0" VerticalAlignment="Top" Width="23"  BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="ESC_Click" Cursor="Hand"/>
         <Image HorizontalAlignment="Left" Height="23" Margin="91,292,0,0" VerticalAlignment="Top" Width="23" Source="/Wpf5320;component/RES/tick.png" Stretch="Fill"/>
-        <Button x:Name="Ensure" HorizontalAlignment="Left" Height="23" Margin="92,292,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Click="Bt_enter_Click" Cursor="Hand"/>
+        <Button x:Name="Ensure" HorizontalAlignment="Left" Height="23" Margin="92,292,0,0" VerticalAlignment="Top" Width="23" BorderBrush="#FF0A0909" OpacityMask="#FFCBBEBE" Foreground="#FFDED6D6" Opacity="0" Cursor="Hand" Click="ENTKey_Click"/>
         <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="552,60,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
         <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="21" Margin="558,294,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
-        <Button x:Name="Bt_enter" Content="Button" HorizontalAlignment="Left" Height="15" Margin="558,335,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_enter_Click"/>
+        <Button x:Name="ENT" Content="Button" HorizontalAlignment="Left" Height="15" Margin="558,335,0,0" VerticalAlignment="Top" Width="15" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="ENTKey_Click"/>
         <Grid HorizontalAlignment="Left" Height="182" Margin="64,106,0,0" VerticalAlignment="Top" Width="320" Background="#FFFDFAFA">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="21*"/>

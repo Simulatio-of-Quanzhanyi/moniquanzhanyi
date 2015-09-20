@@ -42,9 +42,14 @@ namespace Wpf5320
 
         private void Export_Click(object sender, RoutedEventArgs e)
         {
-            Window_Project21 window_Start1 = new Window_Project21();
-            window_Start1.Show();
-            this.Close();//关闭当前窗口
+            if (filename.Text != "")
+            {
+                MessageBox.Show("导出成功");
+            }
+            else
+            {
+                MessageBox.Show("请输入文件名");
+            }
         }
 
         private void Window_MouseDown_1(object sender, MouseButtonEventArgs e)
