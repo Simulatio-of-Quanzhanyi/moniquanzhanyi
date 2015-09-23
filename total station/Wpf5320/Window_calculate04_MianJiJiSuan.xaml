@@ -1,0 +1,130 @@
+﻿<Window x:Class="Wpf5320.Window_calculate04"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_calculate04" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="326" Margin="61,287,0,0" Background="#FFF5EBEB"/>
+
+        <TabControl HorizontalAlignment="Left" Height="243" Margin="63,74,0,0" VerticalAlignment="Top" Width="323" RenderTransformOrigin="0.5,0.5">
+
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-180.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+
+            <TabItem Header="面积" Margin="185,-3,-185,3" RenderTransformOrigin="0.5,0.5" Height="29" >
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" RenderTransformOrigin="0.5,0.5" Margin="-5,-8,-5,-2">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="面积计算" HorizontalAlignment="Left" Height="31" Margin="1,-1,0,0" VerticalAlignment="Top" Width="156"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="31" Margin="157,-1,0,0" VerticalAlignment="Top" Width="164"/>
+                    <Button Content="删除" HorizontalAlignment="Left" Height="24" Margin="235,159,0,0" VerticalAlignment="Top" Width="64"/>
+                    <Button Content="计算" HorizontalAlignment="Left" Height="24" Margin="157,159,0,0" VerticalAlignment="Top" Width="64"/>
+                    <Button x:Name="addPoint" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,155,0,0" Click="addPoint_Click">
+                        <Label Content="添加&gt;&gt;" Cursor="Hand"/>
+                    </Button>
+                    <ScrollViewer HorizontalAlignment="Left" Height="125" Margin="0,30,-1,0" VerticalAlignment="Top" Width="319" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled">
+                        <ListView x:Name="LV" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="319" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="False">
+                            <ListView.BindingGroup>
+                                <BindingGroup/>
+                            </ListView.BindingGroup>
+                            <ListView.View>
+                                <GridView x:Name="L">
+                                    <GridViewColumn Header="ID" Width="0" DisplayMemberBinding="{Binding ID}"/>
+                                    <GridViewColumn Header="名称" Width="70" DisplayMemberBinding="{Binding D_NAME}"/>
+                                    <GridViewColumn Header="类型" Width="70" DisplayMemberBinding="{Binding D_TYPE}"/>
+                                    <GridViewColumn Header="编码" Width="70" DisplayMemberBinding="{Binding D_CODE}"/>
+                                    <GridViewColumn Header="N" Width="70" DisplayMemberBinding="{Binding N}"/>
+                                    <GridViewColumn Header="E" Width="70" DisplayMemberBinding="{Binding E}"/>
+                                    <GridViewColumn Header="Z" Width="70" DisplayMemberBinding="{Binding Z}"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </ScrollViewer>
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="结果" Margin="108,-3,-108,3" RenderTransformOrigin="0.5,0.5" Height="29">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" Margin="-5,-7,-5,0" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-179.903"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Label Content="面积" HorizontalAlignment="Left" Height="30" Margin="10,38,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Label Content="周长" HorizontalAlignment="Left" Height="25" Margin="10,76,0,0" VerticalAlignment="Top" Width="45"/>
+                    <Label Content="m^2" HorizontalAlignment="Left" Height="26" Margin="175,44,0,0" VerticalAlignment="Top" Width="39"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="26" Margin="178,74,0,0" VerticalAlignment="Top" Width="39"/>
+                    <Button Content="数据" HorizontalAlignment="Left" Height="31" Margin="1,-2,0,0" VerticalAlignment="Top" Width="156"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="31" Margin="157,-2,0,0" VerticalAlignment="Top" Width="164"/>
+                    <Label Content="24279847.000" HorizontalAlignment="Left" Height="26" Margin="60,41,0,0" VerticalAlignment="Top" Width="106"/>
+                    <Label Content="31848.621" HorizontalAlignment="Left" Height="25" Margin="61,75,0,0" VerticalAlignment="Top" Width="106"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="图形" Margin="31,-3,-31,3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="38" VerticalAlignment="Bottom" Height="29">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" RenderTransformOrigin="0.5,0.5" Margin="-6,-7,-5,-3">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="179.904"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="图形" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="158" Margin="2,0,0,0"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="30" Margin="160,0,0,0" VerticalAlignment="Top" Width="161"/>
+
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+
+
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="27" Margin="334,288,0,73" VerticalAlignment="Center" Width="49"/>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="553,294,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="553,61,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+    </Grid>
+</Window>

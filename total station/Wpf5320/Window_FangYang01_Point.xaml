@@ -1,0 +1,173 @@
+﻿<Window x:Class="Wpf5320.Window_FangYang01_Point"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Window_FangYang01_Point" Height="388" Width="640" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="Transparent" MouseDown="Window_MouseDown_1">
+
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="388" VerticalAlignment="Center" Width="640" Source="/Wpf5320;component/RES/xin2.png" Stretch="Fill"/>
+        <Button HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="326" Margin="61,287,0,0" Background="#FFF5EBEB"/>
+
+        <TabControl x:Name="TabControl1" HorizontalAlignment="Left" Height="243" Margin="63,74,0,0" VerticalAlignment="Top" Width="323" RenderTransformOrigin="0.5,0.5">
+
+            <TabControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-180.219"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TabControl.RenderTransform>
+
+            <TabItem Header="放样" Margin="185,-3,-185,3" RenderTransformOrigin="0.5,0.5" Height="29" TabIndex="3" >
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" RenderTransformOrigin="0.5,0.5" Margin="-5,-8,-5,-2">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="点放样" HorizontalAlignment="Left" Height="31" Margin="1,-1,0,0" VerticalAlignment="Top" Width="156"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="31" Margin="157,-1,0,0" VerticalAlignment="Top" Width="164"/>
+                    <Button x:Name="Measure1" Content="测量" HorizontalAlignment="Left" Height="24" Margin="251,182,0,0" VerticalAlignment="Top" Width="50" Click="Measure_Click" Cursor="Hand"/>
+                    <Button x:Name="Save" Content="存储" HorizontalAlignment="Left" Height="24" Margin="189,182,0,0" VerticalAlignment="Top" Width="50" Click="Save_Click" Cursor="Hand"/>
+                    <ComboBox x:Name="Com_Point" Height="24" Margin="207,37,96,0" VerticalAlignment="Top" IsEnabled="True" IsReadOnly="False" IsEditable="True" Text="{Binding v1}" SelectionChanged="SelectionChanged1"     >
+                        <Button x:Name="diaoyong1" Content="调用" Height="23" Width="38" Background="White" BorderBrush="White" Click="diaoyong1_Click"/>
+                        <Button x:Name="xinjian1" Content="新建" Height="23" Width="39" Background="White" BorderBrush="White" Click="xinjian1_Click"/>
+                    </ComboBox>
+                    <Button x:Name="PreviousPoint" Content="上点" HorizontalAlignment="Left" Height="24" Margin="251,36,0,0" VerticalAlignment="Top" Width="50" Click="PreviousPoint_Click" Cursor="Hand"/>
+                    <Button x:Name="NextPoint" Content="下点" HorizontalAlignment="Left" Height="24" Margin="251,71,0,0" VerticalAlignment="Top" Width="50" Click="NextPoint_Click" Cursor="Hand"/>
+                    <Label Content="点名" HorizontalAlignment="Left" Height="24" Margin="90,35,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="镜高" HorizontalAlignment="Left" Height="24" Margin="90,71,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="左转" HorizontalAlignment="Left" Height="24" Margin="0,100,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="移远" HorizontalAlignment="Left" Height="24" Margin="1,128,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="向右" HorizontalAlignment="Left" Height="24" Margin="1,153,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="填方" HorizontalAlignment="Left" Height="24" Margin="1,181,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="HA" HorizontalAlignment="Left" Height="24" Margin="157,100,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="HD" HorizontalAlignment="Left" Height="24" Margin="157,129,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="Z" HorizontalAlignment="Left" Height="24" Margin="157,153,0,0" VerticalAlignment="Top" Width="35"/>
+                    <TextBox x:Name="DianMing" HorizontalAlignment="Left" Height="23" Margin="127,38,0,0" TextWrapping="Wrap" Text="{Binding v1}" VerticalAlignment="Top" Width="66"/>
+                    <TextBox x:Name="JingGao" HorizontalAlignment="Left" Height="23" Margin="127,71,0,0" TextWrapping="Wrap" Text="{Binding v2}" VerticalAlignment="Top" Width="66"/>
+                    <Label x:Name="Point_TurnLeft" Content="104.1627" HorizontalAlignment="Left" Height="24" Margin="40,100,0,0" VerticalAlignment="Top" Width="62"/>
+                    <Label x:Name="Point_MoveFar" Content="5301.909" HorizontalAlignment="Left" Height="24" Margin="40,132,0,0" VerticalAlignment="Top" Width="62"/>
+                    <Label x:Name="Point_Right" Content="      6.322" HorizontalAlignment="Left" Height="24" Margin="40,158,0,0" VerticalAlignment="Top" Width="62"/>
+                    <Label x:Name="Point_TianFang" Content="1698.403" HorizontalAlignment="Left" Height="24" Margin="40,181,0,0" VerticalAlignment="Top" Width="62"/>
+                    <Label x:Name="Point_HA" Content="255.4207" HorizontalAlignment="Left" Height="24" Margin="196,100,0,0" VerticalAlignment="Top" Width="71"/>
+                    <Label x:Name="Point_HD" Content="5308.433" HorizontalAlignment="Left" Height="24" Margin="198,128,0,0" VerticalAlignment="Top" Width="69"/>
+                    <Label x:Name="Point_Z" Content="1900.000" HorizontalAlignment="Left" Height="24" Margin="198,152,0,0" VerticalAlignment="Top" Width="69" RenderTransformOrigin="0.5,0.5">
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="6.59"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="1.386"/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label Content="m" HorizontalAlignment="Left" Height="23" Margin="198,71,0,0" VerticalAlignment="Top" Width="21"/>
+                    <Label Content="dms" HorizontalAlignment="Left" Height="24" Margin="107,100,0,0" VerticalAlignment="Top" Width="36"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="24" Margin="107,132,0,0" VerticalAlignment="Top" Width="36"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="24" Margin="107,158,0,0" VerticalAlignment="Top" Width="36"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="24" Margin="107,181,0,0" VerticalAlignment="Top" Width="36"/>
+                    <Label Content="dms" HorizontalAlignment="Left" Height="24" Margin="267,100,0,0" VerticalAlignment="Top" Width="34"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="24" Margin="267,128,0,0" VerticalAlignment="Top" Width="34"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="24" Margin="267,152,0,0" VerticalAlignment="Top" Width="34"/>
+                    <Image HorizontalAlignment="Left" Height="56" Margin="10,38,0,0" VerticalAlignment="Top" Width="67" Source="/Wpf5320;component/RES/001.jpg"/>
+
+
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="数据" Margin="108,-3,-108,3" RenderTransformOrigin="0.5,0.5" Height="29" TabIndex="1">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="179.938"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" Margin="-5,-5,-5,-2" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-179.903"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+                    <Button Content="数据" HorizontalAlignment="Left" Height="31" Margin="1,-2,0,0" VerticalAlignment="Top" Width="156"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="31" Margin="157,-2,0,0" VerticalAlignment="Top" Width="164"/>
+                    <Label x:Name="Point_N1" Content="24279847.000" HorizontalAlignment="Left" Height="26" Margin="41,47,0,0" VerticalAlignment="Top" Width="96"/>
+                    <Label x:Name="Point_E1" Content="31848.621" HorizontalAlignment="Left" Height="25" Margin="42,64,0,0" VerticalAlignment="Top" Width="94"/>
+                    <Label x:Name="Point_Z1" Content="378.251" HorizontalAlignment="Left" Height="25" Margin="42,80,0,0" VerticalAlignment="Top" Width="95"/>
+                    <Label x:Name="Point_HA1" Content="255.4207" HorizontalAlignment="Left" Height="24" Margin="45,121,0,0" VerticalAlignment="Top" Width="71"/>
+                    <Label x:Name="Point_VA1" Content="104.1627" HorizontalAlignment="Left" Height="23" Margin="44,138,0,0" VerticalAlignment="Top" Width="62"/>
+                    <Label x:Name="Point_HD1" Content="5301.909" HorizontalAlignment="Left" Height="24" Margin="44,157,0,0" VerticalAlignment="Top" Width="62"/>
+                    <Label x:Name="Point_VD1" Content="      6.322" HorizontalAlignment="Left" Height="23" Margin="43,174,0,0" VerticalAlignment="Top" Width="62"/>
+                    <Label x:Name="Point_SD1" Content="1698.403" HorizontalAlignment="Left" Height="23" Margin="45,190,0,-4" VerticalAlignment="Top" Width="62"/>
+                    <Label Content="dms" HorizontalAlignment="Left" Height="25" Margin="124,138,0,0" VerticalAlignment="Top" Width="36"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="26" Margin="132,157,0,0" VerticalAlignment="Top" Width="28"/>
+                    <Label Content="m" HorizontalAlignment="Left" Margin="133,173,0,11" Width="28"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="25" Margin="133,188,0,-4" VerticalAlignment="Top" Width="28" />
+                    <Label Content="N" HorizontalAlignment="Left" Height="30" Margin="7,44,0,0" VerticalAlignment="Top" Width="29"/>
+                    <Label Content="E" HorizontalAlignment="Left" Height="25" Margin="7,63,0,0" VerticalAlignment="Top" Width="28"/>
+                    <Label Content="Z" HorizontalAlignment="Left" Height="25" Margin="7,79,0,0" VerticalAlignment="Top" Width="29"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="26" Margin="135,45,0,0" VerticalAlignment="Top" Width="28"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="26" Margin="135,62,0,0" VerticalAlignment="Top" Width="27"/>
+                    <Label Content="m" HorizontalAlignment="Left" Height="26" Margin="135,79,0,0" VerticalAlignment="Top" Width="27"/>
+                    <Label Content="VA" HorizontalAlignment="Left" Height="23" Margin="0,135,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="HD" HorizontalAlignment="Left" Height="24" Margin="1,152,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="VD" HorizontalAlignment="Left" Height="23" Margin="1,170,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="SD" HorizontalAlignment="Left" Height="23" Margin="1,186,0,0" VerticalAlignment="Top" Width="35"/>
+                    <Label Content="HA" HorizontalAlignment="Left" Height="24" Margin="0,116,0,0" VerticalAlignment="Top" Width="35"/>
+
+                    <Label Content="dms" HorizontalAlignment="Left" Height="26" Margin="125,121,0,0" VerticalAlignment="Top" Width="37"/>
+                    <Label Content="点名" HorizontalAlignment="Left" Height="26" Margin="0,27,0,0" VerticalAlignment="Top" Width="32"/>
+                    <Label Content="编码" HorizontalAlignment="Left" Height="26" Margin="-1,98,0,0" VerticalAlignment="Top" Width="33"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="图形" Margin="31,-3,-31,3" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" Width="38" VerticalAlignment="Bottom" Height="29" TabIndex="2" IsHitTestVisible="True">
+                <TabItem.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TabItem.RenderTransform>
+                <Grid Background="White" RenderTransformOrigin="0.5,0.5" Margin="-6,-7,-5,-3">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="179.904"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Button Content="图形" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="158" Margin="2,0,0,0"/>
+                    <Button Content="" HorizontalAlignment="Left" Height="30" Margin="160,0,0,0" VerticalAlignment="Top" Width="161"/>
+                    <Canvas x:Name="CanvasDraw" HorizontalAlignment="Left" Height="182" VerticalAlignment="Top" Width="321" Margin="0,30,0,0"/>
+
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+        <Label x:Name="systime" Content="Label" HorizontalAlignment="Left" Height="29" Margin="332,288,0,71" VerticalAlignment="Center" Width="49"/>
+        <Button x:Name="Bt_Power" Content="Button" HorizontalAlignment="Left" Height="25" Margin="552,60,0,0" VerticalAlignment="Top" Width="25" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Cursor="Hand" Click="Bt_Power_Click"/>
+        <Button x:Name="ESC" Content="Button" HorizontalAlignment="Left" Height="20" Margin="553,290,0,0" VerticalAlignment="Top" Width="24" Background="#FFDDDDDD" Opacity="0" RenderTransformOrigin="-1.138,1.172" Click="ESC_Click" Cursor="Hand"/>
+    </Grid>
+</Window>
